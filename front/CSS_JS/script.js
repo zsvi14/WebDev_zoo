@@ -10,7 +10,7 @@ document.getElementById("registerForm")?.addEventListener("submit", function(e) 
     const user = { username, email, password };
     localStorage.setItem("user", JSON.stringify(user));
     alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-    window.location.href = "HTML/connexion\inscrip\connexion/index.html";
+    window.location.href = "HTML/connexion/index.html";
 });
 
 // Connexion de l'utilisateur
@@ -24,7 +24,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
     if (storedUser && storedUser.email === email && storedUser.password === password) {
         localStorage.setItem("isLoggedIn", "true");
         alert("Connexion réussie !");
-        window.location.href = "HTML/connexion\inscrip\connexion/profile.html";
+        window.location.href = "HTML/connexion/profile.html";
     } else {
         alert("Email ou mot de passe incorrect.");
     }
