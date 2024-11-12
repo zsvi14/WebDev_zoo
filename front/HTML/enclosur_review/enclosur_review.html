@@ -1,28 +1,43 @@
 <!--affiche le formulaire de soumission-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enclosure Review</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ajouter un avis</title>
 </head>
 <body>
-    <h1>Leave a Review for the Enclosure</h1>
-    <form id="reviewForm">
-        <label for="rating">Rating (1-5):</label>
-        <input type="number" id="rating" name="rating" min="1" max="5" required>
+    <h1>Ajouter un avis sur l'enclos</h1>
+    <form id="reviewForm" action="http://localhost/WebDev_zoo/back/api/add_review.php" method="POST">
+        <!-- Champ pour la note (rating) -->
+        <label for="rating">Note (de 1 à 5) :</label>
+        <select name="rating" id="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br>
 
-        <label for="review">Your Review:</label>
-        <textarea id="review" name="review" required></textarea>
+        <!-- Champ pour le commentaire (review) -->
+        <label for="review">Votre avis :</label>
+        <textarea name="review" id="review" rows="4" required></textarea>
+        <br><br>
 
-        <input type="hidden" id="enclosureId" value="1"> <!-- Example enclosure ID -->
-        <button type="submit">Submit Review</button>
+        <!-- Champ pour l'ID de l'enclos (enclosureId) -->
+        <label for="enclosureId">Enclos :</label>
+        <select name="enclosureId" id="enclosureId" required>
+            <!-- Exemple d'options, vous pouvez les générer dynamiquement -->
+            <option value="1">Enclos 1</option>
+            <option value="2">Enclos 2</option>
+            <option value="3">Enclos 3</option>
+        </select>
+        <br><br>
+
+        <!-- Bouton de soumission -->
+        <button type="submit">Soumettre l'avis</button>
     </form>
-
-    <h2>Other Reviews</h2>
-    <div id="reviewsContainer"></div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
