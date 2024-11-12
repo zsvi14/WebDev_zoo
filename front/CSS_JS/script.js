@@ -50,3 +50,43 @@ function logout() {
     alert("Déconnexion réussie !");
     window.location.href = "index.html";
 }
+
+
+//2.Système de notation et avis des utilisateurs sur les enclos
+document.getElementById("reviewForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const rating = document.getElementById("rating").value;
+    const review = document.getElementById("review").value;
+    const enclosureId = document.getElementById("enclosureId").value;
+
+    const response = await fetch("add_review.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rating, review, enclosureId })
+    });
+
+    if (response.ok) {
+        alert("Review submitted successfully");
+        loadReviews();
+    } else {
+        alert("Failed to submit review");
+    }
+});
+
+async function loadReviews() {
+    const enclosureId = document.getElementById("enclosureId").value;
+    const response = await fetch(`get_reviews.php?enclosure_id=${enclosureId}`);
+    const reviews = await response.json();
+
+    const reviewsContainer = document.getElementById("reviewsContainer");
+    reviewsContainer.innerHTML = "";
+
+    reviews.forEach(review => {
+        const reviewDiv = document.createElement("div");
+        reviewDiv.classList.add("review");
+        reviewDiv.innerHTML = `<strong>Rating:</strong> ${review.rating}/5<br><strong>Review:</strong> ${review.review}`;
+        reviewsContainer.appendChild(reviewDiv);
+    });
+}
+
+window.onload = loadReviews;
