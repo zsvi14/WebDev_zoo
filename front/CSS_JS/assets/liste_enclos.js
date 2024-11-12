@@ -1,13 +1,20 @@
 // Fonction pour charger les enclos depuis l'API
 async function loadEnclos() {
-    const response = await fetch('http://localhost/backend/routes/enclos.php');
-    const enclos = await response.json();
-    
-    // Stocker les enclos dans une variable globale pour la recherche
-    window.enclosData = enclos;
-    
-    // Afficher les enclos dans le DOM
-    displayEnclos(enclos);
+    try {
+        const response = await fetch('http://localhost/backend/routes/enclos.php');
+        if (!response.ok) {
+            throw new Error('Erreur réseau');
+        }
+        const enclos = await response.json();
+        
+        // Stocker les enclos dans une variable globale pour la recherche
+        window.enclosData = enclos;
+        
+        // Afficher les enclos dans le DOM
+        displayEnclos(enclos);
+    } catch (error) {
+        console.error("Erreur lors du chargement des enclos:", error);
+    }
 }
 
 // Fonction pour afficher les enclos
@@ -39,4 +46,5 @@ function searchAnimal() {
 
 // Charger les enclos au chargement de la page
 window.onload = loadEnclos;
+
 
