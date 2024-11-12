@@ -10,7 +10,7 @@ document.getElementById("registerForm")?.addEventListener("submit", function(e) 
     const user = { username, email, password };
     localStorage.setItem("user", JSON.stringify(user));
     alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-    window.location.href = "index.html";
+    window.location.href = "HTML/connexion\inscrip\connexion/index.html";
 });
 
 // Connexion de l'utilisateur
@@ -24,14 +24,14 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
     if (storedUser && storedUser.email === email && storedUser.password === password) {
         localStorage.setItem("isLoggedIn", "true");
         alert("Connexion réussie !");
-        window.location.href = "profile.html";
+        window.location.href = "HTML/connexion\inscrip\connexion/profile.html";
     } else {
         alert("Email ou mot de passe incorrect.");
     }
 });
 
 // Affichage des informations du profil
-if (window.location.pathname.includes("profile.html")) {
+if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.html")) {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
@@ -40,7 +40,7 @@ if (window.location.pathname.includes("profile.html")) {
         document.getElementById("displayEmail").textContent = storedUser.email;
     } else {
         alert("Vous devez être connecté pour voir cette page.");
-        window.location.href = "index.html";
+        window.location.href = "HTML/connexion\inscrip\connexion/index.html";
     }
 }
 
@@ -48,7 +48,7 @@ if (window.location.pathname.includes("profile.html")) {
 function logout() {
     localStorage.removeItem("isLoggedIn");
     alert("Déconnexion réussie !");
-    window.location.href = "index.html";
+    window.location.href = "HTML/connexion\inscrip\connexion/index.html"; //chemin vers index.html
 }
 
 
@@ -59,7 +59,7 @@ document.getElementById("reviewForm").addEventListener("submit", async function(
     const review = document.getElementById("review").value;
     const enclosureId = document.getElementById("enclosureId").value;
 
-    const response = await fetch("add_review.php", {
+    const response = await fetch("back/api/add_review.php", {  // Chemin vers api
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ rating, review, enclosureId })
@@ -75,7 +75,7 @@ document.getElementById("reviewForm").addEventListener("submit", async function(
 
 async function loadReviews() {
     const enclosureId = document.getElementById("enclosureId").value;
-    const response = await fetch(`get_reviews.php?enclosure_id=${enclosureId}`);
+    const response = await fetch(`back/api/get_reviews.php?enclosure_id=${enclosureId}`);  // Chemin vers api
     const reviews = await response.json();
 
     const reviewsContainer = document.getElementById("reviewsContainer");
@@ -90,3 +90,4 @@ async function loadReviews() {
 }
 
 window.onload = loadReviews;
+
