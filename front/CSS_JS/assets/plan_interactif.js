@@ -10,22 +10,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Définir les dimensions de l'image SVG en pixels
-    const width = 1000;   // Remplace avec la largeur réelle de ton SVG
-    const height = 800;   // Remplace avec la hauteur réelle de ton SVG
+    const width = 2400.000000 pt;   //  SVG width="2400.000000pt" height="1260.000000pt"
+    const height = 1260.000000 pt;
     const bounds = [[0, 0], [height, width]];
 
     // Ajouter l'image SVG en tant que fond de carte
-    L.imageOverlay('images/plan-park.svg', bounds).addTo(map);
+    L.imageOverlay('front/images/plan_park.svg', bounds).addTo(map);
 
     // Ajuster la vue de la carte pour qu'elle corresponde aux dimensions de l'image
     map.fitBounds(bounds);
 
-    // Exemples de zones interactives
-    const attractionZone = L.rectangle([[200, 200], [300, 300]], {color: "red", weight: 2});
-    attractionZone.addTo(map);
-    attractionZone.bindPopup("Attraction principale");
+    // zones interactives
+    const lodge = L.rectangle([[200, 200], [300, 300]], {color: "red", weight: 2});
+    lodge.addTo(map);
+    lodge.bindPopup("lodge");
 
-    const jeuxZone = L.circle([400, 600], { radius: 50, color: "blue", fillColor: "#30f", fillOpacity: 0.5 });
-    jeuxZone.addTo(map);
-    jeuxZone.bindPopup("Espace de jeux pour enfants");
+    const point_eau = L.circle([400, 600], { radius: 50, color: "blue", fillColor: "#30f", fillOpacity: 0.5 });
+    point_eau.addTo(map);
+    point_eau.bindPopup("point d'eau");
 });
