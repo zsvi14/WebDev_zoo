@@ -1,0 +1,178 @@
+[
+    {
+        "enclos": "Enclos des Réptiles",
+        "animaux": ["Python", "Tortue", "Iguane"]
+    },
+    {
+        "enclos": "Enclos Volant",
+        "animaux": ["Ara Perroquet", "Grand Hocco"]
+    },
+    {
+        "enclos": "Enclos des Panthères",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Trois Continents",
+        "animaux": ["Rhinocéros", "Oryx Beisa", "Gnou"]
+    },
+    {
+        "enclos": "Enclos des Suricates",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Fennec",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Acrobates de la Jungle",
+        "animaux": ["Coatis", "Saimiris"]
+    },
+    {
+        "enclos": "Enclos des Tapirs",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Guépards",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Grands Coureurs",
+        "animaux": ["Autruches", "Gazelles"]
+    },
+    {
+        "enclos": "Enclos des Casoars",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Crocodiles Nain",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Lions",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Hippopotames",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Zèbres",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Hyènes",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Loups à Crinières",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Têtes en l'Air",
+        "animaux": ["Girafes", "Grivet Cercopithèque"]
+    },
+    {
+        "enclos": "Enclos des Titans de la Nature",
+        "animaux": ["Éléphants", "Varan de Komodo"]
+    },
+    {
+        "enclos": "Enclos des Panda Roux",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Lémuriens",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Chèvres Naines",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Tortues",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Mouflons",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos Ruisseau des Curieux",
+        "animaux": ["Binturong", "Loutres"]
+    },
+    {
+        "enclos": "Enclos des Macaques Crabiers",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Cerfs",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Vautours",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos Plaine des Élégants",
+        "animaux": ["Antilopes", "Daims", "Nilgauts"]
+    },
+    {
+        "enclos": "Enclos des Loups d'Europe",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Lynx",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Servals",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Chiens des Buissons",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Tigres",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos du Désert Provençal",
+        "animaux": ["Dromadaires", "Âne de Provence"]
+    },
+    {
+        "enclos": "Enclos des Bisons",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Porc-Épic",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos des Pécaris",
+        "animaux": []
+    },
+    {
+        "enclos": "Enclos la Terre des Australes",
+        "animaux": ["Émeu", "Wallaby"]
+    },
+    {
+        "enclos": "Enclos la Savane Tropicale",
+        "animaux": ["Flamant Roses", "Nandou", "Tamanoirs"]
+    },
+    {
+        "enclos": "Enclos Lagune des Explorateurs",
+        "animaux": ["Tortues", "Ibis"]
+    },
+    {
+        "enclos": "Enclos des Longues Plumes",
+        "animaux": ["Cigognes", "Marabouts"]
+    },
+    {
+        "enclos": "Enclos des Cornes et des Sabots",
+        "animaux": ["Oryx Algazelle", "Watusi", "Âne de Somalie"]
+    },
+    {
+        "enclos": "Enclos le Refuge des Montagnes",
+        "animaux": ["Yack", "Mouton Noir"]
+    }
+]
