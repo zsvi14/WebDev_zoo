@@ -1,178 +1,235 @@
 [
     {
-        "enclos": "Enclos des Réptiles",
-        "animaux": ["Python", "Tortue", "Iguane"]
+        "nom": "Enclos des Réptiles",
+        "animaux": [
+            {"nom": "Python"},
+            {"nom": "Tortue"},
+            {"nom": "Iguane"}
+        ]
     },
     {
-        "enclos": "Enclos Volant",
-        "animaux": ["Ara Perroquet", "Grand Hocco"]
+        "nom": "Enclos Volant",
+        "animaux": [
+            {"nom": "Ara Perroquet"},
+            {"nom": "Grand Hocco"}
+        ]
     },
     {
-        "enclos": "Enclos des Panthères",
+        "nom": "Enclos des Panthères",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Trois Continents",
-        "animaux": ["Rhinocéros", "Oryx Beisa", "Gnou"]
+        "nom": "Enclos des Trois Continents",
+        "animaux": [
+            {"nom": "Rhinocéros"},
+            {"nom": "Oryx Beisa"},
+            {"nom": "Gnou"}
+        ]
     },
     {
-        "enclos": "Enclos des Suricates",
+        "nom": "Enclos des Surricates",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Fennec",
+        "nom": "Enclos des Fennec",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Acrobates de la Jungle",
-        "animaux": ["Coatis", "Saimiris"]
+        "nom": "Enclos des Acrobates de la Jungle",
+        "animaux": [
+            {"nom": "Coatis"},
+            {"nom": "Saimiris"}
+        ]
     },
     {
-        "enclos": "Enclos des Tapirs",
+        "nom": "Enclos des Tapirs",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Guépards",
+        "nom": "Enclos des Guépards",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Grands Coureurs",
-        "animaux": ["Autruches", "Gazelles"]
+        "nom": "Enclos des Grands Coureurs",
+        "animaux": [
+            {"nom": "Autruches"},
+            {"nom": "Gazelles"}
+        ]
     },
     {
-        "enclos": "Enclos des Casoars",
+        "nom": "Enclos des Casoars",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Crocodiles Nain",
+        "nom": "Enclos des Crocodiles Nains",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Lions",
+        "nom": "Enclos des Lions",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Hippopotames",
+        "nom": "Enclos des Hippopotames",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Zèbres",
+        "nom": "Enclos des Zèbres",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Hyènes",
+        "nom": "Enclos des Hyenes",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Loups à Crinières",
+        "nom": "Enclos des Loups à Crinières",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Têtes en l'Air",
-        "animaux": ["Girafes", "Grivet Cercopithèque"]
+        "nom": "Enclos des Têtes en l'Air",
+        "animaux": [
+            {"nom": "Giafes"},
+            {"nom": "Grivets Cercopithèques"}
+        ]
     },
     {
-        "enclos": "Enclos des Titans de la Nature",
-        "animaux": ["Éléphants", "Varan de Komodo"]
+        "nom": "Enclos des Titans de la nature",
+        "animaux": [
+            {"nom": "Eléphants"},
+            {"nom": "Varan de Komodo"}
+        ]
     },
     {
-        "enclos": "Enclos des Panda Roux",
+        "nom": "Enclos des Panda Roux",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Lémuriens",
+        "nom": "Enclos des Lémuriens",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Chèvres Naines",
+        "nom": "Enclos des Chèvres Naines",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Tortues",
+        "nom": "Enclos des Tortues",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Mouflons",
+        "nom": "Enclos des Mouflons",
         "animaux": []
     },
     {
-        "enclos": "Enclos Ruisseau des Curieux",
-        "animaux": ["Binturong", "Loutres"]
+        "nom": "Enclos Ruisseau des Curieux",
+        "animaux": [
+            {"nom": "Binturong"},
+            {"nom": "Loutres"}
+        ]
     },
     {
-        "enclos": "Enclos des Macaques Crabiers",
+        "nom": "Enclos des Macaques Crabiers",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Cerfs",
+        "nom": "Enclos des Cerfs",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Vautours",
+        "nom": "Enclos des Vautours",
         "animaux": []
     },
     {
-        "enclos": "Enclos Plaine des Élégants",
-        "animaux": ["Antilopes", "Daims", "Nilgauts"]
+        "nom": "Enclos Plaine des Elégants",
+        "animaux": [
+            {"nom": "Antilopes"},
+            {"nom": "Daims"},
+            {"nom": "Nilgauts"}
+        ]
     },
     {
-        "enclos": "Enclos des Loups d'Europe",
+        "nom": "Enclos des Loups d'Europe",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Lynx",
+        "nom": "Enclos des Lynx",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Servals",
+        "nom": "Enclos des Servals",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Chiens des Buissons",
+        "nom": "Enclos des Chiens des Buissons",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Tigres",
+        "nom": "Enclos des Tigres",
         "animaux": []
     },
     {
-        "enclos": "Enclos du Désert Provençal",
-        "animaux": ["Dromadaires", "Âne de Provence"]
+        "nom": "Enclos du Désert Provençal",
+        "animaux": [
+            {"nom": "Dromadaires"},
+            {"nom": "Anes de Provence"}
+        ]
     },
     {
-        "enclos": "Enclos des Bisons",
+        "nom": "Enclos des Bisons",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Porc-Épic",
+        "nom": "Enclos des Porc-Epic",
         "animaux": []
     },
     {
-        "enclos": "Enclos des Pécaris",
+        "nom": "Enclos des Pécaris",
         "animaux": []
     },
     {
-        "enclos": "Enclos la Terre des Australes",
-        "animaux": ["Émeu", "Wallaby"]
+        "nom": "Enclos la Terre des Australes",
+        "animaux": [
+            {"nom": "Emeu"},
+            {"nom": "Wallaby"}
+        ]
     },
     {
-        "enclos": "Enclos la Savane Tropicale",
-        "animaux": ["Flamant Roses", "Nandou", "Tamanoirs"]
+        "nom": "Enclos la Savane Tropical",
+        "animaux": [
+            {"nom": "Flamant Roses"},
+            {"nom": "Nandou"},
+            {"nom": "Tamanoirs"}
+        ]
     },
     {
-        "enclos": "Enclos Lagune des Explorateurs",
-        "animaux": ["Tortues", "Ibis"]
+        "nom": "Enclos Lagune des Explorateurs",
+        "animaux": [
+            {"nom": "Tortues"},
+            {"nom": "Ibis"}
+        ]
     },
     {
-        "enclos": "Enclos des Longues Plumes",
-        "animaux": ["Cigognes", "Marabouts"]
+        "nom": "Enclos des Longues Plumes",
+        "animaux": [
+            {"nom": "Cigognes"},
+            {"nom": "Marabouts"}
+        ]
     },
     {
-        "enclos": "Enclos des Cornes et des Sabots",
-        "animaux": ["Oryx Algazelle", "Watusi", "Âne de Somalie"]
+        "nom": "Enclos des Cornes et des Sabots",
+        "animaux": [
+            {"nom": "Oryx Algazelle"},
+            {"nom": "Watusi"},
+            {"nom": "Anes de Somalie"}
+        ]
     },
     {
-        "enclos": "Enclos le Refuge des Montagnes",
-        "animaux": ["Yack", "Mouton Noir"]
+        "nom": "Enclos le Refuge des Montagnes",
+        "animaux": [
+            {"nom": "Yack"},
+            {"nom": "Moutons Noir"}
+        ]
     }
 ]
+
+
+
+
