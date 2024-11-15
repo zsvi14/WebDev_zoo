@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Votre utilisateur
 $password = ""; // Votre mot de passe
-$dbname = "bddzoo.sql"; // Le nom de votre base de données
+$dbname = "bddzoo"; // Le nom de votre base de données
 
 // Connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $dbname);
