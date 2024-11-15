@@ -1,12 +1,9 @@
-/* Général - reset de base */
+/* Réinitialisation */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Importation de la police Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 /* Corps de la page */
 body {
@@ -14,83 +11,68 @@ body {
     background-color: #f0f4f8;
     color: #333;
     line-height: 1.6;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /* Titre principal */
-h1 {
+header h1 {
     font-size: 36px;
-    color: #3498db; /* Bleu clair */
+    color: #3498db;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-/* Titres des enclos */
-.enclos-item h3 {
-    font-size: 28px;
-    color: #e74c3c; /* Rouge clair */
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-/* Liste des animaux dans un enclos */
-.enclos-item ul {
-    list-style-type: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.enclos-item ul li {
-    background: #e3f2fd;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.enclos-item ul li:hover {
-    background-color: #3498db;
-    color: white;
-    transform: scale(1.05);
 }
 
 /* Section de recherche */
 .search-section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* Ajouter une ombre subtile autour de la liste */
-#enclos-list {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 12px;
+.search-section input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
 }
 
-/* Responsivité pour petits écrans */
-@media (max-width: 768px) {
-    #animal-search {
-        max-width: 100%;
-    }
+/* Liste des enclos */
+.enclos-item {
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
 
-    .enclos-item {
-        padding: 15px;
-    }
+.enclos-item h3 {
+    font-size: 24px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
 
-    .enclos-item h3 {
-        font-size: 24px;
-    }
+.enclos-item ul {
+    list-style: none;
+    padding: 0;
+}
 
-    h1 {
-        font-size: 30px;
-    }
+.enclos-item ul li {
+    padding: 5px;
+    background: #e3f2fd;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
 }
