@@ -1,7 +1,5 @@
 <?php
-header('Content-Type: application/json');
-
-// Les données des enclos sous forme de tableau PHP
+// Tableau des enclos et des animaux
 $enclos = [
     [
         "nom" => "Enclos des Réptiles",
@@ -234,6 +232,8 @@ $enclos = [
     ]
 ];
 
-// Retourner les données sous format JSON
+// Envoi des données sous forme JSON
+header('Content-Type: application/json');
 echo json_encode($enclos);
 ?>
+
