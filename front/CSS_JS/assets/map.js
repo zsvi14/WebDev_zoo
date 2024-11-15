@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Définir les dimensions de l'image SVG en pixels
-    const width = 2400.000000 pt;   //  SVG width="2400.000000pt" height="1260.000000pt"
-    const height = 1260.000000 pt;
+    const width = 2400.000000;   //  SVG width="2400.000000pt" height="1260.000000pt"
+    const height = 1260.000000;
     const bounds = [[0, 0], [height, width]];
 
     // Ajouter l'image SVG en tant que fond de carte

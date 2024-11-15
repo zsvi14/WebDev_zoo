@@ -1,238 +1,50 @@
 <?php
-// Tableau des enclos et des animaux
-$enclos = [
-    [
-        "nom" => "Enclos des Réptiles",
-        "animaux" => [
-            ["nom" => "Python"],
-            ["nom" => "Tortue"],
-            ["nom" => "Iguane"]
-        ]
-    ],
-    [
-        "nom" => "Enclos Volant",
-        "animaux" => [
-            ["nom" => "Ara Perroquet"],
-            ["nom" => "Grand Hocco"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Panthères",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Trois Continents",
-        "animaux" => [
-            ["nom" => "Rhinocéros"],
-            ["nom" => "Oryx Beisa"],
-            ["nom" => "Gnou"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Surricates",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Fennec",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Acrobates de la Jungle",
-        "animaux" => [
-            ["nom" => "Coatis"],
-            ["nom" => "Saimiris"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Tapirs",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Guépards",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Grands Coureurs",
-        "animaux" => [
-            ["nom" => "Autruches"],
-            ["nom" => "Gazelles"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Casoars",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Crocodiles Nains",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Lions",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Hippopotames",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Zèbres",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Hyenes",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Loups à Crinières",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Têtes en l'Air",
-        "animaux" => [
-            ["nom" => "Giafes"],
-            ["nom" => "Grivets Cercopithèques"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Titans de la nature",
-        "animaux" => [
-            ["nom" => "Eléphants"],
-            ["nom" => "Varan de Komodo"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Panda Roux",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Lémuriens",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Chèvres Naines",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Tortues",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Mouflons",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos Ruisseau des Curieux",
-        "animaux" => [
-            ["nom" => "Binturong"],
-            ["nom" => "Loutres"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Macaques Crabiers",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Cerfs",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Vautours",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos Plaine des Elégants",
-        "animaux" => [
-            ["nom" => "Antilopes"],
-            ["nom" => "Daims"],
-            ["nom" => "Nilgauts"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Loups d'Europe",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Lynx",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Servals",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Chiens des Buissons",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Tigres",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos du Désert Provençal",
-        "animaux" => [
-            ["nom" => "Dromadaires"],
-            ["nom" => "Anes de Provence"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Bisons",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Porc-Epic",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos des Pécaris",
-        "animaux" => []
-    ],
-    [
-        "nom" => "Enclos la Terre des Australes",
-        "animaux" => [
-            ["nom" => "Emeu"],
-            ["nom" => "Wallaby"]
-        ]
-    ],
-    [
-        "nom" => "Enclos la Savane Tropical",
-        "animaux" => [
-            ["nom" => "Flamant Roses"],
-            ["nom" => "Nandou"],
-            ["nom" => "Tamanoirs"]
-        ]
-    ],
-    [
-        "nom" => "Enclos Lagune des Explorateurs",
-        "animaux" => [
-            ["nom" => "Tortues"],
-            ["nom" => "Ibis"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Longues Plumes",
-        "animaux" => [
-            ["nom" => "Cigognes"],
-            ["nom" => "Marabouts"]
-        ]
-    ],
-    [
-        "nom" => "Enclos des Cornes et des Sabots",
-        "animaux" => [
-            ["nom" => "Oryx Algazelle"],
-            ["nom" => "Watusi"],
-            ["nom" => "Anes de Somalie"]
-        ]
-    ],
-    [
-        "nom" => "Enclos le Refuge des Montagnes",
-        "animaux" => [
-            ["nom" => "Yack"],
-            ["nom" => "Moutons Noir"]
-        ]
-    ]
-];
+// Paramètres de connexion à la base de données
+$hostname = 'localhost';
+$username = 'root';  // Remplacez avec votre nom d'utilisateur MySQL
+$password = '';      // Remplacez avec votre mot de passe MySQL
+$database = 'bddzoo'; // Le nom de votre base de données
 
-// Envoi des données sous forme JSON
-header('Content-Type: application/json');
-echo json_encode($enclos);
+// Connexion à la base de données
+$conn = new mysqli($hostname, $username, $password, $database);
+
+// Vérification de la connexion
+if ($conn->connect_error) {
+    die("La connexion à la base de données a échoué : " . $conn->connect_error);
+}
+
+// Requête SQL pour récupérer la liste des enclos avec les animaux associés
+$sql = "SELECT enclos.id, enclos.repos, biomes.nom AS biome, 
+                GROUP_CONCAT(animaux.nom SEPARATOR ', ') AS animaux
+        FROM enclos
+        LEFT JOIN biomes ON enclos.id_biomes = biomes.id
+        LEFT JOIN animaux ON enclos.id_animaux = animaux.id
+        GROUP BY enclos.id";
+
+// Exécution de la requête
+$result = $conn->query($sql);
+
+// Vérifier si des enclos ont été trouvés
+if ($result->num_rows > 0) {
+    echo "<h1>Liste des Enclos et Animaux</h1>";
+    echo "<table border='1'>";
+    echo "<tr><th>ID Enclos</th><th>Biomes</th><th>Animaux</th><th>Repos</th></tr>";
+
+    // Parcours des résultats et affichage dans un tableau HTML
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['biome'] . "</td>";
+        echo "<td>" . $row['animaux'] . "</td>";
+        echo "<td>" . ($row['repos'] == 1 ? "Oui" : "Non") . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "Aucun enclos trouvé.";
+}
+
+// Fermeture de la connexion
+$conn->close();
 ?>
