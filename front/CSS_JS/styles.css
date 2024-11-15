@@ -46,7 +46,7 @@ a {
 .carousel-slide {
     display: flex;
     width: calc(100% * 5);
-    animation: slide 10s infinite;
+    animation: slide 100s infinite;
 }
 
 .carousel-slide img {
@@ -139,7 +139,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #44a759;
 }
 
 p {
@@ -148,10 +148,11 @@ p {
 }
 
 a {
-    color: #007bff;
+    color: #08294c;
     text-decoration: none;
 }
 
+/*page de profil*/
 /*2.Système de notation et avis des utilisateurs sur les enclos*/
 body {
     font-family: Arial, sans-serif;

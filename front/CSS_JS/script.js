@@ -93,29 +93,20 @@ window.onload = loadReviews;
 
 /*page d acceuil du site presentation
 active les photos du home et affiche/ferme le modal de la carte*/
-// Configuration du carrousel
-const carouselSlide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
+// Fonction pour afficher la carte du zoo
+function showMap() {
+    document.getElementById("mapModal").style.display = "block";
+}
 
-let currentIndex = 0;
-const totalImages = images.length;
+// Fonction pour fermer le modal de la carte
+function closeMap() {
+    document.getElementById("mapModal").style.display = "none";
+}
 
-// Fonction pour passer à l'image suivante
-function nextImage() {
-    currentIndex++;
-    if (currentIndex >= totalImages) {
-        currentIndex = 0; // Revenir à la première image
+// Fermer la carte si on clique en dehors du modal
+window.onclick = function(event) {
+    var modal = document.getElementById("mapModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
     }
-    updateCarousel();
-}
-
-// Met à jour le décalage du carrousel
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Décalage basé sur l'index
-    carouselSlide.style.transform = `translateX(${offset}%)`;
-}
-
-// Lance le carrousel avec un intervalle de 10 secondes
-setInterval(nextImage, 10000); // 10 secondes
-
-
+};
