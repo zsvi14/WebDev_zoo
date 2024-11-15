@@ -1,21 +1,10 @@
-// Fonction pour charger les enclos depuis l'API ou un fichier local
+// Charger les enclos depuis l'API
 async function loadEnclos() {
     try {
-        let response;
-
-        // Vérification de l'environnement (localhost ou production)
-        if (location.hostname === "localhost") {
-            // Chargement depuis le fichier JSON en local
-            response = await fetch('/front/CSS_JS/assets/enclos.json');
-        } else {
-            // Chargement depuis l'API en production
-            response = await fetch('http://localhost/backend/routes/enclos.php');
-        }
-
+        const response = await fetch('http://localhost/backend/routes/enclos.php');
         if (!response.ok) {
             throw new Error('Erreur réseau');
         }
-
         const enclos = await response.json();
 
         // Stocker les enclos dans une variable globale pour la recherche
@@ -28,18 +17,21 @@ async function loadEnclos() {
     }
 }
 
-// Fonction pour afficher les enclos dans le DOM
+// Afficher les enclos dans une structure accessible
 function displayEnclos(enclos) {
     const enclosListDiv = document.getElementById('enclos-list');
     enclosListDiv.innerHTML = enclos
-        .map(enclos => `
-            <div class="enclos-item">
-                <h3>${enclos.nom}</h3>
-                <p>Animaux présents :</p>
-                <ul>
-                    ${enclos.animaux.map(animal => `<li>${animal.nom}</li>`).join('')}
-                </ul>
-            </div>
+        .map((enclos, index) => `
+            <section class="enclos-item" aria-labelledby="enclos-title-${index}">
+                <h3 id="enclos-title-${index}">${enclos.nom}</h3>
+                ${enclos.animaux.length > 0 ? `
+                    <ul>
+                        ${enclos.animaux.map(animal => `<li>${animal.nom}</li>`).join('')}
+                    </ul>
+                ` : `
+                    <p>Aucun animal présent dans cet enclos.</p>
+                `}
+            </section>
         `)
         .join('');
 }
@@ -58,6 +50,7 @@ function searchAnimal() {
 }
 
 // Charger les enclos au chargement de la page
-window.onload = loadEnclos;
+document.addEventListener('DOMContentLoaded', loadEnclos);
+
 
 
