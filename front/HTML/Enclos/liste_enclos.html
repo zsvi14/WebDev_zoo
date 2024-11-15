@@ -2,30 +2,40 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="/front/CSS_JS/assets/style.css">
-    <script src="/front/CSS_JS/assets/liste_enclos.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Liste des Enclos</h1>
-    </header>
-    
-    <!-- Section de recherche -->
-    <section class="search-section">
-        <label for="animal-search">Rechercher un animal :</label>
-        <input type="text" id="animal-search" placeholder="Entrez le nom d'un animal..." oninput="searchAnimal()">
-    </section>
+    <h1>Liste des Enclos</h1>
+    <ul id="enclos-list"></ul>
 
-    <!-- Liste des enclos -->
-    <main id="enclos-list">
-        <!-- Les enclos seront chargés dynamiquement ici -->
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Parc Animalier - Tous droits réservés.</p>
-    </footer>
+    <script>
+        // Faire une requête AJAX pour récupérer les données JSON
+        $.ajax({
+            url: 'http://localhost/Zoo/WebDev_zoo/back/routes/enclos.php', // URL de ton fichier PHP sur le serveur WAMP
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Si la requête réussit, afficher les enclos
+                var enclosList = $('#enclos-list');
+                data.forEach(function(enclos) {
+                    var listItem = '<li><strong>' + enclos.nom + '</strong>: ';
+                    if (enclos.animaux.length > 0) {
+                        listItem += enclos.animaux.map(animal => animal.nom).join(', ');
+                    } else {
+                        listItem += 'Aucun animal';
+                    }
+                    listItem += '</li>';
+                    enclosList.append(listItem);
+                });
+            },
+            error: function() {
+                alert('Erreur lors du chargement des données');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
 
