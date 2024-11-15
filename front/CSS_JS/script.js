@@ -10,7 +10,7 @@ document.getElementById("registerForm")?.addEventListener("submit", function(e) 
     const user = { username, email, password };
     localStorage.setItem("user", JSON.stringify(user));
     alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-    window.location.href = "HTML/connexion\inscrip\connexion/index.html";
+    window.location.href = "HTML/connexion/index.html";
 });
 
 // Connexion de l'utilisateur
@@ -24,7 +24,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
     if (storedUser && storedUser.email === email && storedUser.password === password) {
         localStorage.setItem("isLoggedIn", "true");
         alert("Connexion réussie !");
-        window.location.href = "HTML/connexion\inscrip\connexion/profile.html";
+        window.location.href = "HTML/connexion/profile.html";
     } else {
         alert("Email ou mot de passe incorrect.");
     }
@@ -91,3 +91,22 @@ async function loadReviews() {
 
 window.onload = loadReviews;
 
+/*page d acceuil du site presentation
+active les photos du home et affiche/ferme le modal de la carte*/
+// Fonction pour afficher la carte du zoo
+function showMap() {
+    document.getElementById("mapModal").style.display = "block";
+}
+
+// Fonction pour fermer le modal de la carte
+function closeMap() {
+    document.getElementById("mapModal").style.display = "none";
+}
+
+// Fermer la carte si on clique en dehors du modal
+window.onclick = function(event) {
+    var modal = document.getElementById("mapModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};

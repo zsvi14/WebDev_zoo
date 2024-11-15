@@ -1,0 +1,52 @@
+<!--http://localhost/WebDev_zoo/front/HTML/connexion/home.html
+-->
+<!-- page d acceuil du site web zoo -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil Zoo</title>
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue au Zoo</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Connexion</a></li>
+                <li><a href="register.html">Inscription</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section pour la carte du zoo -->
+        <section class="zoo-map">
+            <h2>Carte du Zoo</h2>
+            <button onclick="showMap()">Voir la carte du zoo</button>
+            <!-- Zone pour afficher la carte en pop-up -->
+            <div id="mapModal" class="modal">
+                <span onclick="closeMap()" class="close">&times;</span>
+                <img src="../../Images/PLANS-DU-PARC.jpg" alt="Carte du zoo" class="map-image">
+            </div>
+        </section>
+
+        <!-- Section pour le carrousel d'images -->
+        <section class="carousel">
+            <h2>Découvrez nos animaux</h2>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1">
+                    <img src="../../Images/girafe-zoo.jpg" alt="Animal 2">
+                    <img src="../../Images/Gnou_zoo.jpg" alt="Animal 3">
+                    <img src="../../Images/zebres.jpg" alt="Animal 4">
+                    <img src="../../Images/gnous_zoo.jpg" alt="Animal 5">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../CSS_JS/script.js"></script>
+</body>
+</html>
