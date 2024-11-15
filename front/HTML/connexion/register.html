@@ -18,6 +18,7 @@
         </form>
         <p>Déjà inscrit ? <a href="index.html">Connectez-vous ici</a></p>
     </div>
+
     <script>
         document.getElementById("registerForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -26,15 +27,25 @@
             const email = document.getElementById("registerEmail").value;
             const password = document.getElementById("registerPassword").value;
 
-            // Sauvegarde des informations dans le localStorage
-            localStorage.setItem("registeredUsername", username);
-            localStorage.setItem("registeredEmail", email);
-            localStorage.setItem("registeredPassword", password);
-
-            alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-            window.location.href = "index.html"; // Redirige vers la page de connexion
+            // Envoi des données au fichier PHP pour les enregistrer dans la base de données
+            fetch('register.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `name=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+                    window.location.href = "index.html"; // Rediriger vers la page de connexion
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
         });
     </script>
 </body>
 </html>
-
