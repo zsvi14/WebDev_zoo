@@ -25,7 +25,7 @@
             const password = document.getElementById("loginPassword").value;
 
             // Envoi des informations de connexion
-            fetch('login.php', {
+            fetch('../../../back/connexion/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
