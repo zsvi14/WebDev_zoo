@@ -18,27 +18,30 @@
         <p>Pas encore inscrit ? <a href="register.html">Inscrivez-vous ici</a></p>
     </div>
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-    
+
             const email = document.getElementById("loginEmail").value;
             const password = document.getElementById("loginPassword").value;
-    
-            fetch("login.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+
+            // Envoi des informations de connexion
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
                 body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    localStorage.setItem("isLoggedIn", "true");
-                    window.location.href = "home.html";
+                    localStorage.setItem("isLoggedIn", "true"); // Marquer comme connecté
+                    window.location.href = "home.html"; // Rediriger vers la page d'accueil
                 } else {
-                    alert(data.message);
+                    alert(data.message); // Afficher un message d'erreur
                 }
             })
-            .catch(error => console.error("Erreur:", error));
+            .catch(error => console.error('Erreur:', error));
         });
     </script>
     
