@@ -112,3 +112,16 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--Système de notation et avis des utilisateurs sur les enclos
+Drop TABLE if EXISTS `enclosure_reviews`
+CREATE TABLE IF NOT EXISTS enclosure_reviews (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT NOT NULL,
+    `enclosure_id` INT NOT NULL,
+    `rating` INT CHECK (rating BETWEEN 1 AND 5),
+    `review` TEXT,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

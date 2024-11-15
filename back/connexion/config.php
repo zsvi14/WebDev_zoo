@@ -1,5 +1,8 @@
 <!-- connexion a la base de donees -->
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $servername = "localhost";
 $username = "root";
 $password = "";

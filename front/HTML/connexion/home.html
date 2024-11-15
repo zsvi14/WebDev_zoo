@@ -1,5 +1,4 @@
-<!--http://localhost/WebDev_zoo/front/HTML/connexion/home.html
--->
+<!--http://localhost/WebDev_zoo/front/HTML/connexion/home.html-->
 <!-- page d acceuil du site web zoo -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,9 +15,18 @@
             <ul>
                 <li><a href="index.html">Connexion</a></li>
                 <li><a href="register.html">Inscription</a></li>
+                <li id="profileNav" style="display: none;"><a href="profil.html">Mon Profil</a></li>
             </ul>
         </nav>
     </header>
+    
+    <script>
+        // Vérification si l'utilisateur est connecté
+        if (localStorage.getItem("isLoggedIn") === "true") {
+        document.getElementById("profileNav").style.display = "inline";
+    }
+    </script>
+    
 
     <main>
         <!-- Section pour la carte du zoo -->

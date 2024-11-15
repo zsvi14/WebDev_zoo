@@ -152,6 +152,11 @@ a {
     text-decoration: none;
 }
 
+/*page de profil*/
+#profileNav {
+    display: none;
+}
+
 /*2.Système de notation et avis des utilisateurs sur les enclos*/
 body {
     font-family: Arial, sans-serif;
