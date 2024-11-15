@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Votre utilisateur MySQL
-$password = ""; // Votre mot de passe MySQL
+$username = "root"; // Votre utilisateur
+$password = ""; // Votre mot de passe
 $dbname = "bddzoo"; // Le nom de votre base de données
 
 // Connexion à la base de données
@@ -14,44 +14,32 @@ if ($conn->connect_error) {
 
 // Insertion des enclos
 $enclos_data = [
-    ["nom" => "Enclos des Réptiles", "id_biomes" => 1], // Assurez-vous que le biomes existe
-    ["nom" => "Enclos Volant", "id_biomes" => 2], // Assurez-vous que le biomes existe
+    ["id_biomes" => 1], // Exemple d'ID de biome
+    ["id_biomes" => 2], // Exemple d'ID de biome
 ];
 
 foreach ($enclos_data as $enclos) {
-    $sql_enclos = "INSERT INTO enclos (nom, id_biomes) VALUES ('" . $enclos['nom'] . "', " . $enclos['id_biomes'] . ")";
+    $sql_enclos = "INSERT INTO enclos (id_biomes) VALUES ('" . $enclos['id_biomes'] . "')";
     if ($conn->query($sql_enclos) !== TRUE) {
-        echo "Erreur lors de l'insertion de l'enclos: " . $conn->error;
+        echo "Erreur: " . $conn->error;
     }
 }
 
 // Insertion des animaux
 $animaux_data = [
-    ["nom" => "Python", "nombre" => 2], // Exemple d'animal
-    ["nom" => "Tortue", "nombre" => 3], // Exemple d'animal
+    ["nom" => "Python", "id_enclos" => 1], // ID de l'enclos (assurez-vous que l'ID existe)
+    ["nom" => "Tortue", "id_enclos" => 1], // ID de l'enclos (assurez-vous que l'ID existe)
 ];
 
 foreach ($animaux_data as $animal) {
-    $sql_animal = "INSERT INTO animaux (nom, nombre) VALUES ('" . $animal['nom'] . "', " . $animal['nombre'] . ")";
+    // Insérer un animal avec son ID d'enclos
+    $sql_animal = "INSERT INTO animaux (nom, id_enclos) VALUES ('" . $animal['nom'] . "', '" . $animal['id_enclos'] . "')";
     if ($conn->query($sql_animal) !== TRUE) {
-        echo "Erreur lors de l'insertion de l'animal: " . $conn->error;
+        echo "Erreur: " . $conn->error;
     }
 }
 
-// Insertion des avis sur les enclos (exemple)
-$review_data = [
-    ["user_id" => 1, "enclosure_id" => 1, "rating" => 5, "review" => "Très bien !"], // Exemple d'avis
-    ["user_id" => 2, "enclosure_id" => 2, "rating" => 4, "review" => "Bien, mais à améliorer"], // Exemple d'avis
-];
-
-foreach ($review_data as $review) {
-    $sql_review = "INSERT INTO enclosure_reviews (user_id, enclosure_id, rating, review) 
-                   VALUES (" . $review['user_id'] . ", " . $review['enclosure_id'] . ", " . $review['rating'] . ", '" . $review['review'] . "')";
-    if ($conn->query($sql_review) !== TRUE) {
-        echo "Erreur lors de l'insertion de l'avis: " . $conn->error;
-    }
-}
-
-echo "Les enclos, animaux et avis ont été insérés avec succès.";
+echo "Les enclos et animaux ont été insérés avec succès.";
 $conn->close();
 ?>
+
