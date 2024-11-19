@@ -37,7 +37,7 @@ a {
     margin: 20px;
 }
 
-.carousel-container {    
+.carousel-container {
     position: relative;
     width: 100%;
     max-width: 600px;
@@ -205,7 +205,7 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #7dec7d; 
+    background-color: #7dec7d;
     text-align: center;
     background-image: url('../../Images/jungle-background.jpg'); /* Fond jungle */
     background-size: cover;
@@ -274,7 +274,7 @@ body {
 }
 
 
-.decorations-container {    
+.decorations-container {
     position: relative;
     width: 100%;
     max-width: 600px;
