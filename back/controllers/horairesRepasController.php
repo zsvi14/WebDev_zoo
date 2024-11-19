@@ -1,11 +1,15 @@
 <?php
+include_once 'database.php';
 
 class HorairesRepasController {
-
-    // Ajouter un horaire de repas à un enclos
-    public function addHoraireRepas($enclosId, $horaire) {
-        // Enregistrement de l'horaire dans la base de données
-        return ["message" => "Horaire de repas ajouté avec succès pour l'enclos $enclosId"];
+    public function addRepas($id_enclos, $horaire) {
+        global $db;
+        $sql = "INSERT INTO horaires_repas (id_enclos, horaire) VALUES ($id_enclos, '$horaire')";
+        if($db->query($sql) === TRUE) {
+            echo "Horaire ajouté avec succès";
+        } else {
+            echo "Erreur : " . $db->error;
+        }
     }
 }
 ?>

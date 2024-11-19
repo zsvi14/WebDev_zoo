@@ -3,36 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste des Enclos</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Liste des Enclos</h1>
     <ul id="enclos-list"></ul>
 
     <script>
-        // Faire une requête AJAX pour récupérer les données JSON
-        $.ajax({
-            url: 'http://localhost/Zoo/WebDev_zoo/back/routes/enclos.php', // URL de ton fichier PHP sur le serveur WAMP
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                // Si la requête réussit, afficher les enclos
-                var enclosList = $('#enclos-list');
-                data.forEach(function(enclos) {
-                    var listItem = '<li><strong>' + enclos.nom + '</strong>: ';
-                    if (enclos.animaux.length > 0) {
-                        listItem += enclos.animaux.map(animal => animal.nom).join(', ');
-                    } else {
-                        listItem += 'Aucun animal';
-                    }
-                    listItem += '</li>';
-                    enclosList.append(listItem);
+        fetch('http://localhost/back/routes/enclos.php')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('enclos-list');
+                data.forEach(enclos => {
+                    const li = document.createElement('li');
+                    li.textContent = `${enclos.animal} - ${enclos.biome}`;
+                    list.appendChild(li);
                 });
-            },
-            error: function() {
-                alert('Erreur lors du chargement des données');
-            }
-        });
+            });
     </script>
 </body>
 </html>
