@@ -1,50 +1,20 @@
 <?php
-// Paramètres de connexion à la base de données
-$hostname = 'localhost';
-$username = 'root';  // Remplacez avec votre nom d'utilisateur MySQL
-$password = '';      // Remplacez avec votre mot de passe MySQL
-$database = 'bddzoo'; // Le nom de votre base de données
+include '../config/database.php';
 
-// Connexion à la base de données
-$conn = new mysqli($hostname, $username, $password, $database);
-
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("La connexion à la base de données a échoué : " . $conn->connect_error);
-}
-
-// Requête SQL pour récupérer la liste des enclos avec les animaux associés
-$sql = "SELECT enclos.id, enclos.repos, biomes.nom AS biome, 
-                GROUP_CONCAT(animaux.nom SEPARATOR ', ') AS animaux
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Récupère la liste des enclos
+    $query = $pdo->prepare("
+        SELECT enclos.id AS enclos_id, enclos.repos AS en_travaux,
+               animaux.nom AS nom_animal, animaux.nombre AS nombre_animaux,
+               biomes.nom AS nom_biome, biomes.couleur AS couleur_biome
         FROM enclos
+        LEFT JOIN enclos_animaux ON enclos.id = enclos_animaux.enclos_id
+        LEFT JOIN animaux ON enclos_animaux.animaux_id = animaux.id
         LEFT JOIN biomes ON enclos.id_biomes = biomes.id
-        LEFT JOIN animaux ON enclos.id_animaux = animaux.id
-        GROUP BY enclos.id";
+    ");
+    $query->execute();
+    $enclos = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// Exécution de la requête
-$result = $conn->query($sql);
-
-// Vérifier si des enclos ont été trouvés
-if ($result->num_rows > 0) {
-    echo "<h1>Liste des Enclos et Animaux</h1>";
-    echo "<table border='1'>";
-    echo "<tr><th>ID Enclos</th><th>Biomes</th><th>Animaux</th><th>Repos</th></tr>";
-
-    // Parcours des résultats et affichage dans un tableau HTML
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['biome'] . "</td>";
-        echo "<td>" . $row['animaux'] . "</td>";
-        echo "<td>" . ($row['repos'] == 1 ? "Oui" : "Non") . "</td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
-} else {
-    echo "Aucun enclos trouvé.";
+    echo json_encode($enclos);
 }
-
-// Fermeture de la connexion
-$conn->close();
 ?>
