@@ -36,6 +36,8 @@
             .then(data => {
                 if (data.success) {
                     localStorage.setItem("isLoggedIn", "true"); // Marquer comme connecté
+                    localStorage.setItem("username", data.username);
+                    localStorage.setItem("email", data.email);
                     window.location.href = "profil.html"; // Rediriger vers la page d'accueil
                 } else {
                     alert(data.message); // Afficher un message d'erreur
