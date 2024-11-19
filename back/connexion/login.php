@@ -1,5 +1,5 @@
-<!-- traitement de la connexion -->
 <?php
+// traitement de la connexion
 session_start();
 include('config.php');
 
@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $sql = "SELECT id, password, role FROM users WHERE email = ?";
+    $sql = "SELECT id, password, isAdmin FROM userinfo WHERE mail = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -19,14 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
             echo json_encode(["success" => true, "message" => "Connexion réussie."]);
         } else {
-            echo json_encode(["success" => false, "message" => "Mot de passe incorrect."]);
+            echo json_encode(["error" => false, "message" => "Mot de passe incorrect."]);
         }
     } else {
-        echo json_encode(["success" => false, "message" => "Utilisateur non trouvé."]);
+        echo json_encode(["error" => false, "message" => "Utilisateur non trouvé."]);
     }
+} else {
+    echo json_encode(["error" => false, "message" => "fais du post"]);
 }
 ?>
 

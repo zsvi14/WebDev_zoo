@@ -1,5 +1,5 @@
-<!--recupere les avis -->
 <?php
+//recupere les avis
 header("Content-Type: application/json");
 
 $enclosureId = $_GET['enclosure_id'];

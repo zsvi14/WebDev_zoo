@@ -1,11 +1,11 @@
-<!--page de connexion-->
 <!DOCTYPE html>
+<!--page de connexion-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
 <body>
     <div class="form-container">
@@ -36,7 +36,9 @@
             .then(data => {
                 if (data.success) {
                     localStorage.setItem("isLoggedIn", "true"); // Marquer comme connecté
-                    window.location.href = "home.html"; // Rediriger vers la page d'accueil
+                    localStorage.setItem("username", data.username);
+                    localStorage.setItem("email", data.email);
+                    window.location.href = "profil.html"; // Rediriger vers la page d'accueil
                 } else {
                     alert(data.message); // Afficher un message d'erreur
                 }

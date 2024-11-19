@@ -1,7 +1,10 @@
-<!-- page de profil-->
 <!DOCTYPE html>
+<!-- page de profil-->
 <html lang="fr">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Utilisateur</title>
@@ -9,10 +12,20 @@
 </head>
 <body>
     <div class="profile-container">
-        <h2>Profil Utilisateur</h2>
-        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
+        <h2>🐾Bienvenue dans votre espace profil, explorateur du Zoo ! 🐾</h2>        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
         <p><strong>Email :</strong> <span id="displayEmail"></span></p>
         <button onclick="logout()">Déconnexion</button>
+    
+        <section class="decorations"></section>
+            <div class="decorations-container">
+                <div class="decorations-slide">
+                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
+            <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
+            <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
+            <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         // Charger les informations de l'utilisateur
