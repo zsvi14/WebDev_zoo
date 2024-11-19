@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['mail'];
             echo json_encode(["success" => true, "message" => "Connexion réussie."]);
         } else {
             echo json_encode(["error" => false, "message" => "Mot de passe incorrect."]);
