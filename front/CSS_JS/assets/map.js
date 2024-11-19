@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const bounds = [[0, 0], [height, width]];
 
     // Ajouter l'image SVG en tant que fond de carte
-    L.imageOverlay('../front/Images/plan_park.svg', bounds).addTo(map);
+    //L.imageOverlay('../front/Images/plan_park.svg', bounds).addTo(map);
+    L.imageOverlay('../../Images/plan_park.svg', bounds).addTo(map);
 
     // Ajuster la vue de la carte pour qu'elle corresponde aux dimensions de l'image
     map.fitBounds(bounds);
