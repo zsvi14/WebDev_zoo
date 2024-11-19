@@ -1,0 +1,79 @@
+/*services*/
+#title_services{
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+#image_park{
+  text-align: center;
+  margin: 20px;
+}
+/* Conteneur principal des services */
+.services-container {
+  display: flex;
+  justify-content: space-between; /* Espace entre les colonnes */
+  gap: 20px; /* Espacement entre les colonnes (si besoin) */
+  margin: 0 auto;
+  max-width: 1200px; /* Largeur maximale */
+}
+
+/* Chaque colonne */
+.groupe_services {
+  flex: 1; /* Toutes les colonnes prennent une largeur égale */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres des groupes */
+.groupe_services h3 {
+  color: #4CAF50;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+/* Liste des services */
+.services {
+  color: #555;
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+
+/* Style général pour l'en-tête */
+header {
+  display: flex;
+  justify-content: center; /* Centre le contenu */
+  align-items: center;     /* Centre verticalement le contenu */
+  background-color: #bbf790;  /* Couleur de fond de l'en-tête */
+  padding: 10px 20px;      /* Espacement autour du contenu */
+  position: relative;      /* Positionnement pour le bouton à gauche */
+}
+
+    /* Style du bouton de retour à l'accueil */
+.home-button {
+  position: absolute;
+  left: 20px;              /* Espace à gauche de l'en-tête */
+  background-color: #227c07; /* Couleur du bouton */
+  color: white;            /* Couleur du texte */
+  border: none;            /* Retire la bordure */
+  padding: 10px 20px;      /* Taille du bouton */
+  cursor: pointer;        /* Curseur en forme de main */
+  font-size: 16px;         /* Taille du texte */
+  border-radius: 5px;      /* Coins arrondis */
+}
+
+.home-button:hover {
+  background-color: #45a049; /* Couleur du bouton au survol */
+}
+
+    /* Style du nom du parc */
+.park-name {
+  font-size: 24px;        /* Taille du texte du nom du parc */
+  color: black;           /* Couleur du texte */
+  margin: 0;              /* Enlève la marge par défaut */
+}
