@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS_JS/styles_z.css">
     <title>Carte Interactive du Parc</title>
     <!-- Lien local vers le CSS de Leaflet -->
     <!--<link rel="stylesheet" href="../../../leaflet/leaflet.css" />
@@ -13,9 +14,43 @@
         #map { height: 100vh; }  /* prend toute la hauteur */
     </style>*/-->
 </head>
+<header>
+  <button class="home-button" onclick="window.location.href='index.html';">Retour à l'accueil</button>
+  <h1 class="park-name">Le super parc</h1>
+</header>
+
 <body>
-  <h1>Nos services</h1>
-  <div style="text-align: center;">
+  <h1 id="title_services">Nos services</h1>
+  <!-- Conteneur des colonnes -->
+  <div class="services-container">
+    <!-- Première colonne -->
+    <div class="groupe_services">
+      <h3>Restauration</h3>
+      <h5 class="services">Paillote</h5>
+      <h5 class="services">Café Nomade</h5>
+      <h5 class="services">Café</h5>
+    </div>
+
+    <!-- Deuxième colonne -->
+    <div class="groupe_services">
+      <h3>Lieux d'animations</h3>
+      <h5 class="services">Tente pédagogique</h5>
+      <h5 class="services">Plateaux des jeux</h5>
+      <h5 class="services">Lodge</h5>
+      <h5 class="services">Le petit train</h5>
+    </div>
+
+    <!-- Troisième colonne -->
+    <div class="groupe_services">
+      <h3>Les essentiels</h3>
+      <h5 class="services">Espace pique-nique</h5>
+      <h5 class="services">Points d'eau</h5>
+      <h5 class="services">Toilettes</h5>
+      <h5 class="services">La gare</h5>
+    </div>
+  </div>
+
+  <div id ="image_park">
     <img src="../../Images/plan_park_small.jpg" alt="Plan du park">
   </div>
     <!--<div id="map"></div>
