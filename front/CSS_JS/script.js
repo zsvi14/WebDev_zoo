@@ -40,7 +40,7 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
         document.getElementById("displayEmail").textContent = storedUser.email;
     } else {
         alert("Vous devez être connecté pour voir cette page.");
-        window.location.href = "HTML/connexion\inscrip\connexion/index.html";
+        window.location.href = "HTML/connexion/index.html";
     }
 }
 
@@ -48,7 +48,7 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
 function logout() {
     localStorage.removeItem("isLoggedIn");
     alert("Déconnexion réussie !");
-    window.location.href = "HTML/connexion\inscrip\connexion/index.html"; //chemin vers index.html
+    window.location.href = "HTML/connexion/index.html"; //chemin vers index.html
 }
 
 
@@ -59,7 +59,7 @@ document.getElementById("reviewForm").addEventListener("submit", async function(
     const review = document.getElementById("review").value;
     const enclosureId = document.getElementById("enclosureId").value;
 
-    const response = await fetch("back/api/add_review.php", {  // Chemin vers api
+    const response = await fetch("../../back/api/add_review.php", {  // Chemin vers api
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ rating, review, enclosureId })
