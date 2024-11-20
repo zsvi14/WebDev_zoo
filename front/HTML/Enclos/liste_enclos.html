@@ -21,23 +21,33 @@
             const list = document.getElementById('enclos-list');
             list.innerHTML = '';  // Vider la liste avant d'ajouter de nouveaux éléments
 
-            data.forEach(enclos => {
-                const li = document.createElement('li');
-                const animaux = enclos.animaux.map(animal => animal.nom).join(', ');  // Liste des animaux de l'enclos
-                li.textContent = `${enclos.nom} - Animaux: ${animaux}`;
-                list.appendChild(li);
-            });
+            if (data.length === 0) {
+                list.innerHTML = '<li>Aucun enclos trouvé</li>';
+            } else {
+                data.forEach(enclos => {
+                    const li = document.createElement('li');
+                    const animaux = enclos.animaux.map(animal => animal.nom).join(', ');  // Liste des animaux de l'enclos
+                    li.textContent = `${enclos.nom} - Animaux: ${animaux}`;
+                    list.appendChild(li);
+                });
+            }
         }
 
         // Fonction de récupération des données depuis le serveur
         function fetchEnclos() {
             fetch('http://localhost/back/routes/enclos.php')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur de réseau');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     afficherEnclos(data);
                 })
                 .catch(error => {
                     console.error('Erreur:', error);
+                    alert("Il y a un problème avec la récupération des données.");
                 });
         }
 
@@ -61,3 +71,4 @@
     </script>
 </body>
 </html>
+
