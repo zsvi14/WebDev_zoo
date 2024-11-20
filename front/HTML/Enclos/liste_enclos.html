@@ -3,45 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">  <!-- Assurez-vous que le fichier CSS est dans le même répertoire -->
 </head>
 <body>
     <h1>Liste des Enclos</h1>
-    <div id="enclos-container"></div>
+
+    <div>
+        <label for="search-animal">Rechercher un animal :</label>
+        <input type="text" id="search-animal" placeholder="Entrez le nom d'un animal...">
+    </div>
+
+    <ul id="enclos-list"></ul>
 
     <script>
-        // Récupération des données via fetch
-        fetch('http://localhost/back/routes/enclos.php')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('enclos-container');
-                data.forEach(enclos => {
-                    // Création d'un élément pour chaque enclos
-                    const enclosDiv = document.createElement('div');
-                    enclosDiv.classList.add('enclos');
+        // Fonction pour afficher la liste des enclos
+        function afficherEnclos(data) {
+            const list = document.getElementById('enclos-list');
+            list.innerHTML = '';  // Vider la liste avant d'ajouter de nouveaux éléments
 
-                    // Titre de l'enclos
-                    const enclosTitle = document.createElement('h2');
-                    enclosTitle.textContent = enclos.nom;
-                    enclosDiv.appendChild(enclosTitle);
+            data.forEach(enclos => {
+                const li = document.createElement('li');
+                const animaux = enclos.animaux.map(animal => animal.nom).join(', ');  // Liste des animaux de l'enclos
+                li.textContent = `${enclos.nom} - Animaux: ${animaux}`;
+                list.appendChild(li);
+            });
+        }
 
-                    // Liste des animaux
-                    const animauxList = document.createElement('ul');
-                    enclos.animaux.forEach(animal => {
-                        const animalItem = document.createElement('li');
-                        animalItem.textContent = animal.nom;
-                        animauxList.appendChild(animalItem);
-                    });
-
-                    // Ajout de la liste des animaux à l'enclos
-                    enclosDiv.appendChild(animauxList);
-
-                    // Ajout de l'enclos au container principal
-                    container.appendChild(enclosDiv);
+        // Fonction de récupération des données depuis le serveur
+        function fetchEnclos() {
+            fetch('http://localhost/back/routes/enclos.php')
+                .then(response => response.json())
+                .then(data => {
+                    afficherEnclos(data);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
                 });
-            })
-            .catch(error => console.error('Erreur lors de la récupération des données:', error));
+        }
+
+        // Appeler la fonction pour afficher les enclos dès le chargement de la page
+        fetchEnclos();
+
+        // Fonction de recherche d'animaux
+        document.getElementById('search-animal').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const enclosList = document.getElementById('enclos-list').getElementsByTagName('li');
+
+            for (let li of enclosList) {
+                const animauxText = li.textContent.toLowerCase();
+                if (animauxText.includes(searchTerm)) {
+                    li.style.display = '';
+                } else {
+                    li.style.display = 'none';
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
