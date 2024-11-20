@@ -7,19 +7,41 @@
 </head>
 <body>
     <h1>Liste des Enclos</h1>
-    <ul id="enclos-list"></ul>
+    <div id="enclos-container"></div>
 
     <script>
+        // Récupération des données via fetch
         fetch('http://localhost/back/routes/enclos.php')
             .then(response => response.json())
             .then(data => {
-                const list = document.getElementById('enclos-list');
+                const container = document.getElementById('enclos-container');
                 data.forEach(enclos => {
-                    const li = document.createElement('li');
-                    li.textContent = `${enclos.animal} - ${enclos.biome}`;
-                    list.appendChild(li);
+                    // Création d'un élément pour chaque enclos
+                    const enclosDiv = document.createElement('div');
+                    enclosDiv.classList.add('enclos');
+
+                    // Titre de l'enclos
+                    const enclosTitle = document.createElement('h2');
+                    enclosTitle.textContent = enclos.nom;
+                    enclosDiv.appendChild(enclosTitle);
+
+                    // Liste des animaux
+                    const animauxList = document.createElement('ul');
+                    enclos.animaux.forEach(animal => {
+                        const animalItem = document.createElement('li');
+                        animalItem.textContent = animal.nom;
+                        animauxList.appendChild(animalItem);
+                    });
+
+                    // Ajout de la liste des animaux à l'enclos
+                    enclosDiv.appendChild(animauxList);
+
+                    // Ajout de l'enclos au container principal
+                    container.appendChild(enclosDiv);
                 });
-            });
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données:', error));
     </script>
 </body>
 </html>
+
