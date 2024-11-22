@@ -73,7 +73,7 @@ header {
 
     /* Style du nom du parc */
 .park-name {
-  font-size: 24px;        /* Taille du texte du nom du parc */
+  font-size: 50px;        /* Taille du texte du nom du parc */
   color: black;           /* Couleur du texte */
   margin: 0;              /* Enlève la marge par défaut */
 }
