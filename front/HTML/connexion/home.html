@@ -6,8 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil Zoo</title>
-    <link rel="stylesheet" href="../../CSS_JS/styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">  
 </head>
+
+<header>
+<!-- en tete de la page-->
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+        <h1 class="park-name">Le super parc</h1>
+    </header>
+    
 <body>
     <header>
         <h1>Bienvenue au Zoo</h1>
@@ -36,7 +43,7 @@
             <!-- Zone pour afficher la carte en pop-up -->
             <div id="mapModal" class="modal">
                 <span onclick="closeMap()" class="close">&times;</span>
-                <img src="../../Images/PLANS-DU-PARC.jpg" alt="Carte du zoo" class="map-image">
+                <img src="../../Images/plan_park.jpg" alt="Carte du zoo" class="map-image">
             </div>
         </section>
 
