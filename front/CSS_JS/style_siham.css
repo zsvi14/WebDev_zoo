@@ -1,3 +1,5 @@
 body {
-    background-color: lightblue;  /* Couleur de fond pour tester */
+    background-color: lightblue;  /* Tester la couleur de fond */
+    color: black;                 /* Assurer que le texte soit visible */
+    font-family: Arial, sans-serif;  /* Changer la police pour plus de visibilité */
 }
