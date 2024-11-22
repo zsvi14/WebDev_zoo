@@ -1,3 +1,4 @@
+/*
 // Charger les enclos depuis l'API
 async function loadEnclos() {
     try {
@@ -39,6 +40,6 @@ function displayEnclos(enclos) {
 
 // Charger les enclos au chargement de la page
 document.addEventListener('DOMContentLoaded', loadEnclos);
-
+*/
 
 
