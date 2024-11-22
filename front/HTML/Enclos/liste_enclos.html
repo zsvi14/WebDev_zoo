@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="style.css"> <!-- Si tu veux ajouter des styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Optionnel si tu veux ajouter des styles -->
 </head>
 <body>
     <h1>Liste des Enclos</h1>
@@ -34,7 +34,7 @@
 
         // Fonction pour récupérer la liste des enclos depuis le fichier PHP
         function fetchEnclos() {
-            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
+            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')  // Met à jour l'URL si nécessaire
                 .then(response => response.json())  // Convertir la réponse en JSON
                 .then(data => {
                     afficherEnclos(data);  // Appeler la fonction pour afficher les enclos
@@ -44,4 +44,8 @@
                 });
         }
 
-        // Appeler la fonction au 
+        // Appeler la fonction au chargement de la page pour récupérer les enclos
+        fetchEnclos();
+    </script>
+</body>
+</html>
