@@ -47,8 +47,11 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
 // Déconnexion
 function logout() {
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("nom");
+    localStorage.removeItem("prenom");
+    localStorage.removeItem("mail");
     alert("Déconnexion réussie !");
-    window.location.href = "HTML/connexion/index.html"; //chemin vers index.html
+    window.location.href = "../HTML/connexion/index.html"; //chemin vers index.html
 }
 
 
