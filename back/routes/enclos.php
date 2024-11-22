@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php';  // Assurez-vous que le chemin est correct
+include_once '../db/database.php';  
+$json = file_get_contents('/front/CSS_JS/assets/enclos.json');
+echo $json;
 
 $query = "SELECT e.nom AS enclos_nom, a.nom AS animal
           FROM enclos e
