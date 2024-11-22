@@ -80,16 +80,25 @@
             });
         }
 
-        // Fonction de récupération des données depuis le serveur
-        function fetchEnclos() {
-            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
-                .then(response => response.json())
-                .then(data => afficherEnclos(data))
-                .catch(error => {
-                    console.error('Erreur:', error);
-                    alert("Problème avec la récupération des données.");
-                });
-        }
+        
+     // Fonction de récupération des données depuis le serveur
+function fetchEnclos() {
+    fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur réseau : ${response.status}`); // Message si la réponse n'est pas OK
+            }
+            return response.json(); // Transformer la réponse en JSON
+        })
+        .then(data => {
+            console.log("Données reçues :", data); // Debugging : Afficher les données dans la console
+            afficherEnclos(data); // Appeler la fonction pour afficher les enclos
+        })
+        .catch(error => {
+            console.error('Erreur:', error); // Debugging : Afficher les erreurs dans la console
+            alert("Problème avec la récupération des données.");
+        });
+}
 
         // Recherche dynamique d'animaux
         document.getElementById('search-animal').addEventListener('input', function() {
