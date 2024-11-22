@@ -1,7 +1,7 @@
 // Charger les enclos depuis l'API
 async function loadEnclos() {
     try {
-        const response = await fetch('http://localhost/backend/routes/enclos.php');
+        const response = await fetch('http://localhost/WebDev_zoo/back/routes/enclos.php');
         if (!response.ok) {
             throw new Error('Erreur réseau');
         }
@@ -36,18 +36,6 @@ function displayEnclos(enclos) {
         .join('');
 }
 
-// Fonction de recherche par animal
-function searchAnimal() {
-    const query = document.getElementById("animal-search").value.toLowerCase();
-
-    // Filtrer les enclos en fonction de la recherche
-    const filteredEnclos = window.enclosData.filter(enclos =>
-        enclos.animaux.some(animal => animal.nom.toLowerCase().includes(query))
-    );
-
-    // Afficher les enclos filtrés
-    displayEnclos(filteredEnclos);
-}
 
 // Charger les enclos au chargement de la page
 document.addEventListener('DOMContentLoaded', loadEnclos);
