@@ -62,23 +62,21 @@
     <script>
         // Fonction pour afficher la liste des enclos
         function afficherEnclos(data) {
-            const list = document.getElementById('enclos-list');
-            list.innerHTML = ''; // Vider la liste avant d'ajouter de nouveaux éléments
+    const list = document.getElementById('enclos-list');
+    list.innerHTML = ''; // Vider la liste avant d'ajouter de nouveaux éléments
 
-            if (data.length === 0) {
-                list.innerHTML = '<p class="not-found">Aucun enclos trouvé</p>';
-                return;
-            }
-
-            data.forEach(enclos => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <span>${enclos.nom}</span>
-                    <div class="animal-list">Animaux : ${enclos.animaux.map(a => a.nom).join(', ')}</div>
-                `;
-                list.appendChild(li);
-            });
-        }
+    if (data.length === 0) {
+        list.innerHTML = '<li>Aucun enclos trouvé</li>';
+    } else {
+        console.log("Création de la liste des enclos."); // Debugging
+        data.forEach(enclos => {
+            const li = document.createElement('li');
+            const animaux = enclos.animaux.map(animal => animal.nom).join(', '); // Liste des animaux de l'enclos
+            li.textContent = `${enclos.nom} - Animaux: ${animaux}`;
+            list.appendChild(li);
+        });
+    }
+}
 
         
      // Fonction de récupération des données depuis le serveur
