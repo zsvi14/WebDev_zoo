@@ -77,3 +77,20 @@ header {
   color: black;           /* Couleur du texte */
   margin: 0;              /* Enlève la marge par défaut */
 }
+
+/*description services*/
+#description-container {
+    display: none; /* Masqué par défaut */
+    margin: 20px auto; /* Centrer le conteneur */
+    max-width: 1000px; /* Limiter la largeur */
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre */
+    border-radius: 10px;
+    text-align: center;
+}
+#description-container img {
+    max-width: 100%; /* L'image s'adapte au conteneur */
+    height: auto;
+    margin: 10px 0;
+}
