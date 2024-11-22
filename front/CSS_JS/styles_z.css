@@ -94,3 +94,21 @@ header {
     height: auto;
     margin: 10px 0;
 }
+/*cercle sur carte*/
+#description-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+#map {
+    height: 400px; /* Hauteur fixe pour empêcher qu'il bouge */
+    width: 100%; /* Largeur ajustable */
+    margin: 20px 0; /* Espace autour */
+    position: relative;
+}
