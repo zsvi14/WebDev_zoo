@@ -142,7 +142,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #4CAF50;
+    background-color: #72c075;
 }
 
 .form-container, .profile-container {
@@ -196,7 +196,7 @@ a {
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #94ca96;
+    background-color: #79dd7c;
 }
 
 h1, h2 {
@@ -241,9 +241,8 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #80ca80;
+    background-color: #81df81;
     text-align: center;
-    background-image: url('../../Images/jungle-background.jpg'); /* Fond jungle */
     background-size: cover;
     background-attachment: fixed;
 }
@@ -291,87 +290,51 @@ body {
     transform: scale(1.1);
 }
 
-/* Ajout de décoration (animaux, jungle, zoo) */
-.profile-container .decorations {
+/*billeterie designe*/
+.billet-container {
+    background-color: #9dd07d;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    flex-wrap: nowrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    justify-content: space-around;
+    align-items: center; /* Centre verticalement le contenu des billets */
+    margin: 20px;
+  }
+  
+  .billet {
+    text-align: center;
+    flex: 1; /* Permet aux éléments de prendre autant de place disponible */
+    min-width: 200px; /* Taille minimale des billets */
+    max-width: none; /* Supprime la limite de largeur maximale */    border: 1px solid #ccc;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;  
+    display: flex; /* Crée un conteneur flex pour l'image et les informations */
+  flex-direction: column; /* Aligne l'image et les informations verticalement */
+}
+  
+  .billet img {
+    width: 100%; /* Les images prennent toute la largeur de leur conteneur */
+    height: auto; /* La hauteur s'ajuste automatiquement en fonction de la largeur */
+  }
+  
+  .billet form {
+    display: none; /* Le formulaire est caché par défaut */
 }
 
-.decorations img {
-    width: 50px;
-    height: 50px;
-    margin: 0 10px;
-    transition: transform 0.2s;
+.billet:hover form {
+    display: block; /* Le formulaire s'affiche au survol */
 }
 
-.decorations img:hover {
-    transform: scale(1.3);
-}
-
-.decorations-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    overflow: hidden;
-    background-color: #4CAF50;
-}
-
-.decorations-slide {
-    display: flex;
-    transition: transform 1s ease;
-}
-
-.decorations-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-@keyframes slide {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    45% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    70% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    95% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
-}
-
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Réactivité pour les petits écrans */
+@media (max-width: 768px) {
+    .billet-container {
+        flex-direction: column; /* Affiche les billets en colonne sur les petits écrans */
+        align-items: flex-start; /* Aligne les billets au début de la ligne */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .billet {
+        min-width: 100%; /* Chaque billet occupe toute la largeur */
     }
-}
-
-.decorations img {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-.decorations img:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.decorations img:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.decorations img:nth-child(3) {
-    animation-delay: 1s;
-}
-
-.decorations img:nth-child(4) {
-    animation-delay: 1.5s;
 }
