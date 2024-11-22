@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="style.css"> <!-- Fichier CSS optionnel -->
+    <link rel="stylesheet" href="style.css"> <!-- Optionnel si tu veux ajouter du style -->
 </head>
 <body>
     <h1>Liste des Enclos</h1>
-
-    <div>
-        <label for="search-animal">Rechercher un animal :</label>
-        <input type="text" id="search-animal" placeholder="Entrez le nom d'un animal...">
-    </div>
 
     <ul id="enclos-list"></ul>
 
@@ -19,7 +14,7 @@
         // Fonction pour afficher la liste des enclos
         function afficherEnclos(data) {
             const list = document.getElementById('enclos-list');
-            list.innerHTML = ''; // Vider la liste avant d'ajouter de nouveaux éléments
+            list.innerHTML = ''; // Vider la liste avant de la remplir
 
             if (data.length === 0) {
                 list.innerHTML = '<li>Aucun enclos trouvé</li>';
@@ -33,7 +28,7 @@
             }
         }
 
-        // Fonction pour récupérer les données depuis le backend
+        // Récupérer la liste des enclos depuis le backend
         function fetchEnclos() {
             fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
                 .then(response => response.json())
@@ -45,23 +40,9 @@
                 });
         }
 
-        // Appeler fetchEnclos() au chargement de la page
+        // Charger les enclos au démarrage de la page
         fetchEnclos();
-
-        // Fonction de recherche d'animaux
-        document.getElementById('search-animal').addEventListener('input', function () {
-            const searchTerm = this.value.toLowerCase();
-            const enclosList = document.getElementById('enclos-list').getElementsByTagName('li');
-
-            for (let li of enclosList) {
-                const animauxText = li.textContent.toLowerCase();
-                if (animauxText.includes(searchTerm)) {
-                    li.style.display = '';
-                } else {
-                    li.style.display = 'none';
-                }
-            }
-        });
     </script>
 </body>
 </html>
+
