@@ -16,7 +16,9 @@
     },
     {
         "nom": "Enclos des Panthères",
-        "animaux": []
+        "animaux": [
+            {"nom": "Panthères"}
+        ]
     },
     {
         "nom": "Enclos des Trois Continents",
