@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--billet achat-->
+<html>
+<head>
+    <title>Billetterie du Zoo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Choisissez votre billet :</h2>
+
+    <div class="billet-container">
+        <div class="billet">
+            <img src="../../Images/Gnou_zoo.webp" alt="Animal 3">
+            <h3>Billet Premium</h3>
+            <h4>Billet d'entre + Photos avec notre mascotte + Repas dans notre celebre restaurant 5 etoiles.</h4>
+            <h3>Tarif : 98euros</h3>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email">  
+
+                <button type="submit">Acheter</button>
+                <h3> </h3>
+            </form>
+        </div>
+
+        <div class="billet">
+            <img src="../../Images/girafe-zoo.jpg" alt="Animal 3">
+            <h3>Billet Adulte</h3>
+            <h3>Tarif : 25euros</h3>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email">  
+
+                <button type="submit">Acheter</button>
+                <h3> </h3>
+            </form>
+        </div>
+
+        <div class="billet">
+            <img src="../../Images/zebres.jpg" alt="Animal 3">
+            <h3>Billet Enfant</h3>
+            <h3>Tarif : 15euros</h3>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email">  
+
+                <button type="submit">Acheter</button>
+                <h3> </h3>
+            </form>
+        </div>
+</div>
+    <form action="billetterie.php" method="post">
+        <!--<label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <input type="submit" value="Acheter">-->
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

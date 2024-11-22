@@ -25,42 +25,34 @@
         
         <button onclick="logout()">Déconnexion</button>
         <section class="decorations"></section>
-            <div class="decorations-container">
-                <div class="decorations-slide">
-                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
-            <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
-            <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
-            <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
-                </div>
+        <div class="decorations-container">
+            <div class="decorations-slide">
+                <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
+        <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
+        <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
+        <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
             </div>
+        </div>
         </section>
     </div>
     
     
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const storedProfile = localStorage.getItem('user_profile');
+    document.addEventListener("DOMContentLoaded", function () {
+    const islogged = localStorage.getItem('isLoggedIn');
 
-  // Si des informations sont stockées, les afficher
-  if (storedProfile) {
-    const profileData = JSON.parse(storedProfile);
-    document.getElementById("nom").textContent = profileData.nom;
-    document.getElementById("mail").textContent = profileData.mail;
-    window.location.href = "profil.html";
+    console.log("islogged ".islogged);
 
-            } else {
-    // Si aucune information n'est stockée, rediriger vers la page de connexion
-    alert("Vous devez être connecté pour accéder à votre profil.");
-                    window.location.href = "index.html";
-                };
-            });
-
-
-
-
-
-
-
+    // Si des informations sont stockées, les afficher
+        if (islogged == "true") {
+            document.getElementById("displayUsername").textContent = localStorage.getItem('username');
+            document.getElementById("displayEmail").textContent = localStorage.getItem('email');
+        } else {
+        // Si aucune information n'est stockée, rediriger vers la page de connexion
+            alert("Vous devez être connecté pour accéder à votre profil.");
+            window.location.href = "index.html";
+        }
+    });
 
 
     

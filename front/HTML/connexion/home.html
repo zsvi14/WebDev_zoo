@@ -6,36 +6,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil Zoo</title>
-    <link rel="stylesheet" href="../../CSS_JS/styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">  
 </head>
 
-<header>
-<!-- en tete de la page-->
-        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
-        <h1 class="park-name">Le super parc</h1>
+<body>
+    <header><!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 >Le super parc</h1><br><br>
+    <h2>Bienvenue au Zoo</h2><br>
+</header>
         <nav>
             <ul>
                 <li><a href="index.html">Connexion</a></li><br>
                 <li><a href="register.html">Inscription</a></li><br>
                 <li><a href="../enclosur_review/enclosure_review.html">Commentaires</a></li><br><br>
                 <li id="profileNav" style="display: none;"><a href="profil.html">Mon Profil</a></li>
+                <li><a href="billet.html">Billeterie</a></li> </ul>
             </ul>
         </nav>
-
-  </header>
-
-<body>
-
-
-      <h2>Bienvenue au Zoo</h2>
-
+    
+    
     <script>
         // Vérification si l'utilisateur est connecté
         if (localStorage.getItem("isLoggedIn") === "true") {
         document.getElementById("profileNav").style.display = "inline";
     }
     </script>
-
+    
 
     <main>
         <!-- Section pour la carte du zoo -->
@@ -50,7 +47,7 @@
 
         <!-- Section pour le carrousel d'images -->
         <section class="carousel">
-            <h2>🐾Découvrez nos animaux🐾</h2>
+            <h3>🐾Découvrez nos animaux🐾</h3>
             <div class="carousel-container">
                 <div class="carousel-slide">
                     <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1">
