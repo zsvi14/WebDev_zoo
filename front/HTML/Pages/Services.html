@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS_JS/styles_z.css">
-    <script src="../../CSS_JS/Services.js" defer></script>
+    <link rel="stylesheet" href="../../../leaflet/leaflet.css">
 
     <title>Carte Interactive du Parc</title>
     <!-- Lien local vers le CSS de Leaflet -->
@@ -22,6 +22,9 @@
 </header>
 
 <body>
+  <!-- Lien vers le JS de Leaflet -->
+  <script src="../../../leaflet/leaflet.js"></script>
+  <script src="../../CSS_JS/Services.js" defer></script>
   <h1 id="title_services">Nos services</h1>
   <!-- Conteneur des colonnes -->
   <div class="services-container">
@@ -52,8 +55,14 @@
     </div>
   </div>
 
-  <div id="description-container">
-    <!-- Le contenu sera ajouté dynamiquement ici -->
+  <div class="services-container">
+      <!-- Conteneur de la description -->
+      <div id="description-container">
+          <!-- Le contenu sera ajouté dynamiquement ici -->
+      </div>
+
+      <!-- Conteneur de la carte -->
+      <div id="map" style="height: 400px; width: 100%;"></div>
   </div>
 
   <div id ="image_park">
