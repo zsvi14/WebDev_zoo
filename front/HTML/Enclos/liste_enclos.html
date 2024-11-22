@@ -2,13 +2,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="style.css"> <!-- Optionnel si tu veux ajouter du style -->
+    <link rel="stylesheet" href="style.css"> <!-- Si tu veux ajouter des styles -->
 </head>
 <body>
     <h1>Liste des Enclos</h1>
 
-    <ul id="enclos-list"></ul> <!-- Liste qui affichera les enclos -->
+    <!-- Liste qui contiendra les enclos -->
+    <ul id="enclos-list"></ul>
 
     <script>
         // Fonction pour afficher la liste des enclos
@@ -21,27 +23,25 @@
             } else {
                 data.forEach(enclos => {
                     const li = document.createElement('li');
-                    const animaux = enclos.animaux.map(animal => animal.nom).join(', '); // Création d'une chaîne des animaux
-                    li.textContent = `${enclos.nom} - Animaux : ${animaux}`; // Ajouter l'enclos et ses animaux
+                    // Créer une chaîne de caractères contenant les animaux
+                    const animaux = enclos.animaux.map(animal => animal.nom).join(', ');
+                    // Ajouter le nom de l'enclos et les animaux associés
+                    li.textContent = `${enclos.nom} - Animaux : ${animaux}`;
                     list.appendChild(li);
                 });
             }
         }
 
-        // Fonction pour récupérer la liste des enclos depuis le backend
+        // Fonction pour récupérer la liste des enclos depuis le fichier PHP
         function fetchEnclos() {
-            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php') // Assurez-vous que ce chemin est correct
-                .then(response => response.json())
+            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
+                .then(response => response.json())  // Convertir la réponse en JSON
                 .then(data => {
-                    afficherEnclos(data); // Appel de la fonction pour afficher les enclos
+                    afficherEnclos(data);  // Appeler la fonction pour afficher les enclos
                 })
                 .catch(error => {
                     console.error('Erreur lors de la récupération des données :', error);
                 });
         }
 
-        // Charger les enclos au démarrage de la page
-        fetchEnclos();
-    </script>
-</body>
-</html>
+        // Appeler la fonction au 
