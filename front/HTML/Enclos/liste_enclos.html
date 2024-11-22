@@ -8,7 +8,7 @@
 <body>
     <h1>Liste des Enclos</h1>
 
-    <ul id="enclos-list"></ul>
+    <ul id="enclos-list"></ul> <!-- Liste qui affichera les enclos -->
 
     <script>
         // Fonction pour afficher la liste des enclos
@@ -21,19 +21,19 @@
             } else {
                 data.forEach(enclos => {
                     const li = document.createElement('li');
-                    const animaux = enclos.animaux.map(animal => animal.nom).join(', ');
-                    li.textContent = `${enclos.nom} - Animaux : ${animaux}`;
+                    const animaux = enclos.animaux.map(animal => animal.nom).join(', '); // Création d'une chaîne des animaux
+                    li.textContent = `${enclos.nom} - Animaux : ${animaux}`; // Ajouter l'enclos et ses animaux
                     list.appendChild(li);
                 });
             }
         }
 
-        // Récupérer la liste des enclos depuis le backend
+        // Fonction pour récupérer la liste des enclos depuis le backend
         function fetchEnclos() {
-            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
+            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php') // Assurez-vous que ce chemin est correct
                 .then(response => response.json())
                 .then(data => {
-                    afficherEnclos(data);
+                    afficherEnclos(data); // Appel de la fonction pour afficher les enclos
                 })
                 .catch(error => {
                     console.error('Erreur lors de la récupération des données :', error);
