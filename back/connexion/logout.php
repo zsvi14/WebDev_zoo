@@ -1,7 +1,9 @@
 <?php
-//deconnexion de la session
+//deconnexion
 session_start();
-session_destroy();
-header("Content-Type: application/json");
-echo json_encode(["success" => true, "message" => "Déconnexion réussie."]);
+// clear localStorage data car mes infos clients sont dans le local storage
+echo "<script>localStorage.clear();</script>";
+
+header("Location: index.html");
+exit;
 ?>
