@@ -7,6 +7,13 @@
     <title>Connexion</title>
     <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
+
+<header>
+<!-- en tete de la page-->
+<button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+<h1 class="park-name">Le super parc</h1>
+</header>
+
 <body>
     <div class="form-container">
         <h2>Connexion</h2>
@@ -36,9 +43,9 @@
             .then(data => {
                 if (data.success) {
                     localStorage.setItem("isLoggedIn", "true"); // Marquer comme connecté
-                    localStorage.setItem("username", data.username);
-                    localStorage.setItem("email", data.email);
-                    window.location.href = "profil.html"; // Rediriger vers la page d'accueil
+                    localStorage.setItem("username", data.user.nom);
+                    localStorage.setItem("email", data.user.mail);
+                    window.location.href = "home.html"; // Rediriger vers la page d'accueil
                 } else {
                     alert(data.message); // Afficher un message d'erreur
                 }
