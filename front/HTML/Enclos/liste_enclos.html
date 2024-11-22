@@ -3,52 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/front/CSS_JS/">  
     <title>Liste des Enclos</title>
-    <link rel="stylesheet" href="style.css">  <!-- Si tu veux ajouter du style -->
 </head>
+<header>
+  <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+  <h1 class="park-name">Le super parc</h1>
+</header>
+
 <body>
-    <h1>Liste des Enclos</h1>
+  <h1 id="title_enclos">Liste des Enclos</h1>
+  
+  <!-- Conteneur des enclos -->
+  <div id="enclos-container">
+    <!-- La liste des enclos sera affichée ici dynamiquement -->
+  </div>
 
-    <!-- Liste des enclos -->
-    <ul id="enclos-list">
-        <!-- Les enclos seront ajoutés ici dynamiquement -->
-    </ul>
+  <script>
+      // Fonction pour afficher la liste des enclos et les animaux
+      function afficherEnclos(data) {
+          const container = document.getElementById('enclos-container');
+          container.innerHTML = '';  // Vider le conteneur avant de le remplir
 
-    <script>
-        // Fonction pour afficher la liste des enclos
-        function afficherEnclos(data) {
-            const list = document.getElementById('enclos-list');
-            list.innerHTML = ''; // Vider la liste avant de la remplir
+          if (data.length === 0) {
+              container.innerHTML = '<p>Aucun enclos trouvé.</p>';
+          } else {
+              // Parcours des enclos et affichage
+              data.forEach(enclos => {
+                  // Créer un élément div pour chaque enclos
+                  const enclosDiv = document.createElement('div');
+                  enclosDiv.classList.add('enclos');  // Classe pour le style (optionnel)
+                  
+                  // Créer un titre pour l'enclos
+                  const enclosTitle = document.createElement('h3');
+                  enclosTitle.textContent = `Enclos: ${enclos.nom}`;
+                  enclosDiv.appendChild(enclosTitle);
+                  
+                  // Liste des animaux dans l'enclos
+                  const animauxList = document.createElement('ul');
+                  enclos.animaux.forEach(animal => {
+                      const animalItem = document.createElement('li');
+                      animalItem.textContent = animal.nom;
+                      animauxList.appendChild(animalItem);
+                  });
+                  enclosDiv.appendChild(animauxList);
+                  
+                  // Ajouter l'enclos au conteneur principal
+                  container.appendChild(enclosDiv);
+              });
+          }
+      }
 
-            if (data.length === 0) {
-                list.innerHTML = '<li>Aucun enclos trouvé</li>';
-            } else {
-                data.forEach(enclos => {
-                    const li = document.createElement('li');
-                    // Créer une chaîne de caractères contenant les animaux
-                    const animaux = enclos.animaux.map(animal => animal.nom).join(', ');
-                    // Ajouter le nom de l'enclos et les animaux associés
-                    li.textContent = `${enclos.nom} - Animaux : ${animaux}`;
-                    list.appendChild(li);
-                });
-            }
-        }
+      // Fonction pour récupérer la liste des enclos depuis le fichier PHP
+      function fetchEnclos() {
+          fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')  // L'URL de ton fichier PHP
+              .then(response => response.json())  // Convertir la réponse en JSON
+              .then(data => {
+                  afficherEnclos(data);  // Afficher les enclos récupérés
+              })
+              .catch(error => {
+                  console.error('Erreur lors de la récupération des données :', error);
+              });
+      }
 
-        // Fonction pour récupérer la liste des enclos depuis le fichier PHP
-        function fetchEnclos() {
-            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')  // L'URL de ton fichier PHP
-                .then(response => response.json())  // Convertir la réponse en JSON
-                .then(data => {
-                    afficherEnclos(data);  // Appeler la fonction pour afficher les enclos
-                })
-                .catch(error => {
-                    console.error('Erreur lors de la récupération des données :', error);
-                });
-        }
+      // Appeler la fonction au chargement de la page pour récupérer et afficher les enclos
+      fetchEnclos();
+  </script>
 
-        // Charger les enclos au démarrage de la page
-        fetchEnclos();
-    </script>
 </body>
 </html>
 
