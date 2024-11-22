@@ -1,8 +1,6 @@
 <?php
 header('Content-Type: application/json');
 include_once '../db/database.php';  
-$json = file_get_contents('/front/CSS_JS/assets/enclos.json');
-echo $json;
 
 $query = "SELECT e.nom AS enclos_nom, a.nom AS animal
           FROM enclos e
@@ -12,17 +10,25 @@ $query = "SELECT e.nom AS enclos_nom, a.nom AS animal
 $result = $db->query($query);
 
 if ($result->num_rows > 0) {
+    // Créez un tableau pour stocker les enclos et leurs animaux
     $enclos = [];
+    
+    // Parcourez les résultats de la base de données
     while ($row = $result->fetch_assoc()) {
-        // Vérifier si l'enclos existe déjà dans le tableau
+        // Si l'enclos n'existe pas encore dans le tableau, ajoutez-le
         if (!isset($enclos[$row['enclos_nom']])) {
             $enclos[$row['enclos_nom']] = ['nom' => $row['enclos_nom'], 'animaux' => []];
         }
-        // Ajouter l'animal à l'enclos
-        $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
+        // Ajoutez l'animal à l'enclos
+        if ($row['animal']) {  // Assurez-vous qu'il y a un animal
+            $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
+        }
     }
-    echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau
+
+    // Renvoie la réponse au format souhaité
+    echo json_encode(array_values($enclos));  // array_values() pour réindexer les clés
 } else {
     echo json_encode([]);  // Aucune donnée à renvoyer
 }
 ?>
+
