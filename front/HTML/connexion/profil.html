@@ -10,12 +10,20 @@
     <title>Profil Utilisateur</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<header>
+    <!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="park-name">Le super parc</h1>
+    </header>
+
 <body>
     <div class="profile-container">
-        <h2>🐾Bienvenue dans votre espace profil, explorateur du Zoo ! 🐾</h2>        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
+        <h2>🐾Bienvenue dans votre espace profil, explorateur du Zoo ! 🐾</h2>        
+        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
         <p><strong>Email :</strong> <span id="displayEmail"></span></p>
+        
         <button onclick="logout()">Déconnexion</button>
-    
         <section class="decorations"></section>
             <div class="decorations-container">
                 <div class="decorations-slide">
@@ -31,22 +39,30 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("getUserInfo.php")
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.success) {
-                        document.getElementById("displayUsername").textContent = data.username;
-                        document.getElementById("displayEmail").textContent = data.email;
-                    } else {
-                        alert("Vous devez être connecté pour accéder à votre profil." + data.message);
-                        window.location.href = "index.html";
-                    }
-                })
-                .catch((error) => {
-                    console.error("Erreur :", error);
+            const storedProfile = localStorage.getItem('user_profile');
+
+  // Si des informations sont stockées, les afficher
+  if (storedProfile) {
+    const profileData = JSON.parse(storedProfile);
+    document.getElementById("nom").textContent = profileData.nom;
+    document.getElementById("mail").textContent = profileData.mail;
+    window.location.href = "profil.html";
+
+            } else {
+    // Si aucune information n'est stockée, rediriger vers la page de connexion
+    alert("Vous devez être connecté pour accéder à votre profil.");
                     window.location.href = "index.html";
-                });
-        });
+                };
+            });
+
+
+
+
+
+
+
+
+
     
         // Fonction de déconnexion
         function logout() {
