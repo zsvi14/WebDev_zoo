@@ -299,10 +299,24 @@ body {
 }
 
 /*billeterie designe*/
+.titre-billet {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+.header-container {
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
 .billet-container {
-    background-color: #9dd07d;
+    background-color: #44a749;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(20, 102, 33, 0.968);
     display: flex;
     flex-wrap: nowrap; /* Permet aux éléments de passer à la ligne si nécessaire */
     justify-content: space-around;
@@ -314,7 +328,8 @@ body {
     text-align: center;
     flex: 1; /* Permet aux éléments de prendre autant de place disponible */
     min-width: 200px; /* Taille minimale des billets */
-    max-width: none; /* Supprime la limite de largeur maximale */    border: 1px solid #ccc;
+    max-width: none; /* Supprime la limite de largeur maximale */    
+    border: 1px solid #ccc;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;  
