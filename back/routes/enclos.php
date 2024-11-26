@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
             $enclos[$row['enclos_nom']] = ['nom' => $row['enclos_nom'], 'animaux' => []];
         }
 
-        // Ajoutez l'animal à l'enclos, ou laissez la liste vide pour l'instant
+        // Ajoutez l'animal à l'enclos, s'il existe
         if ($row['animal']) {
             $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
         }
@@ -28,8 +28,8 @@ if ($result->num_rows > 0) {
 
     // Ajouter un animal par défaut si un enclos n'a aucun animal
     foreach ($enclos as &$entry) {
-        if (count($entry['animaux']) === 0) {
-            $entry['animaux'][] = ['nom' => $entry['nom']]; // Ajoute un animal nommé d'après l'enclos
+        if (empty($entry['animaux'])) {
+            $entry['animaux'][] = ['nom' => 'Animal par défaut']; // Remplacez par un nom personnalisé si nécessaire
         }
     }
 
