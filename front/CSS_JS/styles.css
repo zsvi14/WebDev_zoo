@@ -200,7 +200,7 @@ body {
 }
 
 h1, h2 {
-    color: #e3e052;
+    color: #193716;
 }
 
 form {
@@ -296,14 +296,13 @@ body {
 .profile-container button:hover {
     background-color: #e68900;
     transform: scale(1.1);
-}*/
+}
 
 /*billeterie designe*/
 .billet-container {
     background-color: #9dd07d;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-
     display: flex;
     flex-wrap: nowrap; /* Permet aux éléments de passer à la ligne si nécessaire */
     justify-content: space-around;
