@@ -24,19 +24,22 @@
         <p><strong>Email :</strong> <span id="displayEmail"></span></p>
         
         <button onclick="logout()">Déconnexion</button>
-        <section class="decorations"></section>
-        <div class="decorations-container">
-            <div class="decorations-slide">
-                <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
-        <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
-        <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
-        <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
-            </div>
+        <section class="photo-section"></section>
+        <div class="photo-box">
+            <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
+        </div>
+        <div class="photo-box">
+            <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
+        </div>
+        <div class="photo-box">
+            <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
+        </div>
+        <div class="photo-box">
+            <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
         </div>
         </section>
     </div>
-    
-    
+      
     <script>
     document.addEventListener("DOMContentLoaded", function () {
     const islogged = localStorage.getItem('isLoggedIn');
