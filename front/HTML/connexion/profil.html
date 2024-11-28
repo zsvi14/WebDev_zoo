@@ -13,33 +13,28 @@
 <header>
     <!-- en tete de la page-->
     <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
-    <h1 class="park-name">Le super parc</h1>
+    <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
     </header>
 
-<body>
-    <div class="profile-container">
+<body class="body-profil">
+
+    <main class="profile-container">
         <h2>🐾Bienvenue dans votre espace profil, explorateur du Zoo ! 🐾</h2>        
-        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
-        <p><strong>Email :</strong> <span id="displayEmail"></span></p>
-        
-        <button onclick="logout()">Déconnexion</button>
-        <section class="photo-section"></section>
-        <div class="photo-box">
-            <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda">
-        </div>
-        <div class="photo-box">
-            <img src="../../Images/girafe-zoo.jpg" alt="Girafe" title="Girafe">
-        </div>
-        <div class="photo-box">
-            <img src="../../Images/zebres.jpg" alt="Zebre" title="Zebre">
-        </div>
-        <div class="photo-box">
-            <img src="../../Images/gnous_zoo.jpg" alt="Gnous" title="Gnous">
-        </div>
+        <section class="profile-info">
+        <p><strong>🦁Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
+        <p><strong>🦒Email :</strong> <span id="displayEmail"></span></p><br>
         </section>
-    </div>
-      
+        <button onclick="logout()">Déconnexion</button>
+        
+    <section class="photo-section">
+        <div class="photo-box">
+            <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda"> 
+        </div>
+    </section>
+    </main>  
+
     <script>
+    
     document.addEventListener("DOMContentLoaded", function () {
     const islogged = localStorage.getItem('isLoggedIn');
 
