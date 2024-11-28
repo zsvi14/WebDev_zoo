@@ -1,57 +1,60 @@
 /*page de home du site, style*/
 
 /* Style général pour l'en-tête */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #81df8177;
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: center;
+}
+
 header {
-    display: flex;
-    justify-content: center; /* Centre le contenu */
-    align-items: center;     /* Centre verticalement le contenu */
-    background-color: #bbf790;  /* Couleur de fond de l'en-tête */
+    background-color: #5bb4686e;  /* Couleur de fond de l'en-tête */
     padding: 10px 20px;      /* Espacement autour du contenu */
     position: relative;      /* Positionnement pour le bouton à gauche */
   }
+  .header-content{
+    background-color: #5bb4686e;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+  }
+ 
   
       /* Style du bouton de retour à l'accueil */
-  .home-button {
+ /* .home-button {
     position: absolute;
     top: 10px;
     left: 20px;              /* Espace à gauche de l'en-tête */
-    background-color: #227c07; /* Couleur du bouton */
-    color: white;            /* Couleur du texte */
-    border: none;            /* Retire la bordure */
-    padding: 10px 20px;      /* Taille du bouton */
-    cursor: pointer;        /* Curseur en forme de main */
-    font-size: 16px;         /* Taille du texte */
-    border-radius: 5px;      /* Coins arrondis */
-  }
+  /*  background-color: #46ae3e; /* Couleur du bouton */
+  /*  color: white;            /* Couleur du texte */
+    /*border: none;            /* Retire la bordure */
+  /*  padding: 10px 20px;      /* Taille du bouton */
+  /*  cursor: pointer;        /* Curseur en forme de main */
+    /*font-size: 16px;         /* Taille du texte */
+   /* border-radius: 5px;      /* Coins arrondis */
+  /*}*/
   
-  .home-button:hover {
-    background-color: #45a049; /* Couleur du bouton au survol */
-  }
-  
-      /* Style du nom du parc */
-  .park-name {
-    font-size: 50px;        /* Taille du texte du nom du parc */
-    color: black;           /* Couleur du texte */
-    margin: 0;              /* Enlève la marge par défaut */
-  }
+.home-button {
+    background-color: #236326; /* Couleur du bouton au survol */  
+    padding: 10px 20px;      /* Espacement autour du contenu */
+    position: relative;      /* Positionnement pour le bouton à gauche */
+ }
+     
 
-
+/*
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #8bc08d;
     text-align: center;
-}
-/*
-header {
-    background-color: #4CAF50;
-    padding: 20px;
-    color: white;
-}
-
-header h1 {
-    margin: 0;
 }*/
 
 nav ul {
@@ -72,27 +75,40 @@ a {
 
 .zoo-map {
     margin: 20px;
+    z-index: 1; /*met l'image map au premier plan*/
+    position: relative;
+    
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     overflow: hidden;
     background-color: #4CAF50;
-}
-
-.carousel-slide {
+    /*permet le slide des images*/
     display: flex;
-    transition: transform 1s ease;
+    flex-direction: row; /* Align images horizontally */
+    width: calc(100% * 1); /* Adjust for your number of images */
+    transition: transform 1s ease-in-out;
+    animation: slide 10s infinite;
 }
-
-.carousel-slide img {
+.carousel-slide {
+    position: relative; /* Pour le positionnement absolu des images */
     width: 100%;
-    height: auto;
-    object-fit: cover;
-}
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    /*overflow: hidden;*/
+  }
+  
+  .carousel-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   /* transition: opacity 1s ease-in-out; /* Transition pour l'opacité */
+  }
 
 @keyframes slide {
     0% { transform: translateX(0); }
@@ -105,6 +121,16 @@ a {
     95% { transform: translateX(-300%); }
     100% { transform: translateX(0); }
 }
+/*
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+
+    flex-direction: row; /* Align images horizontally */
+ /*   display: flex;
+  overflow: hidden;*/
+ /* width: calc(100% / 1); */
+/*}
 
 /* Styles pour le modal de la carte */
 .modal {
@@ -135,23 +161,18 @@ a {
 }
 
 /* style de la page d inscription et connexion */
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #72c075;
-}
 
-.form-container, .profile-container {
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.form-container {
+    background-color: #74e279;
+    box-shadow: 0 4px 8px rgba(9, 67, 7, 0.986);
+    padding: 50px;
+    border-radius: 9px;
     width: 300px;
+    margin: auto;
     text-align: center;
+    
+   margin-top: 10vh; /*marge par rapport au haut de la page*/
 }
 
 h2 {
@@ -177,8 +198,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #44a759;
+button:hover { /*ca change la couleur du bouton quand l on passe dessus avec la souris*/
+    background-color: #1cac8f;
 }
 
 p {
@@ -193,12 +214,12 @@ a {
 
 /*page de profil*/
 /*2.Système de notation et avis des utilisateurs sur les enclos*/
-body {
+/*body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #b1f7b3;
-}
-
+}*/
+/*
 h1, h2 {
     color: #193716;
 }
@@ -234,22 +255,23 @@ button {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
-
+*/
 /*page de profil de l utilisateur*/
 /* Styles spécifiques pour la page de profil */
 
 /* styles.css */
+/*
 .photo-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap; /* Pour passer à la ligne si nécessaire */
-}
-
+/*}
+*//*
 .photo-box {
     flex-direction: row;
     width: 30%; /* Ajustez la largeur selon vos besoins */
-    margin: 10px;
+ /*   margin: 10px;
     border: 1px solid #244629;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(5, 46, 14, 0.995);
@@ -258,18 +280,9 @@ button {
 
 .photo-box img {
     max-width: 100%; /* Pour que l'image ne dépasse pas la boîte */
-}
-
-body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #81df81;
-    text-align: center;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
+/*}
+/*body des pages*/
+/*
 .profile-container h2 {
     font-size: 2rem;
     color: #61b861;
@@ -297,6 +310,109 @@ body {
     background-color: #e68900;
     transform: scale(1.1);
 }
+*/
+
+
+
+
+    
+/* General styles */
+.body-profil {
+    background: #a1e0b0fa;
+    font-family: Arial, sans-serif, bold;
+    align-items: center;
+  }
+
+  .profile-container{
+    background: #a1e0b0fa;
+    
+    font-family: Arial, sans-serif, bold;
+    align-items: center;
+  }
+  
+  .photos-section {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center; 
+    
+  }
+  
+  .photo-box {
+    flex: 1;
+    max-width: 600px;
+    margin: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: center;
+
+  }
+  
+  .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   /* justify-content: center;
+    align-items: center;
+    position: center;*/
+
+  }
+
+
+/*
+  .photo-box1 {
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    
+  }
+  
+  .photo-box2 {
+    width: 8px;
+    height: 2px;
+    position: absolute;
+    top: 320px;
+    left: 50px;
+  }
+  
+  .photo-box3 {
+    width: 10px;
+    height: 1%;
+    position: absolute;
+    top: 200px;
+    left: 25px;
+  }
+  
+  .photo-box4 {
+    width: 2px;
+    height: 8px;
+    position: absolute;
+    top: 350px;
+    left : 80;
+  }
+  */
+    
+  /* Profile container styles */
+  /*.profile-container {
+    background: #a1e0b0fa;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+*/
+
+
+
+
+
 
 /*billeterie designe*/
 .titre-billet {
@@ -313,8 +429,8 @@ header {
     margin-top: 20px; /* Adjust the margin as needed */
 }
 
-.billet-container {
-    background-color: #44a749;
+.billet-container {  
+    background-color: #44a749b6;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(20, 102, 33, 0.968);
     display: flex;
@@ -328,7 +444,7 @@ header {
     text-align: center;
     flex: 1; /* Permet aux éléments de prendre autant de place disponible */
     min-width: 200px; /* Taille minimale des billets */
-    max-width: none; /* Supprime la limite de largeur maximale */    
+    max-width: 500px; /* Supprime la limite de largeur maximale */    
     border: 1px solid #ccc;
     border: 1px solid #ccc;
     padding: 20px;
