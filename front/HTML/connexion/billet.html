@@ -2,15 +2,16 @@
 <!--billet achat-->
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Billetterie du Zoo</title>
     <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
 
 <header>
-    <div class="tete-page">
+    <div class="header-container">
         <!-- en tete de la page-->
-        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
-        <h1 class="park-name">Le super parc</h1>
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour a l'accueil</button>
+        <h1 class="header-content">~~~ Le rrrh parc ~~~</h1>
     </div>
 </header>
 
@@ -75,6 +76,27 @@
 
         <input type="submit" value="Acheter">-->
     </form>
+    <!DOCTYPE html>
+<script>
+  const forms = document.querySelectorAll('form');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent 1  default form submission
+
+      const name = form.querySelector('#nom').value;
+      const email = form.querySelector('#email').value;
+
+      if (name && email) {
+        // Display a confirmation message
+        alert(`Merci ${name}, votre billet à été acheté. Un email de confirmation vous a été envoyé à ${email}. A bientôt !!🦒🐘🦓`);
+        // You can also redirect to a confirmation page or send an email here
+      } else {
+        alert('Veuillez remplir tous les champs.');
+      }
+    });
+  });
+</script>
 
     <script src="script.js"></script>
 </body>
