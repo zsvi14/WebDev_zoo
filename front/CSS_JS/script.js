@@ -113,3 +113,27 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+
+
+
+
+/*carousel photos home */
+const carouselSlide = document.querySelector('.carousel-slide');
+const images = carouselSlide.querySelectorAll('img');
+let currentIndex = 1;
+
+// Fonction pour afficher une image spécifique
+/*function showImage(index) {
+  
+  images[index].classList.add('active'); // Ajoute la classe 'active' à l'image actuelle
+}
+
+// Afficher la première image par défaut
+showImage(currentIndex);*/
+
+// Changer d'image toutes les 10 secondes (facultatif)
+// setInterval(() => {
+//   currentIndex = (currentIndex + 1) % images.length;
+//   showImage(currentIndex);
+// }, 10000);
