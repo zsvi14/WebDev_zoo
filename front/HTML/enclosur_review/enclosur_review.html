@@ -6,7 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un avis</title>
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">  
+
 </head>
+
+<header>
+    <!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="park-name">Le super parc</h1>
+    </header>
+
 <body>
     <h1>Ajouter un avis sur l'enclos</h1>
     <form id="reviewForm" action="http://localhost/WebDev_zoo/back/api/add_review.php" method="POST">
@@ -38,6 +47,39 @@
 
         <!-- Bouton de soumission -->
         <button type="submit">Soumettre l'avis</button>
+
+
+        <div id="review-message"></div>
+
+        <script>
+            const form = document.getElementById('reviewForm');
+        
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+        
+                // Handle form submission and display success/error message
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Display success message
+                        document.getElementById('review-message').textContent = 'Avis soumis avec succès !';
+                    } else {
+                        // Display error message
+                        document.getElementById('review-message').textContent = 'Erreur lors de la soumission de l avis.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('review-message').textContent = 'Une erreur s est produite.';
+                });
+            });
+        </script>
+
+
+
     </form>
 </body>
 </html>
