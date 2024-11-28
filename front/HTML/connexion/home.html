@@ -11,17 +11,21 @@
 
 <body>
     <header><!-- en tete de la page-->
-    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
-    <h1 >Le super parc</h1><br><br>
-    <h2>Bienvenue au Zoo</h2><br>
-</header>
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+        <div class="header-content">
+            <h1 >🦒🐘🦓Le rrrh parc🦁🦓🦒</h1><br><br>
+            <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2><br> 
+        </div>
+    </header>
+
         <nav>
-            <ul>
-                <li><a href="index.html">Connexion</a></li><br>
-                <li><a href="register.html">Inscription</a></li><br>
-                <li><a href="../../HTML/enclosur_review/enclosur_review.html">Commentaires</a></li><br><br>
-                <li id="profileNav" style="display: none;"><a href="profil.html">Mon Profil</a></li>
-                <li><a href="billet.html">Billeterie</a></li> </ul>
+            <ul><br>
+                <li><a href="index.html">Connexion</a></li>
+                <li><a href="register.html">Inscription</a></li>
+                <li><a href="../../HTML/enclosur_review/enclosur_review.html">Commentaires</a></li>
+                <li id="profileNav"><a href="profil.html">Mon Profil</a></li>
+                <li><a href="billet.html">Billeterie</a></li> 
+                <li><a href="../Pages/Services.html">Services</a> </li>
             </ul>
         </nav>
     
@@ -31,6 +35,19 @@
         if (localStorage.getItem("isLoggedIn") === "true") {
         document.getElementById("profileNav").style.display = "inline";
     }
+
+//verifie message review sur la page d acceuil
+// Check for success or error message from the URL
+const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    const error = urlParams.get('error');
+
+    if (success) {
+        document.getElementById('review-message').textContent = 'Votre avis a été soumis avec succès !';
+    } else if (error) {
+        document.getElementById('review-message').textContent = 'Une erreur s est produite lors de la soumission de l avis.';
+    }
+
     </script>
     
 
@@ -50,11 +67,11 @@
             <h3>🐾Découvrez nos animaux🐾</h3>
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1">
-                    <img src="../../Images/girafe-zoo.jpg" alt="Animal 2">
-                    <img src="../../Images/Gnou_zoo.webp" alt="Animal 3">
-                    <img src="../../Images/zebres.jpg" alt="Animal 4">
-                    <img src="../../Images/gnous_zoo.jpg" alt="Animal 5">
+                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1" >
+                    <img src="../../Images/girafe-zoo.jpg" alt="Animal 2" >
+                    <img src="../../Images/Gnou_zoo.webp" alt="Animal 3" >
+                    <img src="../../Images/zebres.jpg" alt="Animal 4" >
+                    <img src="../../Images/gnous_zoo.jpg" alt="Animal 5" >
                 </div>
             </div>
         </section>
