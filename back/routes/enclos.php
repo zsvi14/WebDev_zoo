@@ -1,20 +1,16 @@
 <?php
 // Paramètres de connexion à la base de données
-$host = "localhost"; // ou l'adresse IP de ton serveur MySQL
-$dbname = "bddzoo"; // nom de ta base de données
-$username = "root"; // ton nom d'utilisateur MySQL
-$password = ""; // ton mot de passe MySQL
+$host = "localhost"; // Adresse du serveur MySQL
+$dbname = "bddzoo"; // Nom de la base de données
+$username = "root"; // Nom d'utilisateur
+$password = ""; // Mot de passe
 
 // Connexion à la base de données
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Activer les erreurs PDO
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Si la connexion est réussie, afficher ce message
-    echo "Connexion réussie à la base de données.";
 } catch (PDOException $e) {
-    // Si la connexion échoue, afficher le message d'erreur
-    echo "Erreur de connexion : " . $e->getMessage();
+    echo json_encode(["error" => "Erreur de connexion : " . $e->getMessage()]);
     exit;
 }
 
@@ -24,15 +20,15 @@ $query = "SELECT e.id, e.nom_enclos, e.nom_animal, b.nom AS biome, a.nom AS anim
           JOIN biomes b ON e.id_biomes = b.id
           JOIN animaux a ON e.id_animaux = a.id";
 
-// Exécution de la requête
-$stmt = $pdo->query($query);
+try {
+    $stmt = $pdo->query($query);
+    $enclosList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Récupération des résultats
-$enclosList = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Affichage des résultats en JSON
-header('Content-Type: application/json');
-echo json_encode($enclosList);
+    // Retourner les données en format JSON
+    header('Content-Type: application/json');
+    echo json_encode($enclosList);
+} catch (PDOException $e) {
+    echo json_encode(["error" => "Erreur lors de la récupération des données : " . $e->getMessage()]);
+}
 ?>
-
 
