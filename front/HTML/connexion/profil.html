@@ -35,7 +35,7 @@
 
     <script>
     
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () { 
     const islogged = localStorage.getItem('isLoggedIn');
 
     console.log("islogged ".islogged);
@@ -54,14 +54,19 @@
     
         // Fonction de déconnexion
         function logout() {
-            fetch("../../back/connexion/logout.php", { method: "POST" })
+            fetch("../../../back/connexion/logout.php", { method: "POST" })
                 .then(() => {
+                    alert('Vous êtes déconnecté. Vous aller être redirigé à la page principal. Revenez nous voir.🦒🐘');
                     window.location.href = "home.html";
                 })
                 .catch((error) => {
                     console.error("Erreur lors de la déconnexion :", error);
                 });
         }
+        
+
+
+
     </script>
     
     
