@@ -46,12 +46,22 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
 
 // Déconnexion
 function logout() {
-    localStorage.removeItem("isLoggedIn");
+   /* localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("nom");
     localStorage.removeItem("prenom");
     localStorage.removeItem("mail");
     alert("Déconnexion réussie !");
-    window.location.href = "../HTML/connexion/index.html"; //chemin vers index.html
+    window.location.href = "../../HTML/connexion/index.html"; */
+
+    fetch("../../../back/connexion/logout.php", { method: "POST" })
+    .then(() => {
+      alert('Vous êtes déconnecté. Vous allez être redirigé à la page principal. Revenez nous voir.');
+      window.location.href = "home.html";
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la déconnexion :", error);
+      alert("Une erreur s'est produite lors de la déconnexion. Veuillez réessayer.");
+    });
 }
 
 
@@ -113,3 +123,27 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+
+
+
+
+/*carousel photos home */
+const carouselSlide = document.querySelector('.carousel-slide');
+const images = carouselSlide.querySelectorAll('img');
+let currentIndex = 1;
+
+// Fonction pour afficher une image spécifique
+/*function showImage(index) {
+  
+  images[index].classList.add('active'); // Ajoute la classe 'active' à l'image actuelle
+}
+
+// Afficher la première image par défaut
+showImage(currentIndex);*/
+
+// Changer d'image toutes les 10 secondes (facultatif)
+// setInterval(() => {
+//   currentIndex = (currentIndex + 1) % images.length;
+//   showImage(currentIndex);
+// }, 10000);
