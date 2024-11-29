@@ -20,7 +20,7 @@
     </div>
 
     <script>
-     function afficherEnclos(data) {
+    function afficherEnclos(data) {
     const container = document.getElementById('enclos-container');
     container.innerHTML = ''; // Vider le conteneur avant de le remplir
 
@@ -36,7 +36,7 @@
 
         // Titre de l'enclos
         const enclosTitle = document.createElement('h3');
-        enclosTitle.textContent = enclos.nom;
+        enclosTitle.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
         enclosDiv.appendChild(enclosTitle);
 
         // Liste des animaux
@@ -49,12 +49,15 @@
             });
             enclosDiv.appendChild(animauxList);
         } else {
-            enclosDiv.innerHTML += '<p>Aucun animal dans cet enclos.</p>';
+            const noAnimalText = document.createElement('p');
+            noAnimalText.textContent = 'Aucun animal dans cet enclos.';
+            enclosDiv.appendChild(noAnimalText);
         }
 
         container.appendChild(enclosDiv);
     });
 }
+
 
 
         // Fonction pour récupérer la liste des enclos depuis le fichier PHP
