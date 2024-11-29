@@ -32,7 +32,7 @@
 
         <!-- Champ pour le commentaire (review) -->
         <label for="review">Votre avis :</label>
-        <textarea name="review" id="review" rows="4" required></textarea>
+        <textarea name="review"  rows="4" required></textarea>
         <br><br>
 
         <!-- Champ pour l'ID de l'enclos (enclosureId) -->
@@ -50,7 +50,6 @@
 
         <div id="review-message"></div>
 
-
         <div id="reviewsContainer">
             <div class="review-template" style="display: none;">
                 <p><strong>Note:</strong> <span class="review-rating"></span></p>
@@ -58,50 +57,7 @@
             </div>
         </div>
 
-<script>
-    const reviewForm = document.getElementById('reviewForm');
-    const reviewsContainer = document.getElementById('reviewsContainer');
-    const reviewTemplate = document.querySelector('.review-template');
-
-    reviewForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        // Send the form data to the server-side script
-        // ... (existing code for sending form data)
-
-        // Upon successful submission, fetch the updated reviews
-        fetch('http://localhost/WebDev_zoo/back/api/get_reviews.php?enclosureId=' + enclosureId.value)
-            .then(response => response.json())
-            .then(data => {
-                // Clear the reviews container
-                reviewsContainer.innerHTML = '';
-
-                // Clone and populate the review template for each review
-                data.forEach(review => {
-                    const reviewElement = reviewTemplate.cloneNode(true);
-                    reviewElement.style.display = 'block';
-                    reviewElement.querySelector('.review-rating').textContent = review.rating;
-                    reviewElement.querySelector('.review-text').textContent   = review.review;
-                    reviewsContainer.appendChild(reviewElement);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching reviews:', error);
-                // Handle error, e.g., display an error message
-            });
-    });
-
-    
-</script>
-
-
-
-
-
-
-
-<!--
-        <script>
+     <script>
             const form = document.getElementById('reviewForm');
         
             form.addEventListener('submit', (event) => {
@@ -116,6 +72,8 @@
                     if (response.ok) {
                         // Display success message
                         document.getElementById('review-message').textContent = 'Avis soumis avec succès !';
+                        document.getElementById("review-message").textContent = localStorage.getItem('');
+
                     } else {
                         // Display error message
                         document.getElementById('review-message').textContent = 'Erreur lors de la soumission de l avis.';
@@ -127,73 +85,12 @@
                 });
             });            
         </script>
-
-    
-
-    </form>-->
-
+    </form>
 
     <h2 id="reviews-title">Avis des utilisateurs</h2>
         <div id="reviewsContainer"></div>
     </div>
 
-    <script>
-   /*
-    
-    
-        const form = document.getElementById('reviewForm');
-        const reviewsContainer = document.getElementById('reviewsContainer');
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const rating = document.getElementById("rating").value;
-            const review = document.getElementById("review").value;
-            const enclosureId = document.getElementById("enclosureId").value;
-
-           /* const response = await fetch("../../back/api/add_review.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ rating, review, enclosureId })
-            });*/
-           // if (response.ok) {
- /*               document.getElementById('review-message').textContent = 'Avis soumis avec succès !';
-                clearForm(); // Clear the form after successful submission (optional)
-                loadReviews(); // Load reviews after submission
-           // } else {
-                document.getElementById('review-message').textContent = 'Erreur lors de la soumission du commentaire.';
-            }
-    //    }
-    );
-
-        async function loadReviews() {
-            const enclosureId = document.getElementById("enclosureId").value;
-            const response = await fetch(`back/api/get_reviews.php?enclosure_id=${enclosureId}`);
-            const reviews = await response.json();
-
-            reviewsContainer.innerHTML = ""; // Clear the container before adding new reviews
-
-            reviews.forEach(review => {
-                const reviewDiv = document.createElement("div");
-                reviewDiv.classList.add("review");
-                reviewDiv.innerHTML = `<strong>Rating:</strong> ${review.rating}/5<br><strong>Review:</strong> ${review.review}`;
-                reviewsContainer.appendChild(reviewDiv);
-                reviewsContainer.appendChild(reviewDiv);
-            });
-
-            if (reviews.length === 0) {
-                reviewsContainer.innerHTML = "<p>Aucun avis pour cet enclos pour le moment.</p>";
-            }
-        }
-
-        // Optional: Clear the form after successful submission
-        function clearForm() {
-            document.getElementById("rating").value = "";
-            document.getElementById("review").value = "";
-        }
-
-        window.onload = loadReviews;*/
-    </script>
 </body>
 </html>
 
