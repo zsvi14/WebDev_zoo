@@ -476,3 +476,14 @@ header {
         min-width: 100%; /* Chaque billet occupe toute la largeur */
     }
 }
+
+/*review*/
+.review {
+  border: 1px solid #d22f12;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 20px;
+}

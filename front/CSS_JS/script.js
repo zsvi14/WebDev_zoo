@@ -66,7 +66,7 @@ function logout() {
 
 
 //2.Système de notation et avis des utilisateurs sur les enclos
-
+/*
 if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.html")) {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -121,10 +121,64 @@ async function loadReviews() {
 }
 
 window.onload = loadReviews;
+*//*
 
+const form = document.getElementById('reviewForm');
+const reviewsContainer = document.getElementById('reviewsContainer');
 
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
+  const rating = document.getElementById("rating").value;
+  const review = document.getElementById("review").value;
+  const enclosureId = document.getElementById("enclosureId").value;
 
+  const response = await fetch("../../back/api/add_review.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ rating, review, enclosureId })
+  });
+
+  if (response.ok) {
+    document.getElementById('review-message').textContent = 'Avis soumis avec succès !';
+    clearForm(); // Clear the form after successful submission (optional)
+    loadReviews(); // Load reviews after submission
+  } else {
+    document.getElementById('review-message').textContent = 'Erreur lors de la soumission du commentaire.';
+  }
+});
+
+async function loadReviews() {
+    const enclosureId = document.getElementById("enclosureId").value;
+    const response = await fetch(`back/api/get_reviews.php?enclosure_id=${enclosureId}`);
+    const reviews = await response.json();
+
+    reviewsContainer.innerHTML = ""; // Clear the container before adding new reviews
+
+    reviews.forEach(review => {
+        const reviewDiv = document.createElement("div");
+        reviewDiv.classList.add("review");
+        reviewDiv.innerHTML = `
+            <div class="rating">
+                ${createStars(review.rating)}
+            </div>
+            <p>${review.review}</p>
+        `;
+        reviewsContainer.appendChild(reviewDiv);
+    });
+
+    if (reviews.length === 0) {
+        reviewsContainer.innerHTML = "<p>Aucun avis pour cet enclos pour le moment.</p>";
+    }
+}
+
+function createStars(rating) {
+    let stars = '';
+    for (let i = 0; i < rating; i++) {
+        stars += '★';
+    }
+    return stars;
+}*/
 
 
 
