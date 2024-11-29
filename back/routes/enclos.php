@@ -1,6 +1,11 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php';  
+
+// Connexion à la base de données
+include_once '../db/database.php';  // Assurez-vous que le fichier de connexion est correct
+
+// Si vous voulez traiter le fichier JSON, vous pouvez toujours le lire ici (mais ce n'est pas utilisé dans ce code)
+$json = file_get_contents('../front/CSS_JS/assets/enclos.json');
 
 // Requête SQL pour obtenir les enclos avec leurs animaux associés
 $query = "
