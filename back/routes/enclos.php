@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php';  
+include_once '../db/database.php';  // Assurez-vous que ce chemin est correct
 
 // Requête SQL pour récupérer les enclos et leurs animaux
 $query = "SELECT e.nom_enclos AS enclos_nom, e.nom_animal AS animal
@@ -29,5 +29,4 @@ if ($result->num_rows > 0) {
     echo json_encode([]);
 }
 ?>
-
 
