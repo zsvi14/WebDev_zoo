@@ -1,32 +1,30 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php';  // Assurez-vous que ce chemin est correct
+include_once '../db/database.php'; 
 
-// Requête SQL pour récupérer les enclos et leurs animaux
-$query = "SELECT e.nom_enclos AS enclos_nom, e.nom_animal AS animal
-          FROM enclos e";
+$query = "SELECT e.nom, a.nom AS animal
+$query = "SELECT e.nom AS enclos_nom, a.nom AS animal
+          FROM enclos e
+          LEFT JOIN enclos_animaux ea ON e.id = ea.id_enclos
+          LEFT JOIN animaux a ON ea.id_animal = a.id
 
-// Exécution de la requête SQL
 $result = $db->query($query);
 
 if ($result->num_rows > 0) {
     $enclos = [];
     while ($row = $result->fetch_assoc()) {
-        // Si l'enclos n'est pas déjà dans le tableau, on l'ajoute
+        // Construire la structure des enclos avec leurs animaux
+        $enclos[$row['nom']]['nom'] = $row['nom'];
+        $enclos[$row['nom']]['animaux'][] = ['nom' => $row['animal']];
+        // Vérifier si l'enclos existe déjà dans le tableau
         if (!isset($enclos[$row['enclos_nom']])) {
-            $enclos[$row['enclos_nom']] = [
-                'nom' => $row['enclos_nom'], 
-                'animaux' => []
-            ];
+            $enclos[$row['enclos_nom']] = ['nom' => $row['enclos_nom'], 'animaux' => []];
         }
         // Ajouter l'animal à l'enclos
         $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
     }
-    // Renvoyer les enclos sous forme de tableau JSON
-    echo json_encode(array_values($enclos));
+    echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau
 } else {
-    // Renvoyer un tableau vide si aucun résultat
-    echo json_encode([]);
+    echo json_encode([]);  // Aucune donnée à renvoyer
 }
 ?>
-
