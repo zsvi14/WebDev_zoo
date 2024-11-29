@@ -1,8 +1,12 @@
 <?php
+// Afficher les erreurs pour aider au débogage
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 header('Content-Type: application/json');
 
 // Connexion à la base de données
-include_once '../db/database.php';  // Assurez-vous que le fichier de connexion est correct
+include_once '../db/database.php';  // Vérifiez le contenu de ce fichier
 
 // Si vous voulez traiter le fichier JSON, vous pouvez toujours le lire ici (mais ce n'est pas utilisé dans ce code)
 $json = file_get_contents('../front/CSS_JS/assets/enclos.json');
@@ -44,3 +48,4 @@ if ($result->num_rows > 0) {
     echo json_encode([]);
 }
 ?>
+
