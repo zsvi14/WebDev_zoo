@@ -1,30 +1,41 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php'; 
+include_once '../db/database.php';  // Assurez-vous que le chemin est correct
 
-// Requête SQL
-$query = "SELECT e.nom_enclos AS enclos_nom, e.nom_animal AS animal
-          FROM enclos e
-          LEFT JOIN animaux a ON e.nom_animal = a.nom";
+// Requête SQL pour obtenir les enclos avec leurs animaux associés
+$query = "
+    SELECT e.nom_enclos, a.nom AS animal
+    FROM enclos e
+    LEFT JOIN animaux a ON e.id = a.id_enclos
+";
 
 // Exécution de la requête
 $result = $db->query($query);
 
-// Vérification des erreurs SQL
-if (!$result) {
-    die('Erreur dans la requête : ' . $db->error);
-}
-
+// Vérification si des résultats sont retournés
 if ($result->num_rows > 0) {
-    $enclos = [];
+    $enclos = [];  // Tableau pour stocker les enclos et leurs animaux
+    
+    // Traitement des résultats de la requête
     while ($row = $result->fetch_assoc()) {
-        // Construire la structure des enclos avec leurs animaux
-        $enclos[$row['enclos_nom']]['nom'] = $row['enclos_nom'];
-        $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
+        // Si l'enclos n'existe pas déjà dans le tableau, l'ajouter
+        if (!isset($enclos[$row['nom_enclos']])) {
+            $enclos[$row['nom_enclos']] = [
+                'nom' => $row['nom_enclos'],
+                'animaux' => []  // Initialiser le tableau des animaux
+            ];
+        }
+
+        // Ajouter l'animal à l'enclos
+        if ($row['animal']) {
+            $enclos[$row['nom_enclos']]['animaux'][] = ['nom' => $row['animal']];
+        }
     }
-    echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau
+
+    // Convertir le tableau des enclos en JSON et l'afficher
+    echo json_encode(array_values($enclos));  // Utilisation de array_values pour réindexer le tableau
 } else {
-    echo json_encode([]);  // Aucune donnée à renvoyer
+    // Si aucun résultat n'est trouvé, renvoyer un tableau vide
+    echo json_encode([]);
 }
 ?>
-
