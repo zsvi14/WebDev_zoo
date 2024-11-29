@@ -29,7 +29,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
         alert("Email ou mot de passe incorrect.");
     }
 });
-
+/*
 // Affichage des informations du profil
 if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.html")) {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -42,7 +42,7 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
         alert("Vous devez être connecté pour voir cette page.");
         window.location.href = "HTML/connexion/index.html";
     }
-}
+}*/
 
 // Déconnexion
 function logout() {
@@ -66,6 +66,24 @@ function logout() {
 
 
 //2.Système de notation et avis des utilisateurs sur les enclos
+
+if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.html")) {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (storedUser && isLoggedIn) {
+        document.getElementById("displayUsername").textContent = storedUser.username;
+        document.getElementById("displayEmail").textContent = storedUser.email;
+    } else {
+        alert("Vous devez être connecté pour voir cette page.");
+        window.location.href = "HTML/connexion/index.html";
+    }
+}
+
+
+
+
+
 document.getElementById("reviewForm").addEventListener("submit", async function(event) {
     event.preventDefault();
     const rating = document.getElementById("rating").value;
@@ -103,6 +121,16 @@ async function loadReviews() {
 }
 
 window.onload = loadReviews;
+
+
+
+
+
+
+
+
+
+
 
 /*page d acceuil du site presentation
 active les photos du home et affiche/ferme le modal de la carte*/
