@@ -52,20 +52,14 @@
     });
 
     
-        // Fonction de déconnexion
+        // Fonction de déconnexion 
+        //mes infos sont stockés localement donc pas besoin de back tout est dans le local storage
         function logout() {
-            fetch("../../../back/connexion/logout.php", { method: "POST" })
-                .then(() => {
-                    alert('Vous êtes déconnecté. Vous aller être redirigé à la page principal. Revenez nous voir.🦒🐘');
-                    window.location.href = "home.html";
-                })
-                .catch((error) => {
-                    console.error("Erreur lors de la déconnexion :", error);
-                });
-        }
         
-
-
+               localStorage.removeItem("isLoggedIn");
+               alert('Vous êtes déconnecté. Vous aller être redirigé à la page principal. Revenez nous voir.🦒🐘');
+                    window.location.href = "home.html";
+        }
 
     </script>
     
