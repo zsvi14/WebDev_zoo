@@ -2,11 +2,9 @@
 header('Content-Type: application/json');
 include_once '../db/database.php'; 
 
-$query = "SELECT e.nom, a.nom AS animal
-$query = "SELECT e.nom AS enclos_nom, a.nom AS animal
+$query = "SELECT e.nom_enclos AS enclos_nom, e.nom_animal AS animal
           FROM enclos e
-          LEFT JOIN enclos_animaux ea ON e.id = ea.id_enclos
-          LEFT JOIN animaux a ON ea.id_animal = a.id
+          LEFT JOIN animaux a ON e.nom_animal = a.nom";
 
 $result = $db->query($query);
 
@@ -14,13 +12,7 @@ if ($result->num_rows > 0) {
     $enclos = [];
     while ($row = $result->fetch_assoc()) {
         // Construire la structure des enclos avec leurs animaux
-        $enclos[$row['nom']]['nom'] = $row['nom'];
-        $enclos[$row['nom']]['animaux'][] = ['nom' => $row['animal']];
-        // Vérifier si l'enclos existe déjà dans le tableau
-        if (!isset($enclos[$row['enclos_nom']])) {
-            $enclos[$row['enclos_nom']] = ['nom' => $row['enclos_nom'], 'animaux' => []];
-        }
-        // Ajouter l'animal à l'enclos
+        $enclos[$row['enclos_nom']]['nom'] = $row['enclos_nom'];
         $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
     }
     echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau
@@ -28,3 +20,4 @@ if ($result->num_rows > 0) {
     echo json_encode([]);  // Aucune donnée à renvoyer
 }
 ?>
+
