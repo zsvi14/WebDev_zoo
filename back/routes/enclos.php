@@ -1,51 +1,34 @@
 <?php
-// Afficher les erreurs pour aider au débogage
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-header('Content-Type: application/json');
+// Paramètres de connexion à la base de données
+$host = "localhost"; // ou l'adresse IP de ton serveur MySQL
+$dbname = "bddzoo"; // nom de ta base de données
+$username = "root"; // ton nom d'utilisateur MySQL
+$password = ""; // ton mot de passe MySQL
 
 // Connexion à la base de données
-include_once '../db/database.php';  // Vérifiez le contenu de ce fichier
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // Activer les erreurs PDO
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
+    exit;
+}
 
-// Si vous voulez traiter le fichier JSON, vous pouvez toujours le lire ici (mais ce n'est pas utilisé dans ce code)
-$json = file_get_contents('../front/CSS_JS/assets/enclos.json');
-
-// Requête SQL pour obtenir les enclos avec leurs animaux associés
-$query = "
-    SELECT e.nom_enclos, a.nom AS animal
-    FROM enclos e
-    LEFT JOIN animaux a ON e.id = a.id_enclos
-";
+// Requête pour récupérer les enclos
+$query = "SELECT e.id, e.nom_enclos, e.nom_animal, b.nom AS biome, a.nom AS animal 
+          FROM enclos e
+          JOIN biomes b ON e.id_biomes = b.id
+          JOIN animaux a ON e.id_animaux = a.id";
 
 // Exécution de la requête
-$result = $db->query($query);
+$stmt = $pdo->query($query);
 
-// Vérification si des résultats sont retournés
-if ($result->num_rows > 0) {
-    $enclos = [];  // Tableau pour stocker les enclos et leurs animaux
-    
-    // Traitement des résultats de la requête
-    while ($row = $result->fetch_assoc()) {
-        // Si l'enclos n'existe pas déjà dans le tableau, l'ajouter
-        if (!isset($enclos[$row['nom_enclos']])) {
-            $enclos[$row['nom_enclos']] = [
-                'nom' => $row['nom_enclos'],
-                'animaux' => []  // Initialiser le tableau des animaux
-            ];
-        }
+// Récupération des résultats
+$enclosList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Ajouter l'animal à l'enclos
-        if ($row['animal']) {
-            $enclos[$row['nom_enclos']]['animaux'][] = ['nom' => $row['animal']];
-        }
-    }
-
-    // Convertir le tableau des enclos en JSON et l'afficher
-    echo json_encode(array_values($enclos));  // Utilisation de array_values pour réindexer le tableau
-} else {
-    // Si aucun résultat n'est trouvé, renvoyer un tableau vide
-    echo json_encode([]);
-}
+// Affichage des résultats en JSON
+header('Content-Type: application/json');
+echo json_encode($enclosList);
 ?>
 
