@@ -2,27 +2,26 @@
 header('Content-Type: application/json');
 include_once '../db/database.php';  
 
-$query = "SELECT e.nom AS enclos_nom, a.nom AS animal
-          FROM enclos e
-          LEFT JOIN enclos_animaux ea ON e.id = ea.id_enclos
-          LEFT JOIN animaux a ON ea.id_animal = a.id";
+// Requête pour récupérer les enclos et les animaux associés
+$query = "SELECT e.nom AS nom_enclos, e.nom_animal AS animal
+          FROM enclos e";
 
 $result = $db->query($query);
 
 if ($result->num_rows > 0) {
     $enclos = [];
     while ($row = $result->fetch_assoc()) {
-        // Vérifier si l'enclos existe déjà dans le tableau
+        // Si l'enclos n'est pas déjà dans le tableau, l'ajouter
         if (!isset($enclos[$row['enclos_nom']])) {
-            $enclos[$row['enclos_nom']] = ['nom' => $row['enclos_nom'], 'animaux' => []];
+            $enclos[$row['nom_enclos']] = [
+                'nom' => $row['nom_enclos'], 
+                'animaux' => []
+            ];
         }
-        
         // Ajouter l'animal à l'enclos
-        if ($row['animal']) {
-            $enclos[$row['enclos_nom']]['animaux'][] = ['nom' => $row['animal']];
-        }
+        $enclos[$row['nom_enclos']]['animaux'][] = ['nom' => $row['animal']];
     }
-    echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau
+    echo json_encode(array_values($enclos));  // Renvoyer sous forme de tableau JSON
 } else {
     echo json_encode([]);  // Aucune donnée à renvoyer
 }
