@@ -17,16 +17,16 @@
     </header>
 
 <body>
-    <h1>Ajouter un avis sur l'enclos</h1>
+    <h1>🐘Ajouter un avis sur l'enclos🐘</h1>
     <form id="reviewForm" action="http://localhost/WebDev_zoo/back/api/add_review.php" method="POST">
         <!-- Champ pour la note (rating) -->
-        <label for="rating">Note (de 1 à 5) :</label>
+        <label for="rating">Note (de 🦁 à 🦁🦁🦁🦁🦁) :</label>
         <select name="rating" id="rating" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="1">🦁</option>
+            <option value="2">🦁🦁</option>
+            <option value="3">🦁🦁🦁</option>
+            <option value="4">🦁🦁🦁🦁</option>
+            <option value="5">🦁🦁🦁🦁🦁</option>
         </select>
         <br><br>
 
@@ -50,7 +50,7 @@
 
 
         <div id="review-message"></div>
-
+<!--
         <script>
             const form = document.getElementById('reviewForm');
         
@@ -75,11 +75,75 @@
                     console.error('Error:', error);
                     document.getElementById('review-message').textContent = 'Une erreur s est produite.';
                 });
-            });
+            });            
         </script>
 
+    
+
+    </form>-->
 
 
-    </form>
+    <h2 id="reviews-title">Avis des utilisateurs</h2>
+        <div id="reviewsContainer"></div>
+    </div>
+<!--
+    <script>
+        const form = document.getElementById('reviewForm');
+        const reviewsContainer = document.getElementById('reviewsContainer');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const rating = document.getElementById("rating").value;
+            const review = document.getElementById("review").value;
+            const enclosureId = document.getElementById("enclosureId").value;
+
+            const response = await fetch("../../back/api/add_review.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ rating, review, enclosureId })
+            });
+
+            if (response.ok) {
+                document.getElementById('review-message').textContent = 'Avis soumis avec succès !';
+                clearForm(); // Clear the form after successful submission (optional)
+                loadReviews(); // Load reviews after submission
+            } else {
+                document.getElementById('review-message').textContent = 'Erreur lors de la soumission du commentaire.';
+            }
+        });
+
+        async function loadReviews() {
+            const enclosureId = document.getElementById("enclosureId").value;
+            const response = await fetch(`back/api/get_reviews.php?enclosure_id=${enclosureId}`);
+            const reviews = await response.json();
+
+            reviewsContainer.innerHTML = ""; // Clear the container before adding new reviews
+
+            reviews.forEach(review => {
+                const reviewDiv = document.createElement("div");
+                reviewDiv.classList.add("review");
+                reviewDiv.innerHTML = `<strong>Rating:</strong> ${review.rating}/5<br><strong>Review:</strong> ${review.review}`;
+                reviewsContainer.appendChild(reviewDiv);
+                reviewsContainer.appendChild(reviewDiv);
+            });
+
+            if (reviews.length === 0) {
+                reviewsContainer.innerHTML = "<p>Aucun avis pour cet enclos pour le moment.</p>";
+            }
+        }
+
+        // Optional: Clear the form after successful submission
+        function clearForm() {
+            document.getElementById("rating").value = "";
+            document.getElementById("review").value = "";
+        }
+
+        window.onload = loadReviews;
+    </script>
+</body>
+</html>
+-->
+
 </body>
 </html>
