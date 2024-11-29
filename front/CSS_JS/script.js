@@ -46,12 +46,22 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
 
 // Déconnexion
 function logout() {
-    localStorage.removeItem("isLoggedIn");
+   /* localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("nom");
     localStorage.removeItem("prenom");
     localStorage.removeItem("mail");
     alert("Déconnexion réussie !");
-    window.location.href = "../HTML/connexion/index.html"; //chemin vers index.html
+    window.location.href = "../../HTML/connexion/index.html"; */
+
+    fetch("../../../back/connexion/logout.php", { method: "POST" })
+    .then(() => {
+      alert('Vous êtes déconnecté. Vous allez être redirigé à la page principal. Revenez nous voir.');
+      window.location.href = "home.html";
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la déconnexion :", error);
+      alert("Une erreur s'est produite lors de la déconnexion. Veuillez réessayer.");
+    });
 }
 
 
