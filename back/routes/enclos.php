@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include_once '../db/database.php';  // Assurez-vous que le chemin est correct
+include_once '../db/database.php';  
 
 // Requête SQL pour obtenir les enclos avec leurs animaux associés
 $query = "
