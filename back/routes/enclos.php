@@ -17,8 +17,6 @@ try {
 }
 
 // Requête pour récupérer les enclos avec la couleur des biomes
-<?php
-// Requête pour récupérer les enclos avec la couleur des biomes
 $query = "SELECT e.id, e.nom_enclos, b.nom AS biome, b.couleur, a.nom AS animal 
           FROM enclos e
           JOIN biomes b ON e.id_biomes = b.id
@@ -52,6 +50,4 @@ header('Content-Type: application/json');
 echo json_encode(array_values($groupedEnclos));
 ?>
 
-
-?>
 
