@@ -23,7 +23,7 @@ body {
     padding: 20px;
 }
 
-/* Style pour chaque enclos */
+/* Style de base pour les enclos */
 .enclos {
     background-color: white;
     border-radius: 8px;
@@ -33,6 +33,37 @@ body {
     text-align: center;
     transition: transform 0.3s ease;
 }
+
+/* Couleurs pour les titres en fonction des biomes */
+.enclos h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.enclos-belvedere h3 {
+    color: brown;
+}
+
+.enclos-plateau-rose h3 {
+    color: pink;
+}
+
+.enclos-clairieres h3 {
+    color: yellow;
+}
+
+.enclos-bois-des-pins h3 {
+    color: green;
+}
+
+.enclos-vallon-des-cascades h3 {
+    color: blue;
+}
+
+.enclos-bergerie-des-reptiles h3 {
+    color: darkgreen;
+}
+
 
 /* Effet de survol sur l'enclos */
 .enclos:hover {
