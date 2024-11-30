@@ -22,42 +22,56 @@
     <script>
         // Fonction pour afficher les enclos sur la page
         function afficherEnclos(data) {
-    const container = document.getElementById('enclos-container');
-    container.innerHTML = ''; // Vider le conteneur avant de le remplir
+            const container = document.getElementById('enclos-container');
+            container.innerHTML = ''; // Vider le conteneur avant de le remplir
 
-    if (!data || data.length === 0) {
-        container.innerHTML = '<p>Aucun enclos trouvé.</p>';
-        return;
-    }
+            if (!data || data.length === 0) {
+                container.innerHTML = '<p>Aucun enclos trouvé.</p>';
+                return;
+            }
 
-    // Afficher chaque enclos
-    data.forEach(enclos => {
-        const enclosDiv = document.createElement('div');
-        enclosDiv.classList.add('enclos');
+            // Organisation des enclos pour regrouper les animaux par enclos
+            const enclosMap = {};
+            data.forEach(item => {
+                if (!enclosMap[item.nom_enclos]) {
+                    enclosMap[item.nom_enclos] = {
+                        biome: item.biome,
+                        animaux: []
+                    };
+                }
+                enclosMap[item.nom_enclos].animaux.push(item.animal);
+            });
 
-        // Titre de l'enclos
-        const enclosTitle = document.createElement('h3');
-        enclosTitle.textContent = `${enclos.nom_enclos} (Biome : ${enclos.biome})`;
+            // Affichage des enclos
+            Object.keys(enclosMap).forEach(nomEnclos => {
+                const enclos = enclosMap[nomEnclos];
+                const enclosDiv = document.createElement('div');
+                enclosDiv.classList.add('enclos');
 
-        // Appliquer la couleur depuis la BDD
-        enclosTitle.style.color = enclos.couleur;
+                // Titre de l'enclos
+                const enclosTitle = document.createElement('h3');
+                enclosTitle.textContent = ${nomEnclos} (Biome : ${enclos.biome});
+                enclosDiv.appendChild(enclosTitle);
 
-        enclosDiv.appendChild(enclosTitle);
+                // Liste des animaux
+                if (enclos.animaux.length > 0) {
+                    const animauxList = document.createElement('ul');
+                    enclos.animaux.forEach(animal => {
+                        const animalItem = document.createElement('li');
+                        animalItem.textContent = animal;
+                        animauxList.appendChild(animalItem);
+                    });
+                    enclosDiv.appendChild(animauxList);
+                } else {
+                    const noAnimalText = document.createElement('p');
+                    noAnimalText.textContent = 'Aucun animal dans cet enclos.';
+                    enclosDiv.appendChild(noAnimalText);
+                }
 
-        // Liste des animaux
-        if (enclos.nom_animal) {
-            const animalItem = document.createElement('p');
-            animalItem.textContent = enclos.nom_animal;
-            enclosDiv.appendChild(animalItem);
-        } else {
-            const noAnimalText = document.createElement('p');
-            noAnimalText.textContent = 'Aucun animal dans cet enclos.';
-            enclosDiv.appendChild(noAnimalText);
+                container.appendChild(enclosDiv);
+            });
         }
 
-        container.appendChild(enclosDiv);
-    });
-}
 
 
         // Fonction pour récupérer la liste des enclos depuis le fichier PHP
