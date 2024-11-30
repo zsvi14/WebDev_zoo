@@ -16,7 +16,7 @@
   
     <!-- Conteneur des enclos -->
     <div id="enclos-container">
-        <!-- La liste des enclos sera affichée ici dynamiquement -->
+        <!-- La liste des enclos affichée ici dynamiquement -->
     </div>
 
     <script>
@@ -30,21 +30,45 @@
     }
 
     // Afficher chaque enclos
-    data.forEach(enclos => {
+    function afficherEnclos(data) {
+    const container = document.getElementById('enclos-container');
+    container.innerHTML = ''; // Vider le conteneur avant de le remplir
+
+    if (!data || data.length === 0) {
+        container.innerHTML = '<p>Aucun enclos trouvé.</p>';
+        return;
+    }
+
+    // Grouper les animaux par enclos
+    const enclosMap = {};
+    data.forEach(item => {
+        if (!enclosMap[item.nom_enclos]) {
+            enclosMap[item.nom_enclos] = {
+                biome: item.biome,
+                animaux: []
+            };
+        }
+        enclosMap[item.nom_enclos].animaux.push(item.nom_animal);
+    });
+
+    // Afficher chaque enclos
+    Object.keys(enclosMap).forEach(nomEnclos => {
+        const enclos = enclosMap[nomEnclos];
+
         const enclosDiv = document.createElement('div');
         enclosDiv.classList.add('enclos');
 
         // Titre de l'enclos
         const enclosTitle = document.createElement('h3');
-        enclosTitle.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
+        enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
         enclosDiv.appendChild(enclosTitle);
 
         // Liste des animaux
-        if (enclos.animaux && enclos.animaux.length > 0) {
+        if (enclos.animaux.length > 0) {
             const animauxList = document.createElement('ul');
             enclos.animaux.forEach(animal => {
                 const animalItem = document.createElement('li');
-                animalItem.textContent = animal.nom;
+                animalItem.textContent = animal;
                 animauxList.appendChild(animalItem);
             });
             enclosDiv.appendChild(animauxList);
@@ -57,6 +81,7 @@
         container.appendChild(enclosDiv);
     });
 }
+
 
 
 
