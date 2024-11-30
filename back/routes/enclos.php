@@ -16,9 +16,10 @@ try {
     exit;
 }
 
-// Requête pour récupérer les enclos
 // Requête pour récupérer les enclos avec la couleur des biomes
-$query = "SELECT e.id, e.nom_enclos, e.nom_animal, b.nom AS biome, b.couleur, a.nom AS animal 
+<?php
+// Requête pour récupérer les enclos avec la couleur des biomes
+$query = "SELECT e.id, e.nom_enclos, b.nom AS biome, b.couleur, a.nom AS animal 
           FROM enclos e
           JOIN biomes b ON e.id_biomes = b.id
           JOIN animaux a ON e.id_animaux = a.id";
@@ -29,9 +30,28 @@ $stmt = $pdo->query($query);
 // Récupération des résultats
 $enclosList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Affichage des résultats en JSON
+// Regrouper les animaux par enclos
+$groupedEnclos = [];
+foreach ($enclosList as $enclos) {
+    // Si l'enclos n'existe pas encore dans le tableau, on l'initialise
+    if (!isset($groupedEnclos[$enclos['nom_enclos']])) {
+        $groupedEnclos[$enclos['nom_enclos']] = [
+            'nom_enclos' => $enclos['nom_enclos'],
+            'biome' => $enclos['biome'],
+            'couleur' => $enclos['couleur'],
+            'animaux' => []
+        ];
+    }
+    
+    // Ajouter l'animal à la liste des animaux de l'enclos
+    $groupedEnclos[$enclos['nom_enclos']]['animaux'][] = $enclos['animal'];
+}
+
+// Convertir le tableau en JSON et l'envoyer
 header('Content-Type: application/json');
-echo json_encode($enclosList);
+echo json_encode(array_values($groupedEnclos));
+?>
+
 
 ?>
 
