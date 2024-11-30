@@ -47,32 +47,6 @@ body {
     margin: 10px;
 }
 
-/* Couleurs des titres en fonction du biome */
-.enclos h3.belvedere {
-    color: brown;
-}
-
-.enclos h3.plateau-rose {
-    color: pink;
-}
-
-.enclos h3.clairieres {
-    color: yellow;
-}
-
-.enclos h3.bois-des-pins {
-    color: green;
-}
-
-.enclos h3.vallon-des-cascades {
-    color: blue;
-}
-
-.enclos h3.bergerie-des-reptiles {
-    color: darkgreen;
-}
-
-
 
 /* Effet de survol sur l'enclos */
 .enclos:hover {
@@ -86,6 +60,13 @@ body {
     color: #16a085;
     margin-bottom: 10px;
 }
+
+.enclos h3.plateau-rose {
+    font-size: 20px;
+    color: pink;
+    margin-bottom: 10px;
+}
+
 
 /* Style des éléments de la liste des animaux */
 .enclos li {
