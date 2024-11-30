@@ -50,7 +50,7 @@
 
                 // Titre de l'enclos
                 const enclosTitle = document.createElement('h3');
-                enclosTitle.textContent = ${nomEnclos} (Biome : ${enclos.biome});
+                enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;  // Correction ici
                 enclosDiv.appendChild(enclosTitle);
 
                 // Liste des animaux
@@ -71,8 +71,6 @@
                 container.appendChild(enclosDiv);
             });
         }
-
-
 
         // Fonction pour récupérer la liste des enclos depuis le fichier PHP
         function fetchEnclos() {
@@ -100,3 +98,4 @@
 
 </body>
 </html>
+
