@@ -34,35 +34,44 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Couleurs pour les titres en fonction des biomes */
-.enclos h3 {
-    margin: 0;
-    font-size: 1.5em;
+
+/* Style de base pour les enclos */
+.enclos {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 10px;
 }
 
-.enclos-belvedere h3 {
+/* Couleurs des titres en fonction du biome */
+.enclos h3.belvedere {
     color: brown;
 }
 
-.enclos-plateau-rose h3 {
+.enclos h3.plateau-rose {
     color: pink;
 }
 
-.enclos-clairieres h3 {
+.enclos h3.clairieres {
     color: yellow;
 }
 
-.enclos-bois-des-pins h3 {
+.enclos h3.bois-des-pins {
     color: green;
 }
 
-.enclos-vallon-des-cascades h3 {
+.enclos h3.vallon-des-cascades {
     color: blue;
 }
 
-.enclos-bergerie-des-reptiles h3 {
+.enclos h3.bergerie-des-reptiles {
     color: darkgreen;
 }
+
 
 
 /* Effet de survol sur l'enclos */
