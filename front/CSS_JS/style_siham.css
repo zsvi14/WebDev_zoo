@@ -61,13 +61,6 @@ body {
     margin-bottom: 10px;
 }
 
-.enclos h3.plateau-rose {
-    font-size: 20px;
-    color: pink;
-    margin-bottom: 10px;
-}
-
-
 /* Style des éléments de la liste des animaux */
 .enclos li {
     font-size: 16px;
