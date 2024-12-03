@@ -23,7 +23,7 @@ body {
     padding: 20px;
 }
 
-/* Style pour chaque enclos */
+/* Style de base pour les enclos */
 .enclos {
     background-color: white;
     border-radius: 8px;
@@ -33,6 +33,20 @@ body {
     text-align: center;
     transition: transform 0.3s ease;
 }
+
+
+/* Style de base pour les enclos */
+.enclos {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
 
 /* Effet de survol sur l'enclos */
 .enclos:hover {
