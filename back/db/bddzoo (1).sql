@@ -87,7 +87,7 @@ INSERT INTO `animaux` (`id`, `nom`, `nombre`, `id_enclos`) VALUES
 (108, 'Tigres', 5, 43),
 (107, 'Chiens des Buissons', 22, 44),
 (106, 'Servals', 13, 45),
-(104, 'Loups d\'Europe', 18, 46),
+(104, 'Loups d_Europe', 18, 46),
 (103, 'Vautours', 24, 47),
 (102, 'Cerfs', 32, 48),
 (105, 'Lynx', 9, 49),

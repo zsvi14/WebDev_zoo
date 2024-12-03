@@ -75,37 +75,56 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     descriptionContainer.style.display = "block";
 
-    // Ajouter des cercles sur la carte au clic sur les services
-    const serviceElements = document.querySelectorAll(".services");
-    serviceElements.forEach(service => {
-        service.addEventListener("click", () => {
-            const serviceName = service.textContent.trim();
-            const selectedService = services[serviceName];
+    // Fonction pour positionner les cercles sur la carte
+    function placeCircles() {
+        const mapWidth = mapContainer.offsetWidth;  // Largeur réelle de la carte (en pixels)
+        const mapHeight = mapContainer.offsetHeight;  // Hauteur réelle de la carte (en pixels)
 
-            if (selectedService) {
-                // Mise à jour de la description
-                const { description, image, coords } = selectedService;
-                descriptionContainer.innerHTML = `
-                    <h3>${serviceName}</h3>
-                    <p>${description || "Description non disponible."}</p>
-                    ${image ? `<img src="${image}" alt="${serviceName}" style="max-width: 100%; height: auto;">` : "<p>Aucune image disponible pour ce service.</p>"}
-                `;
-                descriptionContainer.style.display = "block";
+        const serviceElements = document.querySelectorAll(".services");
+        serviceElements.forEach(service => {
+            service.addEventListener("click", () => {
+                const serviceName = service.textContent.trim();
+                const selectedService = services[serviceName];
 
-                // Supprimer les cercles existants
-                const existingCircles = document.querySelectorAll(".circle");
-                existingCircles.forEach(circle => circle.remove());
+                if (selectedService) {
+                    const { description, image, coords } = selectedService;
 
-                // Ajouter un nouveau cercle
-                if (coords) {
-                    const [x, y] = coords;
-                    const circle = document.createElement("div");
-                    circle.className = "circle";
-                    circle.style.left = `${x}px`;
-                    circle.style.top = `${y}px`;
-                    mapContainer.appendChild(circle);
+                    // Mise à jour de la description
+                    descriptionContainer.innerHTML = `
+                        <h3>${serviceName}</h3>
+                        <p>${description || "Description non disponible."}</p>
+                        ${image ? `<img src="${image}" alt="${serviceName}" style="max-width: 100%; height: auto;">` : ""}
+                    `;
+                    descriptionContainer.style.display = "block";
+
+                    // Supprimer les cercles existants
+                    const existingCircles = document.querySelectorAll(".circle");
+                    existingCircles.forEach(circle => circle.remove());
+
+                    // Calculer la position des cercles en pourcentage de la carte
+                    if (coords) {
+                        const [x, y] = coords;
+
+                        // Convertir les coordonnées en pourcentage par rapport à la taille de l'élément `#map`
+                        const xPercent = (x / mapWidth) * 100; // Coordonnée x relative en pourcentage
+                        const yPercent = (y / mapHeight) * 100; // Coordonnée y relative en pourcentage
+
+                        // Créer un cercle
+                        const circle = document.createElement("div");
+                        circle.className = "circle";
+                        circle.style.left = `${xPercent}%`; // Position horizontale relative
+                        circle.style.top = `${yPercent}%`; // Position verticale relative
+                        mapContainer.appendChild(circle);
+                    }
                 }
-            }
+            });
         });
-    });
-});
+    }
+
+
+     // Exécuter la fonction au chargement de la page et lors du redimensionnement de la fenêtre
+     placeCircles();
+
+     // Recalcule les positions des cercles lors du redimensionnement de la fenêtre
+     window.addEventListener("resize", placeCircles);
+ });
