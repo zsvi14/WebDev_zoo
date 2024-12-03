@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion admin</title>
+    <link rel="stylesheet" href="../../CSS_JS/style_connexion_admin.css">
+</head>
+<body>
+<header>
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+</header>
+
+<div class="form-container">
+    <h2>Connexion admin</h2>
+    <form id="loginForm">
+        <input type="text" id="loginIdentifiant" placeholder="Identifiant" required>
+        <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <p id="loginMessage" style="color: red; font-weight: bold; display: none;"></p>
+</div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const identifiant = document.getElementById("loginIdentifiant").value;
+        const password = document.getElementById("loginPassword").value;
+
+        fetch('../../../back/connexion/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `identifiant=${encodeURIComponent(identifiant)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            const loginMessage = document.getElementById("loginMessage");
+            if (data.success) {
+                // Succès : redirection
+                window.location.href = "home.html";
+            } else {
+                // Affichage du message d'erreur
+                loginMessage.style.display = "block";
+                loginMessage.style.color = "red";
+                loginMessage.textContent = data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            const loginMessage = document.getElementById("loginMessage");
+            loginMessage.style.display = "block";
+            loginMessage.style.color = "red";
+            loginMessage.textContent = "Une erreur inattendue s'est produite.";
+        });
+    });
+</script>
+</body>
+</html>
