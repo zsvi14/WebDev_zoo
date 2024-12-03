@@ -1,17 +1,3 @@
-// Enregistrement de l'utilisateur
-//inscription, connexion, affichage des info de profil et déconnexion.
-document.getElementById("registerForm")?.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    // Sauvegarder les informations dans localStorage
-    const user = { username, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
-    alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-    window.location.href = "HTML/connexion/index.html";
-});
 
 // Connexion de l'utilisateur
 document.getElementById("loginForm")?.addEventListener("submit", function(e) {
@@ -43,24 +29,15 @@ if (window.location.pathname.includes("HTML/connexion\inscrip\connexionprofile.h
         window.location.href = "HTML/connexion/index.html";
     }
 }*/
-
-// Déconnexion
 function logout() {
-   /* localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("nom");
-    localStorage.removeItem("prenom");
-    localStorage.removeItem("mail");
-    alert("Déconnexion réussie !");
-    window.location.href = "../../HTML/connexion/index.html"; */
-
-    fetch("../../../back/connexion/logout.php", { method: "POST" })
+    fetch("/WebDev_zoo/back/connexion/logout.php", { method: "POST" })
     .then(() => {
-      alert('Vous êtes déconnecté. Vous allez être redirigé à la page principal. Revenez nous voir.');
-      window.location.href = "home.html";
+        alert("Déconnexion réussie. Vous allez être redirigé.");
+        window.location.href = "/WebDev_zoo/front/HTML/connexion/index.html"; // Modifier avec le chemin correct
     })
     .catch((error) => {
-      console.error("Erreur lors de la déconnexion :", error);
-      alert("Une erreur s'est produite lors de la déconnexion. Veuillez réessayer.");
+        console.error("Erreur lors de la déconnexion :", error);
+        alert("Une erreur s'est produite lors de la déconnexion.");
     });
 }
 
@@ -217,7 +194,7 @@ let currentIndex = 1;
 
 // Fonction pour afficher une image spécifique
 /*function showImage(index) {
-  
+
   images[index].classList.add('active'); // Ajoute la classe 'active' à l'image actuelle
 }
 

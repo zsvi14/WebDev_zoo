@@ -1,13 +1,20 @@
-<!--page de connexion-->
 <!DOCTYPE html>
+<!--page de connexion-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
-<body>
+
+<body >
+<header>
+    <!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+</header>
+
     <div class="form-container">
         <h2>Connexion</h2>
         <form id="loginForm">
@@ -17,6 +24,36 @@
         </form>
         <p>Pas encore inscrit ? <a href="register.html">Inscrivez-vous ici</a></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            // Envoi des informations de connexion
+            fetch('../../../back/connexion/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem("isLoggedIn", "true"); // Marquer comme connecté
+                    localStorage.setItem("username", data.user.nom);
+                    localStorage.setItem("email", data.user.mail);
+                    window.location.href = "home.html"; // Rediriger vers la page d'accueil
+                } else {
+                    alert(data.message); // Afficher un message d'erreur
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+        });
+    </script>
+    
+    
 </body>
 </html>

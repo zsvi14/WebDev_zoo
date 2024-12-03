@@ -1,5 +1,5 @@
-<!--ajouter un avis-->
 <?php
+//ajouter un avis
 ini_set('display_errors', 0); // Désactive l'affichage des erreurs
 header("Content-Type: application/json"); // Définit le type de contenu comme JSON
 

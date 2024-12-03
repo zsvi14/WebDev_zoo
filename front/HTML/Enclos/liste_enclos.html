@@ -75,6 +75,7 @@
         // Fonction pour récupérer la liste des enclos depuis le fichier PHP
         function fetchEnclos() {
             fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')  // L'URL de votre fichier PHP
+
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erreur HTTP : ' + response.status);

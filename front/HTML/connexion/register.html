@@ -1,35 +1,58 @@
-<!-- page inscription -->
 <!DOCTYPE html>
+<!-- page inscription -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
+
+<header>
+    <!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+    </header>
+
 <body>
     <div class="form-container">
         <h2>Inscription</h2>
         <form id="registerForm">
-            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Mot de passe" required>
+            <input type="nom" id="registerUsername" placeholder="Nom d'utilisateur" required>
+            <input type="mail" id="registerEmail" placeholder="Email" required>
+            <input type="password" id="registerPassword" placeholder="Mot de passe" required>
             <button type="submit">S'inscrire</button>
         </form>
         <p>Déjà inscrit ? <a href="index.html">Connectez-vous ici</a></p>
-        <!-- Zone de message -->
-        <p id="confirmationMessage" style="display: none; color: rgb(28, 144, 109);">Vous êtes inscrit !</p>
     </div>
 
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Empêche le formulaire de se soumettre normalement
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            // Afficher le message de confirmation
-            document.getElementById('confirmationMessage').style.display = 'block';
+            const username = document.getElementById("registerUsername").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
 
+            // Envoi des données au fichier PHP pour les enregistrer dans la base de données
+            fetch('../../../back/connexion/register.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `nom=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+                    window.location.href = "index.html"; // Rediriger vers la page de connexion
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
         });
     </script>
 </body>
 </html>
-

@@ -9,13 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
         crs: L.CRS.Simple
     });
 
+
     // Définir les dimensions de l'image SVG en pixels
-    const width = 2400.000000 pt;   //  SVG width="2400.000000pt" height="1260.000000pt"
-    const height = 1260.000000 pt;
+    const width = 2400.000000;   //  SVG width="2400.000000pt" height="1260.000000pt"
+    const height = 1260.000000;
     const bounds = [[0, 0], [height, width]];
 
     // Ajouter l'image SVG en tant que fond de carte
-    L.imageOverlay('front/images/plan_park.svg', bounds).addTo(map);
+    //L.imageOverlay('../front/Images/plan_park.svg', bounds).addTo(map);
+    L.imageOverlay('../../Images/plan_park.svg', bounds).addTo(map);
 
     // Ajuster la vue de la carte pour qu'elle corresponde aux dimensions de l'image
     map.fitBounds(bounds);

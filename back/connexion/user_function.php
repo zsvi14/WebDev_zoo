@@ -1,5 +1,5 @@
-<!-- fonctions utilitaires -->
 <?php
+//fonctions utilitaires
 function getUserByEmail($email) {
     global $conn;
     $sql = "SELECT id, name, email, role FROM users WHERE email = '$email'";

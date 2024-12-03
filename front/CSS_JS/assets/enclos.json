@@ -1,6 +1,6 @@
 [
     {
-        "nom": "Enclos des Réptiles",
+        "nom": "Les Réptiles",
         "animaux": [
             {"nom": "Python"},
             {"nom": "Tortue"},
@@ -17,7 +17,7 @@
     {
         "nom": "Enclos des Panthères",
         "animaux": [
-            {"nom": "Panthère"}
+            {"nom": "Panthères"}
         ]
     },
     {
@@ -29,13 +29,13 @@
         ]
     },
     {
-        "nom": "Enclos des Suricates",
+        "nom": "Enclos des Surricates",
         "animaux": [
-            {"nom": "Suricate"}
+            {"nom": "Surricates"}
         ]
     },
     {
-        "nom": "Enclos des Fennecs",
+        "nom": "Enclos des Fennec",
         "animaux": [
             {"nom": "Fennec"}
         ]
@@ -43,87 +43,87 @@
     {
         "nom": "Enclos des Acrobates de la Jungle",
         "animaux": [
-            {"nom": "Coati"},
-            {"nom": "Saimiri"}
+            {"nom": "Coatis"},
+            {"nom": "Saimiris"}
         ]
     },
     {
         "nom": "Enclos des Tapirs",
         "animaux": [
-            {"nom": "Tapir"}
+            {"nom": "Tapirs"}
         ]
     },
     {
         "nom": "Enclos des Guépards",
         "animaux": [
-            {"nom": "Guépard"}
+            {"nom": "Guépards"}
         ]
     },
     {
         "nom": "Enclos des Grands Coureurs",
         "animaux": [
-            {"nom": "Autruche"},
-            {"nom": "Gazelle"}
+            {"nom": "Autruches"},
+            {"nom": "Gazelles"}
         ]
     },
     {
         "nom": "Enclos des Casoars",
         "animaux": [
-            {"nom": "Casoar"}
+            {"nom": "Casoars"}
         ]
     },
     {
         "nom": "Enclos des Crocodiles Nains",
         "animaux": [
-            {"nom": "Crocodile Nain"}
+            {"nom": "Crocodiles Nains"}
         ]
     },
     {
         "nom": "Enclos des Lions",
         "animaux": [
-            {"nom": "Lion"}
+            {"nom": "Lions"}
         ]
     },
     {
         "nom": "Enclos des Hippopotames",
         "animaux": [
-            {"nom": "Hippopotame"}
+            {"nom": "Hippopotames"}
         ]
     },
     {
         "nom": "Enclos des Zèbres",
         "animaux": [
-            {"nom": "Zèbre"}
+            {"nom": "Zèbres"}
         ]
     },
     {
         "nom": "Enclos des Hyènes",
         "animaux": [
-            {"nom": "Hyène"}
+            {"nom": "Hyènes"}
         ]
     },
     {
         "nom": "Enclos des Loups à Crinières",
         "animaux": [
-            {"nom": "Loup à Crinières"}
+            {"nom": "Loups à Crinières"}
         ]
     },
     {
         "nom": "Enclos des Têtes en l'Air",
         "animaux": [
-            {"nom": "Girafe"},
-            {"nom": "Grivet Cercopithèque"}
+            {"nom": "Giafes"},
+            {"nom": "Grivets Cercopithèques"}
         ]
     },
     {
-        "nom": "Enclos des Titans de la Nature",
+        "nom": "Enclos des Titans de la nature",
         "animaux": [
-            {"nom": "Éléphant"},
+            {"nom": "Eléphants"},
             {"nom": "Varan de Komodo"}
         ]
     },
     {
-        "nom": "Enclos des Pandas Roux",
+        "nom": "Enclos des Panda Roux",
         "animaux": [
             {"nom": "Panda Roux"}
         ]
@@ -131,64 +131,64 @@
     {
         "nom": "Enclos des Lémuriens",
         "animaux": [
-            {"nom": "Lémurien"}
+            {"nom": "Lémuriens"}
         ]
     },
     {
         "nom": "Enclos des Chèvres Naines",
         "animaux": [
-            {"nom": "Chèvre Naine"}
+            {"nom": "Chèvres Naines"}
         ]
     },
     {
         "nom": "Enclos des Tortues",
         "animaux": [
-            {"nom": "Tortue"}
+            {"nom": "Tortues"}
         ]
     },
     {
         "nom": "Enclos des Mouflons",
         "animaux": [
-            {"nom": "Mouflon"}
+            {"nom": "Mouflons"}
         ]
     },
     {
         "nom": "Enclos Ruisseau des Curieux",
         "animaux": [
             {"nom": "Binturong"},
-            {"nom": "Loutre"}
+            {"nom": "Loutres"}
         ]
     },
     {
         "nom": "Enclos des Macaques Crabiers",
         "animaux": [
-            {"nom": "Macaque Crabier"}
+            {"nom": "Macaques Crabiers"}
         ]
     },
     {
         "nom": "Enclos des Cerfs",
         "animaux": [
-            {"nom": "Cerf"}
+            {"nom": "Cerfs"}
         ]
     },
     {
         "nom": "Enclos des Vautours",
         "animaux": [
-            {"nom": "Vautour"}
+            {"nom": "Vautours"}
         ]
     },
     {
-        "nom": "Enclos Plaine des Élégants",
+        "nom": "Enclos Plaine des Elégants",
         "animaux": [
-            {"nom": "Antilope"},
-            {"nom": "Daim"},
-            {"nom": "Nilgaut"}
+            {"nom": "Antilopes"},
+            {"nom": "Daims"},
+            {"nom": "Nilgauts"}
         ]
     },
     {
         "nom": "Enclos des Loups d'Europe",
         "animaux": [
-            {"nom": "Loup d'Europe"}
+            {"nom": "Loups d'Europe"}
         ]
     },
     {
@@ -200,73 +200,73 @@
     {
         "nom": "Enclos des Servals",
         "animaux": [
-            {"nom": "Serval"}
+            {"nom": "Servals"}
         ]
     },
     {
         "nom": "Enclos des Chiens des Buissons",
         "animaux": [
-            {"nom": "Chien des Buissons"}
+            {"nom": "Chiens des Buissons"}
         ]
     },
     {
         "nom": "Enclos des Tigres",
         "animaux": [
-            {"nom": "Tigre"}
+            {"nom": "Tigres"}
         ]
     },
     {
         "nom": "Enclos du Désert Provençal",
         "animaux": [
-            {"nom": "Dromadaire"},
-            {"nom": "Âne de Provence"}
+            {"nom": "Dromadaires"},
+            {"nom": "Anes de Provence"}
         ]
     },
     {
         "nom": "Enclos des Bisons",
         "animaux": [
-            {"nom": "Bison"}
+            {"nom": "Bisons"}
         ]
     },
     {
-        "nom": "Enclos des Porcs-Épics",
+        "nom": "Enclos des Porc-Epic",
         "animaux": [
-            {"nom": "Porc-Épic"}
+            {"nom": "Porc-Epic"}
         ]
     },
     {
         "nom": "Enclos des Pécaris",
         "animaux": [
-            {"nom": "Pécari"}
+            {"nom": "Pécaris"}
         ]
     },
     {
         "nom": "Enclos la Terre des Australes",
         "animaux": [
-            {"nom": "Émeu"},
+            {"nom": "Emeu"},
             {"nom": "Wallaby"}
         ]
     },
     {
         "nom": "Enclos la Savane Tropicale",
         "animaux": [
-            {"nom": "Flamant Rose"},
+            {"nom": "Flamant Roses"},
             {"nom": "Nandou"},
-            {"nom": "Tamanoir"}
+            {"nom": "Tamanoirs"}
         ]
     },
     {
         "nom": "Enclos Lagune des Explorateurs",
         "animaux": [
-            {"nom": "Tortue"},
+            {"nom": "Tortues"},
             {"nom": "Ibis"}
         ]
     },
     {
         "nom": "Enclos des Longues Plumes",
         "animaux": [
-            {"nom": "Cigogne"},
-            {"nom": "Marabout"}
+            {"nom": "Cigognes"},
+            {"nom": "Marabouts"}
         ]
     },
     {
@@ -274,30 +274,14 @@
         "animaux": [
             {"nom": "Oryx Algazelle"},
             {"nom": "Watusi"},
-            {"nom": "Âne de Somalie"}
+            {"nom": "Anes de Somalie"}
         ]
     },
     {
         "nom": "Enclos le Refuge des Montagnes",
         "animaux": [
             {"nom": "Yack"},
-            {"nom": "Mouton Noir"}
-        ]
-    },
-    {
-        "nom": "Enclos des Ouistitis",
-        "animaux": [
-            {"nom": "Ouistiti Gibbon"}
-        ]
-    },
-    {
-        "nom": "Enclos des Capucins",
-        "animaux": [
-            {"nom": "Capucin"}
+            {"nom": "Moutons Noir"}
         ]
     }
 ]
-
-
-
-

@@ -6,41 +6,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil Zoo</title>
-    <link rel="stylesheet" href="../../CSS_JS/styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">  
 </head>
+
 <body>
-    <header>
-        <h1>Bienvenue au Zoo</h1>
+    <header><!-- en tete de la page-->
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+        <div class="header-content">
+            <h1 >🦒🐘🦓Le rrrh parc🦁🦓🦒</h1><br><br>
+            <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2><br> 
+        </div>
+    </header>
+
         <nav>
-            <ul>
+            <ul><br>
                 <li><a href="index.html">Connexion</a></li>
                 <li><a href="register.html">Inscription</a></li>
+                <li><a href="../../HTML/enclosur_review/enclosur_review.html">Commentaires</a></li>
+                <li id="profileNav"><a href="profil.html">Mon Profil</a></li>
+                <li><a href="billet.html">Billeterie</a></li> 
+                <li><a href="../Pages/Services.html">Services</a> </li>
+                <li><a href="../Enclos/liste_enclos.html">Enclos</a> </li>
             </ul>
         </nav>
-    </header>
+       
+    
+    <script>
+        // Vérification si l'utilisateur est connecté
+        if (localStorage.getItem("isLoggedIn") === "true") {
+        document.getElementById("profileNav").style.display = "inline";
+    }
+
+//verifie message review sur la page d acceuil
+// Check for success or error message from the URL
+const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    const error = urlParams.get('error');
+
+    if (success) {
+        document.getElementById('review-message').textContent = 'Votre avis a été soumis avec succès !';
+    } else if (error) {
+        document.getElementById('review-message').textContent = 'Une erreur s est produite lors de la soumission de l avis.';
+    }
+
+    </script>
+    
 
     <main>
         <!-- Section pour la carte du zoo -->
         <section class="zoo-map">
-            <h2>Carte du Zoo</h2>
             <button onclick="showMap()">Voir la carte du zoo</button>
             <!-- Zone pour afficher la carte en pop-up -->
             <div id="mapModal" class="modal">
                 <span onclick="closeMap()" class="close">&times;</span>
-                <img src="../../Images/PLANS-DU-PARC.jpg" alt="Carte du zoo" class="map-image">
+                <img src="../../Images/plan_park.jpg" alt="Carte du zoo" class="map-image">
             </div>
         </section>
 
+ <div class="header">
+            <h1 >🦒Horaires d'ouverture🦒</h1>
+            <h2>Ouvert du Mardi au Dimanche</h2> 
+            <h2>De 10h à 18h</h2>
+</div>
+
         <!-- Section pour le carrousel d'images -->
         <section class="carousel">
-            <h2>Découvrez nos animaux</h2>
+            <h3>🐾Venez découvir nos animaux🐾</h3>
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1">
-                    <img src="../../Images/girafe-zoo.jpg" alt="Animal 2">
-                    <img src="../../Images/Gnou_zoo.jpg" alt="Animal 3">
-                    <img src="../../Images/zebres.jpg" alt="Animal 4">
-                    <img src="../../Images/gnous_zoo.jpg" alt="Animal 5">
+                    <img src="../../Images/Branféré-Panda-roux.jpg" alt="Animal 1" >
+                    <img src="../../Images/girafe-zoo.jpg" alt="Animal 2" >
+                    <img src="../../Images/Gnou_zoo.webp" alt="Animal 3" >
+                    <img src="../../Images/zebres.jpg" alt="Animal 4" >
+                    <img src="../../Images/gnous_zoo.jpg" alt="Animal 5" >
                 </div>
             </div>
         </section>

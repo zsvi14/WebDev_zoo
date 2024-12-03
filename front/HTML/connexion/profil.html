@@ -1,19 +1,68 @@
-<!-- page de profil-->
 <!DOCTYPE html>
+<!-- page de profil-->
 <html lang="fr">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Utilisateur</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
-<body>
-    <div class="profile-container">
-        <h2>Profil Utilisateur</h2>
-        <p><strong>Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
-        <p><strong>Email :</strong> <span id="displayEmail"></span></p>
+
+<header>
+    <!-- en tete de la page-->
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+    </header>
+
+<body class="body-profil">
+
+    <main class="profile-container">
+        <h2>🐾Bienvenue dans votre espace profil, explorateur du Zoo ! 🐾</h2>        
+        <section class="profile-info">
+        <p><strong>🦁Nom d'utilisateur :</strong> <span id="displayUsername"></span></p>
+        <p><strong>🦒Email :</strong> <span id="displayEmail"></span></p><br>
+        </section>
         <button onclick="logout()">Déconnexion</button>
-    </div>
-    <script src="script.js"></script>
+        
+    <section class="photo-section">
+        <div class="photo-box">
+            <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda"> 
+        </div>
+    </section>
+    </main>  
+
+    <script>
+    
+    document.addEventListener("DOMContentLoaded", function () { 
+    const islogged = localStorage.getItem('isLoggedIn');
+
+    console.log("islogged ".islogged);
+
+    // Si des informations sont stockées, les afficher
+        if (islogged == "true") {
+            document.getElementById("displayUsername").textContent = localStorage.getItem('username');
+            document.getElementById("displayEmail").textContent = localStorage.getItem('email');
+        } else {
+        // Si aucune information n'est stockée, rediriger vers la page de connexion
+            alert("Vous devez être connecté pour accéder à votre profil.");
+            window.location.href = "index.html";
+        }
+    });
+
+    
+        // Fonction de déconnexion 
+        //mes infos sont stockés localement donc pas besoin de back tout est dans le local storage
+        function logout() {
+        
+               localStorage.removeItem("isLoggedIn");
+               alert('Vous êtes déconnecté. Vous aller être redirigé à la page principal. Revenez nous voir.🦒🐘');
+                    window.location.href = "home.html";
+        }
+
+    </script>
+    
+    
 </body>
 </html>

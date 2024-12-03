@@ -2,53 +2,28 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails de l'Enclos</title>
-    <link rel="stylesheet" href="/front/CSS_JS/assets/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Détails de l'Enclos</h1>
+    <div id="enclos-details"></div>
 
-    <header>
-        <h1>Détails de l'Enclos des Lions</h1>
-    </header>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
 
-    <main>
-        <section id="enclos-details">
-            <!-- Carrousel d'images de l'enclos -->
-            <div id="carrousel">
-                <!-- Image 1 -->
-                <img src="/front/CSS_JS/assets/" alt="Enclos des Trois Continents - Image Rhinocéros">
-                <br>
-                <!-- Image 2 -->
-                <img src="../assets/images.jpg" alt="Enclos des Trois Continents - Image Oryx Beisa">
-                <br>
-                <!-- Image 3 -->
-                <img src="../assets/images.jpg" alt="Enclos des Trois Continents - Image Gnou">
-                <br>
-            </div>
-
-            <!-- Description de l'enclos -->
-            <div id="enclos-description">
-                <h2>Enclos des Trosi Continents</h2>
-                <p>
-                   
-                </p>
-
-                <h3>Animaux présents</h3>
-                <ul>
-                    <li>Rhinocéros</li>
-                    <li>Oryx Beisa</li>
-                    <li>Gnou</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 Parc Animalier</p>
-    </footer>
-
-    <script src="/front/CSS_JS/script.js"></script>
+        fetch(`http://localhost/back/routes/enclos.php?id=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                const details = document.getElementById('enclos-details');
+                details.innerHTML = `
+                    <h2>${data.animal} - ${data.biome}</h2>
+                    <p>Couleur Biome: ${data.couleur}</p>
+                    <p>Repos: ${data.repos == 1 ? 'En travaux' : 'Ouvert'}</p>
+                    <div class="carousel">[Carrousel de photos ici]</div>
+                `;
+            });
+    </script>
 </body>
 </html>
-

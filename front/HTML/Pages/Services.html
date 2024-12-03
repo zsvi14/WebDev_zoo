@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS_JS/styles_z.css">
+    <title>Carte Interactive du Parc</title>
+</head>
+
+<body>
+  <header><!-- en tete de la page-->
+      <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+      <div class="header-content">
+          <h1 >🦒🐘🦓Le rrrh parc🦁🦓🦒</h1><br><br>
+          <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2><br>
+      </div>
+  </header>
+
+  <script src="../../CSS_JS/Services.js" defer></script>
+
+  <main>
+      <h1 id="title_services">Nos services</h1>
+
+      <!-- Conteneur des colonnes -->
+      <div class="services-container">
+          <!-- Première colonne -->
+          <div class="groupe_services">
+              <h3>Restauration</h3>
+              <h5 class="services">Paillote</h5>
+              <h5 class="services">Café Nomade</h5>
+              <h5 class="services">Café</h5>
+          </div>
+
+          <!-- Deuxième colonne -->
+          <div class="groupe_services">
+              <h3>Lieux d'animations</h3>
+              <h5 class="services">Tente pédagogique</h5>
+              <h5 class="services">Plateaux des jeux</h5>
+              <h5 class="services">Lodge</h5>
+              <h5 class="services">Le petit train</h5>
+          </div>
+
+          <!-- Troisième colonne -->
+          <div class="groupe_services">
+              <h3>Les essentiels</h3>
+              <h5 class="services">Espace pique-nique</h5>
+              <h5 class="services">Points d'eau</h5>
+              <h5 class="services">Toilettes</h5>
+              <h5 class="services">La gare</h5>
+          </div>
+      </div>
+
+      <div class="services-container">
+          <!-- Conteneur de la description -->
+          <div id="description-container">
+              <!-- Le contenu sera ajouté dynamiquement ici -->
+          </div>
+      </div>
+          <!-- Conteneur de la carte -->
+      <div id="map" class="map-container">
+        <img src="../../Images/plan_park_small.jpg" alt="Carte du parc" id="map-image">
+              <!-- Cercles ajoutés dynamiquement ici -->
+      </div>
+
+  </main>
+</body>
+</html>
