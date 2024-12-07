@@ -1,79 +1,102 @@
-<script>
-    function afficherEnclos(data) {
-        const container = document.getElementById('enclos-container');
-        container.innerHTML = '';
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS_JS/style_siham.css">
+    <title>Liste des Enclos</title>
+</head>
+<body>
+    <header>
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+        <h1 class="park-name">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+    </header>
 
-        if (!data || data.length === 0) {
-            container.innerHTML = '<p>Aucun enclos trouvé.</p>';
-            return;
+    <h1 id="title_enclos">Liste des Enclos</h1>
+
+    <div id="enclos-container">
+        <!-- Les enclos seront affichés ici -->
+    </div>
+
+    <script>
+        function afficherEnclos(data) {
+            const container = document.getElementById('enclos-container');
+            container.innerHTML = '';
+
+            if (!data || data.length === 0) {
+                container.innerHTML = '<p>Aucun enclos trouvé.</p>';
+                return;
+            }
+
+            const enclosMap = {};
+            data.forEach(item => {
+                if (!enclosMap[item.nom_enclos]) {
+                    enclosMap[item.nom_enclos] = {
+                        biome: item.biome,
+                        animaux: []
+                    };
+                }
+                enclosMap[item.nom_enclos].animaux.push(item.animal);
+            });
+
+            Object.keys(enclosMap).forEach(nomEnclos => {
+                const enclos = enclosMap[nomEnclos];
+                const enclosDiv = document.createElement('div');
+                enclosDiv.classList.add('enclos');
+
+                const enclosTitle = document.createElement('h3');
+                enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
+                enclosDiv.appendChild(enclosTitle);
+
+                if (enclos.animaux.length > 0) {
+                    const animauxList = document.createElement('ul');
+                    enclos.animaux.forEach(animal => {
+                        const animalItem = document.createElement('li');
+
+                        // Ajouter la photo et le nom de l'animal
+                        const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
+                        const img = document.createElement('img');
+                        img.src = photoPath;
+                        img.alt = `${animal}`;
+                        img.style.width = '100px'; // Modifier la taille de l'image selon besoin
+                        img.style.height = '100px';
+                        
+                        const animalName = document.createElement('span');
+                        animalName.textContent = animal;
+
+                        // Créer un lien vers la page des détails de l'animal
+                        const link = document.createElement('a');
+                        link.href = `details_animal.php?animal=${encodeURIComponent(animal)}`; // Lien dynamique avec l'animal
+                        link.appendChild(img);
+                        link.appendChild(animalName);
+                        
+                        animalItem.appendChild(link);
+                        animauxList.appendChild(animalItem);
+                    });
+                    enclosDiv.appendChild(animauxList);
+                } else {
+                    const noAnimalText = document.createElement('p');
+                    noAnimalText.textContent = 'Aucun animal dans cet enclos.';
+                    enclosDiv.appendChild(noAnimalText);
+                }
+
+                container.appendChild(enclosDiv);
+            });
         }
 
-        const enclosMap = {};
-        data.forEach(item => {
-            if (!enclosMap[item.nom_enclos]) {
-                enclosMap[item.nom_enclos] = {
-                    biome: item.biome,
-                    animaux: []
-                };
-            }
-            enclosMap[item.nom_enclos].animaux.push(item.animal);
-        });
-
-        Object.keys(enclosMap).forEach(nomEnclos => {
-            const enclos = enclosMap[nomEnclos];
-            const enclosDiv = document.createElement('div');
-            enclosDiv.classList.add('enclos');
-
-            const enclosTitle = document.createElement('h3');
-            enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
-            enclosDiv.appendChild(enclosTitle);
-
-            if (enclos.animaux.length > 0) {
-                const animauxList = document.createElement('ul');
-                enclos.animaux.forEach(animal => {
-                    const animalItem = document.createElement('li');
-
-                    // Construire le chemin de l'image avec le bon dossier
-                    const photoPath = `../../image_enclos/${animal.toLowerCase().replace(/\s+/g, '_')}.jpg`; // Mettre à jour le chemin d'accès à l'image
-                    const img = document.createElement('img');
-                    img.src = photoPath;
-                    img.alt = `Photo de ${animal}`;
-                    img.style.width = '100px'; // Modifier la taille de l'image selon besoin
-                    img.style.height = '100px';
-                    
-                    const animalName = document.createElement('span');
-                    animalName.textContent = animal;
-
-                    // Créer un lien vers la page des détails de l'animal
-                    const link = document.createElement('a');
-                    link.href = `details_animal.php?animal=${encodeURIComponent(animal)}`; // Lien dynamique avec l'animal
-                    link.appendChild(img);
-                    link.appendChild(animalName);
-                    
-                    animalItem.appendChild(link);
-                    animauxList.appendChild(animalItem);
+        function fetchEnclos() {
+            fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
+                .then(response => response.json())
+                .then(data => {
+                    afficherEnclos(data);
+                })
+                .catch(error => {
+                    console.error('Erreur lors de la récupération des données :', error);
                 });
-                enclosDiv.appendChild(animauxList);
-            } else {
-                const noAnimalText = document.createElement('p');
-                noAnimalText.textContent = 'Aucun animal dans cet enclos.';
-                enclosDiv.appendChild(noAnimalText);
-            }
+        }
 
-            container.appendChild(enclosDiv);
-        });
-    }
+        window.onload = fetchEnclos;
+    </script>
 
-    function fetchEnclos() {
-        fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
-            .then(response => response.json())
-            .then(data => {
-                afficherEnclos(data);
-            })
-            .catch(error => {
-                console.error('Erreur lors de la récupération des données :', error);
-            });
-    }
-
-    window.onload = fetchEnclos;
-</script>
+</body>
+</html>
