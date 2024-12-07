@@ -50,7 +50,7 @@
                 
                 // Lien vers les détails de l'enclos (sur une autre page)
                 const enclosLink = document.createElement('a');
-                enclosLink.href = `details_enclos.php?id=${id}`; // Lien avec l'ID de l'enclos
+                enclosLink.href = `http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${id}`;
                 enclosLink.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
                 enclosLink.classList.add('enclos-link');
                 enclosDiv.appendChild(enclosLink);
