@@ -44,7 +44,7 @@ $enclosDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <header>
-    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <button class="home-button" onclick="window.location.href='../enclos/liste_enclos.html';">Retour</button>
     <h1 class="park-name">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
 </header>
 
