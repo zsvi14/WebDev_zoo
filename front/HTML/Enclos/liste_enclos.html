@@ -50,13 +50,22 @@
             const enclos = enclosMap[id];
             const enclosDiv = document.createElement('div');
             enclosDiv.classList.add('enclos');
-                
+             /*   
             // Lien vers les détails de l'enclos (sur une autre page)
             const enclosLink = document.createElement('a');
             enclosLink.href = `http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${id}`;
             enclosLink.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
             enclosLink.classList.add('enclos-link');
             enclosDiv.appendChild(enclosLink);
+*/
+
+            // Ajouter l'image de l'animal
+            const photoPath = `../../../Image_enclos/${animal.toLowerCase()}.jpg`; // Assurez-vous que l'image est bien dans ce chemin
+                const img = document.createElement('img');
+                img.src = photoPath;
+                img.alt = animal;
+                img.classList.add('animal-image'); // Classe pour formater l'image
+
 
             // Liste des animaux présents dans cet enclos
             if (enclos.animaux.length > 0) {
