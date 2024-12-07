@@ -57,7 +57,7 @@ $enclosDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo "<ul>";
         echo "<li>" . $detail['animal'] . "</li>";
         // Assumer que l'image est dans le dossier 'images/animaux/' et que l'image est nommée selon l'ID de l'animal
-        $imagePath = "image enclos" . strtolower($detail['animal']) . ".jpg"; // Exemple de nommage basé sur le nom de l'animal
+        $imagePath = "image enclos/" . strtolower($detail['animal']) . ".jpg"; // Exemple de nommage basé sur le nom de l'animal
         if (file_exists($imagePath)) {
             echo "<img src='" . $imagePath . "' alt='Photo de " . $detail['animal'] . "' />";
         } else {
