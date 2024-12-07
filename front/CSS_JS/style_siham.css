@@ -28,8 +28,8 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;  /* Taille de la case */
-    height: 300px; /* Taille de la case */
+    width: 400px;  /* Taille de la case */
+    height: 400px; /* Taille de la case */
     text-align: center;
     position: relative;
     overflow: hidden;
