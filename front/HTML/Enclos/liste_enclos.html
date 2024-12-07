@@ -42,38 +42,21 @@
             Object.keys(enclosMap).forEach(nomEnclos => {
                 const enclos = enclosMap[nomEnclos];
                 const enclosDiv = document.createElement('div');
-                enclosDiv.classList.add('enclos');
+                enclosDiv.classList.add('enclos-card'); // Utiliser la classe pour l'enclos
 
-                const enclosTitle = document.createElement('h3');
-                enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
-                enclosDiv.appendChild(enclosTitle);
-
+                // Ici, nous allons juste ajouter les images des animaux dans l'enclos
                 if (enclos.animaux.length > 0) {
-                    const animauxList = document.createElement('ul');
                     enclos.animaux.forEach(animal => {
-                        const animalItem = document.createElement('li');
-
-                        //Ajouter la photo et le nom de l'animal
-                        const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
+                        // Ajouter l'image de chaque animal
+                        const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Image selon le nom de l'animal
                         const img = document.createElement('img');
                         img.src = photoPath;
                         img.alt = `${animal}`;
-                        img.style.width = '400px'; // Modifier la taille de l'image selon besoin
-                        img.style.height = '400px';
+                        img.classList.add('animal-image'); // Appliquer une classe pour l'image
                         
-                        const animalName = document.createElement('span');
-                        animalName.textContent = animal;
-                        
-                        // Créer un lien vers la page des détails de l'animal
-                        const link = document.createElement('a');
-                        link.href = `details_animal.php?animal=${encodeURIComponent(animal)}`; // Lien dynamique avec l'animal
-                        link.appendChild(img);
-                        link.appendChild(animalName);
-                        
-                        animalItem.appendChild(link);
-                        animauxList.appendChild(animalItem);
+                        // Ajouter l'image à l'enclos
+                        enclosDiv.appendChild(img);
                     });
-                    enclosDiv.appendChild(animauxList);
                 } else {
                     const noAnimalText = document.createElement('p');
                     noAnimalText.textContent = 'Aucun animal dans cet enclos.';
