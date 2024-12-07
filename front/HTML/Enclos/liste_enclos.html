@@ -54,10 +54,10 @@
                         const animalItem = document.createElement('li');
 
                         // Ajouter la photo et le nom de l'animal
-                        const photoPath = `../../image enclos${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
+                        const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
                         const img = document.createElement('img');
                         img.src = photoPath;
-                        img.alt = `Photo de ${animal}`;
+                        img.alt = `${animal}`;
                         img.style.width = '100px'; // Modifier la taille de l'image selon besoin
                         img.style.height = '100px';
                         
