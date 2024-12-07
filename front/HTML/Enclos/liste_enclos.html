@@ -50,23 +50,34 @@
             const enclos = enclosMap[id];
             const enclosDiv = document.createElement('div');
             enclosDiv.classList.add('enclos');
-                
-            // Lien vers les détails de l'enclos (sur une autre page)
-            const enclosLink = document.createElement('a');
-            enclosLink.href = `http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${id}`;
-            enclosLink.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
-            enclosLink.classList.add('enclos-link');
-            enclosDiv.appendChild(enclosLink);
 
-            // Liste des animaux présents dans cet enclos
+            // Ajouter le nom et le biome de l'enclos
+            const enclosTitle = document.createElement('h3');
+            enclosTitle.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
+            enclosDiv.appendChild(enclosTitle);
+
+            // Créer une case pour chaque animal
             if (enclos.animaux.length > 0) {
-                const animauxList = document.createElement('ul');
                 enclos.animaux.forEach(animal => {
-                    const animalItem = document.createElement('li');
-                    animalItem.textContent = animal;
-                    animauxList.appendChild(animalItem);
+                    const animalCard = document.createElement('div');
+                    animalCard.classList.add('animal-card');
+
+                    // Ajouter l'image de l'animal
+                    const photoPath = `../../../Image_enclos/${animal.toLowerCase()}.jpg`; // Assurez-vous que l'image est bien dans ce chemin
+                    const img = document.createElement('img');
+                    img.src = photoPath;
+                    img.alt = animal;
+                    img.classList.add('animal-image'); // Classe pour formater l'image
+
+                    // Ajouter le nom de l'animal
+                    const animalName = document.createElement('span');
+                    animalName.textContent = animal;
+
+                    animalCard.appendChild(img);
+                    animalCard.appendChild(animalName);
+
+                    enclosDiv.appendChild(animalCard); // Ajouter l'animal à l'enclos
                 });
-                enclosDiv.appendChild(animauxList);
             } else {
                 const noAnimalText = document.createElement('p');
                 noAnimalText.textContent = 'Aucun animal dans cet enclos.';
@@ -101,6 +112,5 @@
 
 </body>
 </html>
-
 
 
