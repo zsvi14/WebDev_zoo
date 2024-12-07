@@ -13,38 +13,33 @@ try {
     exit;
 }
 
-// Récupérer l'ID de l'enclos
-$enclosId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-
-if ($enclosId <= 0) {
-    echo "Enclos invalide.";
+// Vérifie si un ID d'enclos est passé dans l'URL
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    echo "ID d'enclos manquant.";
     exit;
 }
 
-// Requête pour les animaux de l'enclos
-$query = "SELECT a.nom AS animal, e.nom_enclos, b.nom AS biome
-          FROM animaux a
-          JOIN enclos e ON a.id_enclos = e.id
-          JOIN biomes b ON e.id_biomes = b.id
-          WHERE e.id = :enclosId";
+$enclosId = (int)$_GET['id'];
 
+// Requête pour récupérer les détails des animaux dans l'enclos
+$query = "SELECT e.nom_enclos, b.nom AS biome, a.nom AS animal
+          FROM enclos e
+          JOIN biomes b ON e.id_biomes = b.id
+          JOIN animaux a ON a.id_enclos = e.id
+          WHERE e.id = :enclosId";
 $stmt = $pdo->prepare($query);
-$stmt->execute(['enclosId' => $enclosId]);
+$stmt->bindParam(':enclosId', $enclosId, PDO::PARAM_INT);
+$stmt->execute();
 $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (!$details) {
+// Vérifie si des données ont été trouvées
+if (empty($details)) {
     echo "Aucun animal trouvé pour cet enclos.";
     exit;
 }
 
-// Définition de photos par défaut (sans modifier la BDD)
-$animalPhotos = [
-    'lion' => 'photos/lion.jpg',
-    'éléphant' => 'photos/elephant.jpg',
-    'zèbre' => 'photos/zebra.jpg',
-    'girafe' => 'photos/giraffe.jpg',
-];
-
+// Affiche les détails de l'enclos
+$enclos = $details[0];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -52,22 +47,17 @@ $animalPhotos = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS_JS/style_siham.css">
-    <title>Détails de l'enclos</title>
+    <title>Détails de l'enclos : <?= htmlspecialchars($enclos['nom_enclos']) ?></title>
 </head>
 <body>
-    <button onclick="window.history.back();">Retour</button>
-    <h1>Détails de l'enclos : <?= htmlspecialchars($details[0]['nom_enclos']) ?></h1>
-    <p>Biome : <?= htmlspecialchars($details[0]['biome']) ?></p>
+    <h1>Détails de l'enclos : <?= htmlspecialchars($enclos['nom_enclos']) ?></h1>
+    <p>Biome : <?= htmlspecialchars($enclos['biome']) ?></p>
 
     <h2>Animaux</h2>
-    <?php foreach ($details as $animal): ?>
-        <div class="animal">
+    <?php foreach ($details as $animal) : ?>
+        <div>
             <h3><?= htmlspecialchars($animal['animal']) ?></h3>
-            <?php
-            $animalName = strtolower($animal['animal']);
-            $photo = isset($animalPhotos[$animalName]) ? $animalPhotos[$animalName] : 'photos/default.jpg';
-            ?>
-            <img src="<?= htmlspecialchars($photo) ?>" alt="Photo de <?= htmlspecialchars($animal['animal']) ?>" style="max-width: 200px;">
+            <img src="photos/<?= strtolower($animal['animal']) ?>.jpg" alt="Photo de <?= htmlspecialchars($animal['animal']) ?>" style="width:150px;height:150px;">
         </div>
     <?php endforeach; ?>
 </body>
