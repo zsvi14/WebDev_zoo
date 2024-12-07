@@ -53,7 +53,7 @@
                     enclos.animaux.forEach(animal => {
                         const animalItem = document.createElement('li');
 
-                        // Ajouter la photo et le nom de l'animal
+                        /* Ajouter la photo et le nom de l'animal
                         const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
                         const img = document.createElement('img');
                         img.src = photoPath;
@@ -63,6 +63,15 @@
                         
                         const animalName = document.createElement('span');
                         animalName.textContent = animal;
+*/
+                        // Remplacer le titre par une image de l'enclos
+                        const imagePath = `../../image_enclos/${nomEnclos.toLowerCase().replace(/\s+/g, '_')}.jpg`; 
+                        const imgEnclos = document.createElement('img');
+                        imgEnclos.src = imagePath;
+                        imgEnclos.alt = `Image de l'enclos ${nomEnclos}`;
+                        imgEnclos.classList.add('enclos-image');
+                        enclosDiv.appendChild(imgEnclos);
+
 
                         // Créer un lien vers la page des détails de l'animal
                         const link = document.createElement('a');
