@@ -1,113 +1,91 @@
-/* Style global du corps de la page */
+/* CSS pour la page liste des enclos */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f4f4f4;
 }
 
-/* Style pour le titre de la page */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
 #title_enclos {
     text-align: center;
-    font-size: 36px;
-    color: #2c3e50;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-/* Conteneur des enclos */
+/* Style pour le conteneur des enclos */
 #enclos-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 20px;
     padding: 20px;
 }
 
-/* Style de base pour les enclos */
-.enclos {
-    background-color: white;
-    border-radius: 8px;
+.enclos-card {
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 250px;
+    width: 300px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
-
-/* Style de base pour les enclos */
-.enclos {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    margin: 10px;
-}
-
-
-/* Effet de survol sur l'enclos */
-.enclos:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Style du titre de chaque enclos */
-.enclos h3 {
+.enclos-card h3 {
     font-size: 20px;
-    color: #16a085;
     margin-bottom: 10px;
 }
 
-/* Style des éléments de la liste des animaux */
-.enclos li {
-    font-size: 16px;
-    color: #34495e;
+.animaux-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.animal-card {
+    width: 120px;
+    text-align: center;
+}
+
+.animal-card a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.animal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
     margin-bottom: 5px;
 }
 
-/* Style du bouton de retour à l'accueil */
+.animal-card p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Lien de retour à l'accueil */
 .home-button {
-    position: absolute;
-    left: 20px;
-    background-color: #227c07;
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .home-button:hover {
     background-color: #45a049;
 }
 
-/* Style du nom du parc */
 .park-name {
-    font-size: 40px;
-    color: #2c3e50;
+    font-size: 24px;
     margin: 0;
-}
-
-/* Mise en forme de l'en-tête */
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #bbf790;
-    padding: 10px 20px;
-    position: relative;
-}
-
-/* Ajout d'un style au footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
 }
