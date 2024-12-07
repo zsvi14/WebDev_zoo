@@ -31,20 +31,42 @@ $stmt->execute();
 
 // Récupérer les résultats
 $enclosDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Afficher les détails de l'enclos
-foreach ($enclosDetails as $detail) {
-    echo "<h1>" . $detail['nom_enclos'] . " (Biome : " . $detail['biome'] . ")</h1>";
-    echo "<h2>Animaux dans cet enclos :</h2>";
-    echo "<ul>";
-    echo "<li>" . $detail['animal'] . "</li>";
-    // Assumer que l'image est dans le dossier 'images/animaux/' et que l'image est nommée selon l'ID de l'animal
-    $imagePath = "images/animaux/" . strtolower($detail['animal']) . ".jpg"; // Exemple de nommage basé sur le nom de l'animal
-    if (file_exists($imagePath)) {
-        echo "<img src='" . $imagePath . "' alt='Photo de " . $detail['animal'] . "' />";
-    } else {
-        echo "<p>Image non disponible pour cet animal.</p>";
-    }
-    echo "</ul>";
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS_JS/style_siham.css"> <!-- Inclusion du fichier CSS -->
+    <title>Détails de l'Enclos</title>
+</head>
+<body>
+
+<header>
+    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <h1 class="park-name">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+</header>
+
+<main>
+    <?php
+    // Afficher les détails de l'enclos
+    foreach ($enclosDetails as $detail) {
+        echo "<h1>" . $detail['nom_enclos'] . " (Biome : " . $detail['biome'] . ")</h1>";
+        echo "<h2>Animaux dans cet enclos :</h2>";
+        echo "<ul>";
+        echo "<li>" . $detail['animal'] . "</li>";
+        // Assumer que l'image est dans le dossier 'images/animaux/' et que l'image est nommée selon l'ID de l'animal
+        $imagePath = "images/animaux/" . strtolower($detail['animal']) . ".jpg"; // Exemple de nommage basé sur le nom de l'animal
+        if (file_exists($imagePath)) {
+            echo "<img src='" . $imagePath . "' alt='Photo de " . $detail['animal'] . "' />";
+        } else {
+            echo "<p>Image non disponible pour cet animal.</p>";
+        }
+        echo "</ul>";
+    }
+    ?>
+</main>
+
+</body>
+</html>
