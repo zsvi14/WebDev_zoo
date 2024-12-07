@@ -60,8 +60,13 @@ body {
 
 /* Style des cartes d'animaux */
 .animal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 120px;
     text-align: center;
+    padding: 10px;
 }
 
 /* Lien de l'animal */
@@ -69,21 +74,23 @@ body {
     text-decoration: none;
     color: black;
     display: block;
+    text-align: center;
 }
 
-/* Image des animaux */
+/* Image des animaux dans un cercle */
 .animal-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    border-radius: 50%;  /* Rendre l'image circulaire */
+    margin-bottom: 10px; /* Espacement entre l'image et le nom */
 }
 
 /* Style pour le nom des animaux */
-.animal-card p {
+.animal-card span {
     font-size: 14px;
     font-weight: bold;
+    color: #333;
 }
 
 /* Style du bouton de retour à l'accueil */
@@ -129,4 +136,3 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
-
