@@ -20,69 +20,69 @@
 
     <script>
         function afficherEnclos(data) {
-            const container = document.getElementById('enclos-container');
-            container.innerHTML = '';
+    const container = document.getElementById('enclos-container');
+    container.innerHTML = '';
 
-            if (!data || data.length === 0) {
-                container.innerHTML = '<p>Aucun enclos trouvé.</p>';
-                return;
-            }
+    if (!data || data.length === 0) {
+        container.innerHTML = '<p>Aucun enclos trouvé.</p>';
+        return;
+    }
 
-            const enclosMap = {};
-            data.forEach(item => {
-                if (!enclosMap[item.nom_enclos]) {
-                    enclosMap[item.nom_enclos] = {
-                        biome: item.biome,
-                        animaux: []
-                    };
-                }
-                enclosMap[item.nom_enclos].animaux.push(item.animal);
-            });
-
-            Object.keys(enclosMap).forEach(nomEnclos => {
-                const enclos = enclosMap[nomEnclos];
-                const enclosDiv = document.createElement('div');
-                enclosDiv.classList.add('enclos');
-
-                const enclosTitle = document.createElement('h3');
-                enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
-                enclosDiv.appendChild(enclosTitle);
-
-                if (enclos.animaux.length > 0) {
-                    const animauxList = document.createElement('ul');
-                    enclos.animaux.forEach(animal => {
-                        const animalItem = document.createElement('li');
-
-                        //Ajouter la photo et le nom de l'animal
-                        const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
-                        const img = document.createElement('img');
-                        img.src = photoPath;
-                        img.alt = `${animal}`;
-                        img.style.width = '400px'; // Modifier la taille de l'image selon besoin
-                        img.style.height = '400px';
-                        
-                        const animalName = document.createElement('span');
-                        animalName.textContent = animal;
-                        
-                        // Créer un lien vers la page des détails de l'animal
-                        const link = document.createElement('a');
-                        link.href = `details_animal.php?animal=${encodeURIComponent(animal)}`; // Lien dynamique avec l'animal
-                        link.appendChild(img);
-                        link.appendChild(animalName);
-                        
-                        animalItem.appendChild(link);
-                        animauxList.appendChild(animalItem);
-                    });
-                    enclosDiv.appendChild(animauxList);
-                } else {
-                    const noAnimalText = document.createElement('p');
-                    noAnimalText.textContent = 'Aucun animal dans cet enclos.';
-                    enclosDiv.appendChild(noAnimalText);
-                }
-
-                container.appendChild(enclosDiv);
-            });
+    const enclosMap = {};
+    data.forEach(item => {
+        if (!enclosMap[item.nom_enclos]) {
+            enclosMap[item.nom_enclos] = {
+                biome: item.biome,
+                animaux: []
+            };
         }
+        enclosMap[item.nom_enclos].animaux.push(item.animal);
+    });
+
+    Object.keys(enclosMap).forEach(nomEnclos => {
+        const enclos = enclosMap[nomEnclos];
+        const enclosDiv = document.createElement('div');
+        enclosDiv.classList.add('enclos');
+
+        const enclosTitle = document.createElement('h3');
+        enclosTitle.textContent = `${nomEnclos} (Biome : ${enclos.biome})`;
+        enclosDiv.appendChild(enclosTitle);
+
+        if (enclos.animaux.length > 0) {
+            const animauxList = document.createElement('ul');
+            enclos.animaux.forEach(animal => {
+                const animalItem = document.createElement('li');
+
+                // Ajouter la photo et le nom de l'animal
+                const photoPath = `../../image_enclos/${animal.toLowerCase()}.jpg`; // Utilise le nom de l'animal pour l'image
+                const img = document.createElement('img');
+                img.src = photoPath;
+                img.alt = `${animal}`;
+                img.classList.add('animal-image'); // Ajout de la classe pour formater l'image en cercle
+
+                const animalName = document.createElement('span');
+                animalName.textContent = animal;
+
+                // Créer un conteneur pour l'animal avec l'image et le nom
+                const animalCard = document.createElement('div');
+                animalCard.classList.add('animal-card');
+                animalCard.appendChild(img);
+                animalCard.appendChild(animalName);
+
+                animalItem.appendChild(animalCard);
+                animauxList.appendChild(animalItem);
+            });
+            enclosDiv.appendChild(animauxList);
+        } else {
+            const noAnimalText = document.createElement('p');
+            noAnimalText.textContent = 'Aucun animal dans cet enclos.';
+            enclosDiv.appendChild(noAnimalText);
+        }
+
+        container.appendChild(enclosDiv);
+    });
+}
+
 
         function fetchEnclos() {
             fetch('http://localhost/WebDev_zoo/back/routes/enclos.php')
