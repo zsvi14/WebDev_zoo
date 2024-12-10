@@ -181,6 +181,69 @@ function createStars(rating) {
 }*/
 
 
+const form = document.getElementById('reviewForm');
+const reviewsContainer = document.getElementById('reviewsContainer');
+const reviewMessage = document.getElementById('review-message');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Récupérer les données du formulaire
+    const rating = document.getElementById('rating').value;
+    const reviewText = document.getElementById('review').value;
+    const enclosureId = document.getElementById('enclosureId').value;
+
+    const data = {
+        rating: rating,
+        review: reviewText,
+        enclosureId: enclosureId
+    };
+
+    // Envoyer les données au backend
+    fetch('http://localhost/WebDev_zoo/back/api/add_review.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Server response:', result); // Debugging
+
+            if (result.status === "success") {
+                reviewMessage.textContent = 'Avis soumis avec succès !';
+
+                // Ajouter dynamiquement l'avis à la page
+                addReviewToPage(result.review);
+                form.reset(); // Réinitialiser le formulaire
+            } else {
+                reviewMessage.textContent = result.message || 'Erreur lors de la soumission de l\'avis.';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            reviewMessage.textContent = 'Une erreur s\'est produite.';
+        });
+});
+
+// Fonction pour ajouter un avis à la page
+function addReviewToPage(review) {
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+    reviewDiv.innerHTML = `
+        <p><strong>Note :</strong> ${'🦁'.repeat(review.rating)}</p>
+        <p><strong>Avis :</strong> ${review.review}</p>
+        <p><strong>Enclos :</strong> Enclos ${review.enclosureId}</p>
+    `;
+    reviewsContainer.appendChild(reviewDiv);
+}
+
+
+
+
+
+
+
+
 
 
 
