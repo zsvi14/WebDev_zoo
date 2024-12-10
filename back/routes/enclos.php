@@ -16,7 +16,7 @@ try {
     exit;
 }
 
-// Requête pour récupérer les enclos avec la couleur des biomes
+// Requête pour récupérer les enclos
 $query = "SELECT e.id, e.nom_enclos, e.nom_animal, b.nom AS biome, a.nom AS animal 
           FROM enclos e
           JOIN biomes b ON e.id_biomes = b.id
@@ -32,5 +32,4 @@ $enclosList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 header('Content-Type: application/json');
 echo json_encode($enclosList);
 ?>
-
 
