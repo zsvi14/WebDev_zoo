@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 03 déc. 2024 à 15:52
+-- Généré le : mar. 10 déc. 2024 à 15:08
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `animaux` (
 --
 
 INSERT INTO `animaux` (`id`, `nom`, `nombre`, `id_enclos`) VALUES
-(2, 'Panda roux ', 10, 1),
+(2, 'Panda Roux ', 10, 1),
 (4, 'Python', 10, 2),
 (5, 'Tortue', 15, 138),
 (6, 'Iguane', 8, 3),
@@ -171,8 +171,8 @@ INSERT INTO `enclos` (`id`, `id_biomes`, `id_animaux`, `repos`, `nom_enclos`, `n
 (10, 1, 13, 0, 'Enclos des Acrobate de la Jungle', 'Saimiris'),
 (11, 1, 14, 0, 'Enclos des Grand Courreur', 'Autruches'),
 (12, 1, 15, 0, 'Enclos des Grand Courreur', 'Gazelles'),
-(13, 3, 16, 0, 'Enclos des Têtes en l'Air', 'Girafes'),
-(14, 3, 17, 0, 'Enclos des Têtes en l'Air', 'Grivets Cercopithèques'),
+(13, 3, 16, 0, 'Enclos des Têtes en l\'Air', 'Girafes '),
+(14, 3, 17, 0, 'Enclos des Têtes en l\'Air', 'Grivets Cercopithèques'),
 (15, 3, 18, 0, 'Enclos des Titans de la nature ', 'Eléphants'),
 (16, 3, 19, 0, 'Enclos des Titans de la nature', 'Varan de Komodo'),
 (17, 5, 20, 0, 'Enclos Ruisseaux des Curieux', 'Binturong'),
