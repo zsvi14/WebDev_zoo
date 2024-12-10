@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un avis</title>
     <link rel="stylesheet" href="../../CSS_JS/styles.css">  
-
 </head>
 
 <header>
@@ -22,17 +21,22 @@
         <!-- Champ pour la note (rating) -->
         <label for="rating">Note :</label>
         <select name="rating" id="rating" required>
-            <option value="1">🦁</option>
-            <option value="2">🦁🦁</option>
+            <option value="1">🦁🦁🦁🦁🦁</option>
+            <option value="2">🦁🦁🦁🦁</option>
             <option value="3">🦁🦁🦁</option>
-            <option value="4">🦁🦁🦁🦁</option>
-            <option value="5">🦁🦁🦁🦁🦁</option>
+            <option value="4">🦁🦁</option>
+            <option value="5">🦁</option>
+
         </select>
+        <br><br>
+        
+        <label for="name">Votre Nom :</label>
+        <textarea name="review"  rows="1" required></textarea>
         <br><br>
 
         <!-- Champ pour le commentaire (review) -->
         <label for="review">Votre avis :</label>
-        <textarea name="review"  rows="4" required></textarea>
+        <textarea name="review"  rows="5" required></textarea>
         <br><br>
 
         <!-- Champ pour l'ID de l'enclos (enclosureId) -->
@@ -89,11 +93,9 @@
             <option value="47">Réptiles</option>
         </select>
         <br><br>
-
         <!-- Bouton de soumission -->
-         <div class="submit">
-            <button type="submit">Soumettre l'avis</button>
-        </div>
+        <button type="submit">Soumettre l'avis</button>
+        
         <div id="review-message"></div>
 
         <div id="reviewsContainer">
