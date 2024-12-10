@@ -85,8 +85,9 @@ header {
 /* Conteneur de la carte */
 #map {
     position: relative;
-    height: 50vw; /* Hauteur proportionnelle à la largeur */
-    max-height: 600px; /* Limite maximale */    width: 100%;   /* La carte prend toute la largeur disponible, mais avec une hauteur fixe */
+    height: auto; /* Hauteur proportionnelle à la largeur */
+    max-height: 100%; /* Limite maximale */
+    width: 100%;   /* La carte prend toute la largeur disponible, mais avec une hauteur fixe */
     margin: 20px auto; /* Centrage de la carte horizontalement */
     background: url("../../Images/plan_park_small.jpg") no-repeat center center; /* Image de fond */
     background-size: contain; /* L'image de fond s'ajuste en fonction de la taille de la carte */
