@@ -71,11 +71,12 @@ body {
 }
 
 .animal-image {
-    width: 100%;  /* L'image prend toute la largeur de la case */
-    height: 100%; /* L'image prend toute la hauteur de la case */
-    object-fit: cover; /* L'image couvre la case sans déformation */
-    border-radius: 8px 8px 0 0; /* Coins arrondis en haut de l'image */
+    max-width: 100%;  
+    max-width: 200px; 
+    object-fit: cover; 
+    border-radius: 8px 8px 0 0; 
 }
+
 
 .animal-card span {
     display: block;
