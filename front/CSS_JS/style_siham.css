@@ -28,13 +28,14 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;  /* Taille de la case */
-    height: 400px; /* Taille de la case */
+    width: 300px;  /* Taille de la case */
+    height: 300px; /* Taille de la case */
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
 }
+
 
 /* Effet de survol sur l'enclos */
 .enclos-card:hover {
@@ -59,9 +60,9 @@ body {
 }
 
 .animal-card {
-    width: 150px; 
-    height: 150px; 
-    margin: 10px;
+    width: 120px; 
+    height: 120px; 
+    margin: 8px;
     display: inline-block;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -70,21 +71,22 @@ body {
     position: relative;
 }
 
+
+
+.animal-image {
+    max-width: 100%;  
+    height: auto; /* Garde les proportions */
+    border-radius: 8px 8px 0 0;
+}
+
+
+
 .animal-card:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
     
-
-
-.animal-image {
-    max-width: 100%;  
-    max-width: 200px; 
-    object-fit: cover; 
-    border-radius: 8px 8px 0 0; 
-}
-
 
 .animal-card span {
     display: block;
