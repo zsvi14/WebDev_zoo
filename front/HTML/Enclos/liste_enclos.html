@@ -53,7 +53,7 @@
 
             // Ajouter le nom et le biome de l'enclos
             const enclosTitle = document.createElement('h3');
-            enclosTitle.textContent = `${enclos.nom} (Biome : ${enclos.biome})`;
+            enclosTitle.textContent = `${enclos.nom}`;
             enclosDiv.appendChild(enclosTitle);
 
             // Créer une case pour chaque animal
@@ -64,10 +64,12 @@
 
                     // Ajouter l'image de l'animal
                     const photoPath = `../../../Image_enclos/${animal.toLowerCase()}.jpg`; // Assurez-vous que l'image est bien dans ce chemin
+                    console.log('Chemin de l’image :', photoPath);
                     const img = document.createElement('img');
                     img.src = photoPath;
                     img.alt = animal;
                     img.classList.add('animal-image'); // Classe pour formater l'image
+
 
                     // Ajouter le nom de l'animal
                     const animalName = document.createElement('span');
