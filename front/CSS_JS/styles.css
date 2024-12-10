@@ -79,37 +79,24 @@ a {
     position: relative;
     
 }
+/*
 
-.carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
-    overflow: hidden;
-    background-color: #4CAF50;
-    /*permet le slide des images*/
-    display: flex;
-    flex-direction: row; /* Align images horizontally */
-    width: calc(100% * 1); /* Adjust for your number of images */
-    transition: transform 1s ease-in-out;
-    animation: slide 10s infinite;
-}
 .carousel-slide {
-    position: relative; /* Pour le positionnement absolu des images */
-    width: 100%;
-    height: 300px; /* Ajustez la hauteur selon vos besoins */
-    /*overflow: hidden;*/
-  }
-  
-  .carousel-slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-   /* transition: opacity 1s ease-in-out; /* Transition pour l'opacité */
-  }
+  position: relative; /* Pour le positionnement absolu des images */
+ /* width: 100%;
+  height: 300px; /* Ajustez la hauteur selon vos besoins */
+  /*overflow: hidden;*/
+/*}
 
+.carousel-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ /* transition: opacity 1s ease-in-out; /* Transition pour l'opacité */
+/*}*/
+/*
 @keyframes slide {
     0% { transform: translateX(0); }
     20% { transform: translateX(0); }
@@ -120,7 +107,7 @@ a {
     75% { transform: translateX(-300%); }
     95% { transform: translateX(-300%); }
     100% { transform: translateX(0); }
-}
+}*/
 /*
 .carousel-slide img {
     width: 100%;
@@ -164,15 +151,15 @@ a {
 
 
 .form-container {
-    background-color: #74e279;
-    box-shadow: 0 4px 8px rgba(9, 67, 7, 0.986);
-    padding: 50px;
-    border-radius: 9px;
-    width: 300px;
-    margin: auto;
-    text-align: center;
-    
-   margin-top: 10vh; /*marge par rapport au haut de la page*/
+  background-color: #74e279;
+  box-shadow: 0 4px 8px rgba(9, 67, 7, 0.986);
+  padding: 50px;
+  border-radius: 9px;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  
+ margin-top: 10vh; /*marge par rapport au haut de la page*/
 }
 
 h2 {
@@ -477,13 +464,4 @@ header {
     }
 }
 
-/*review*/
-.review {
-  border: 1px solid #d22f12;
-  padding: 10px;
-  margin-bottom: 10px;
-}
 
-.rating {
-  font-size: 20px;
-}
