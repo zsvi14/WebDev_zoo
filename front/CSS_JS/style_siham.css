@@ -25,7 +25,7 @@ body {
 
 /* Style des enclos */
 .enclos-card {
-    background-color: white;
+    background-color: rgb(18, 205, 18);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;  /* Taille de la case */
@@ -71,11 +71,9 @@ body {
     position: relative;
 }
 
-
-
 .animal-image {
     max-width: 100%;  
-    height: auto; /* Garde les proportions */
+    height: auto; 
     border-radius: 8px 8px 0 0;
 }
 
