@@ -7,10 +7,8 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $rating = isset($data['rating']) ? $data['rating'] : null;
 $review = isset($data['review']) ? $data['review'] : null;
-$enclosureId = isset($data['enclosureId']) ? $data['enclosureId'] : null;
-$userId = 1; // Remplacez par l'ID de l'utilisateur connecté.
 
-if ($rating === null || $review === null || $enclosureId === null) {
+if ($rating === null || $review === null) {
     echo json_encode(["status" => "error", "message" => "Les champs rating, review sont requis."]);
     exit;
 }
@@ -22,7 +20,7 @@ try {
     $sql = "INSERT INTO enclosur_review (rating, review) VALUES (?, ?)";
     $stmt = $pdo->prepare($sql);
 
-    if ($stmt->execute([$userId, $enclosureId, $rating, $review])) {
+    if ($stmt->execute([$rating, $review])) {
 
         // Renvoyer les données de l'avis inséré.
         echo json_encode([

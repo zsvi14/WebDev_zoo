@@ -20,7 +20,7 @@
     <h1>🐘Ajouter un avis sur l'enclos🐘</h1>
     <form id="reviewForm" action="http://localhost/WebDev_zoo/back/api/add_review.php" method="POST">
         <!-- Champ pour la note (rating) -->
-        <label for="rating">Note (de 🦁 à 🦁🦁🦁🦁🦁) :</label>
+        <label for="rating">Note :</label>
         <select name="rating" id="rating" required>
             <option value="1">🦁</option>
             <option value="2">🦁🦁</option>
@@ -39,15 +39,61 @@
         <label for="enclosureId">Enclos :</label>
         <select name="enclosureId" id="enclosureId" required>
             <!-- Exemple d'options, vous pouvez les générer dynamiquement -->
-            <option value="1">Enclos 1</option>
-            <option value="2">Enclos 2</option>
-            <option value="3">Enclos 3</option>
+            <option value="0"> </option>
+            <option value="1">Panda Roux</option>
+            <option value="2">Réptiles</option>
+            <option value="3">Volant</option>
+            <option value="4">Trois Continents</option>
+            <option value="5">Acrobates de la Jungle</option>
+            <option value="6">Grand Courreur</option>
+            <option value="7">Têtes en l'Air</option>
+            <option value="8">Titans de la nature</option>
+            <option value="9">Ruisseaux des Curieux</option>
+            <option value="10">Plaine des Elégants</option>
+            <option value="11">Désert Provençal</option>
+            <option value="12">la Terre des Australes</option>
+            <option value="13">Savane Tropical</option>
+            <option value="14">Lagune des Explorateurs</option>
+            <option value="15">Longues Plumes</option>
+            <option value="16">Cornes et des Sabots</option>
+            <option value="17">Refuge des Montages</option>
+            <option value="18">Capucins</option>
+            <option value="19">Ouistiti</option>
+            <option value="20">Pécaris</option>
+            <option value="21">Porc-Epic</option>
+            <option value="22">Bisons</option>
+            <option value="23">Tigres</option>
+            <option value="24">Chiens</option>
+            <option value="25">Servals</option>
+            <option value="26">Loups d'Europe</option>
+            <option value="27">Vautours</option>
+            <option value="28">Cerfs</option>
+            <option value="29">Lynx</option>
+            <option value="30">Mouflons</option>
+            <option value="31">Macaques Crabiers</option>
+            <option value="32">Lémuriens</option>
+            <option value="33">Chèvres Naines</option>
+            <option value="34">Tapirs</option>
+            <option value="35">Guépards</option>
+            <option value="36">Casoars</option>
+            <option value="37">Crocodiles Nains</option>
+            <option value="38">Lions</option>
+            <option value="39">Hippopotames</option>
+            <option value="40">Zèbres</option>
+            <option value="41">Hyènes</option>
+            <option value="42">Loups à Crinières</option>
+            <option value="43">Suricates</option>
+            <option value="44">Fennec</option>
+            <option value="45">Panthère</option>
+            <option value="46">Tortues</option>
+            <option value="47">Réptiles</option>
         </select>
         <br><br>
 
         <!-- Bouton de soumission -->
-        <button type="submit">Soumettre l'avis</button>
-
+         <div class="submit">
+            <button type="submit">Soumettre l'avis</button>
+        </div>
         <div id="review-message"></div>
 
         <div id="reviewsContainer">
