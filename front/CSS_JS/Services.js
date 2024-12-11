@@ -33,7 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
             image: "../../Images/images_services/tente_pedagogique.jpg",
             coords: [30, 23]
         },
-        // Vous pouvez ajouter d'autres services ici...
+        "Plateaux des jeux": {
+            description: "Des jeux interactifs pour toute la famille. Zone dédiée aux enfants avec des jeux éducatifs et des espaces de détente.",
+            image: "../../Images/images_services/plateau_jeux.jpg",
+            coords: [400, 200]
+        },
+        "Le petit train": {
+            description: "Un moyen amusant de découvrir le parc. Profitez d'un tour du parc en petit train pour explorer toute la beauté de la nature environnante.",
+            image: "../../Images/images_services/petit_train.jpg",
+            coords: [400, 200]
+        },
+        "Espace pique-nique": {
+            description: "Une zone ombragée pour vos repas en plein air. Parfait pour une pause déjeuner en famille ou entre amis dans un cadre naturel.",
+            image: "../../Images/images_services/pique_n.jpg",
+            coords: [400, 200]
+        },
+        "Points d'eau": {
+            description: "Des endroits pour se rafraîchir et boire de l'eau. Restez hydraté pendant votre visite en profitant de nos points d'eau disséminés à travers le parc.",
+            image: "../../Images/images_services/.jpg",  // Image manquante
+            coords: [400, 200]
+        },
+        "Toilettes": {
+            description: "Des toilettes sont disponibles dans plusieurs zones du parc.",
+            image: "../../Images/images_services/.jpg",  // Image manquante
+            coords: [400, 200]
+        },
+        "La gare": {
+            description: "Gare.",
+            image: "../../Images/images_services/.jpg",  // Image manquante
+            coords: [400, 200]
+        },
     };
 
     const mapContainer = document.getElementById("map");
@@ -47,65 +76,58 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     descriptionContainer.style.display = "block";
 
-    // Fonction pour afficher un point rouge dynamique
-    function displayPoint(serviceName) {
-        const selectedService = services[serviceName];
+      // Fonction pour afficher la description
+      function displayDescription(serviceName) {
+          const selectedService = services[serviceName];
+          if (selectedService) {
+              descriptionContainer.innerHTML = `
+                  <h3>${serviceName}</h3>
+                  <p>${selectedService.description || "Description non disponible."}</p>
+                  ${selectedService.image ? `<img src="${selectedService.image}" alt="${serviceName}" style="max-width: 100%; height: auto;">` : ""}
+              `;
+              descriptionContainer.style.display = "block";
+          } else {
+              descriptionContainer.innerHTML = `<p>Description non disponible pour ce service.</p>`;
+          }
+      }
 
-        if (selectedService && selectedService.coords) {
-            // Supprimer les cercles existants
-            const existingCircles = document.querySelectorAll(".circle");
-            existingCircles.forEach(circle => circle.remove());
+      // Fonction pour créer un cercle
+      function createCircle(serviceName) {
+          const selectedService = services[serviceName];
 
-            // Obtenir les dimensions actuelles de la carte
-            const mapWidth = mapContainer.offsetWidth;
-            const mapHeight = mapContainer.offsetHeight;
+          // Supprimer les cercles existants
+          document.querySelectorAll(".circle").forEach(circle => circle.remove());
 
-            // Convertir les coordonnées en pixels dynamiquement
-            const [xPercent, yPercent] = selectedService.coords;
-            const xPos = (xPercent / 100) * mapWidth;
-            const yPos = (yPercent / 100) * mapHeight;
+          if (selectedService && selectedService.coords) {
+              const [xPercent, yPercent] = selectedService.coords;
 
-            // Créer le cercle
-            const circle = document.createElement("div");
-            circle.className = "circle";
-            circle.style.left = `${xPos}px`;
-            circle.style.top = `${yPos}px`;
-            circle.style.position = "absolute"; // Dynamique, lié à la carte
-            circle.setAttribute("aria-label", serviceName);
+              const circle = document.createElement("div");
+              circle.className = "circle";
+              circle.style.left = `${xPercent}%`; // Positionner en pourcentage
+              circle.style.top = `${yPercent}%`; // Positionner en pourcentage
+              circle.style.position = "absolute"; // Position absolue dans la carte
+              circle.style.transform = "translate(-50%, -50%)"; // Centrer le cercle
+              circle.setAttribute("aria-label", serviceName);
 
-            // Ajouter le cercle à la carte
-            mapContainer.appendChild(circle);
-        }
-    }
+              mapContainer.appendChild(circle);
+          }
+      }
 
-    // Gestion des clics sur les services
-    serviceElements.forEach(service => {
-        service.addEventListener("click", () => {
-            const serviceName = service.textContent.trim();
-            const selectedService = services[serviceName];
+      // Gestion des clics sur les services
+      serviceElements.forEach(service => {
+          service.addEventListener("click", () => {
+              const serviceName = service.textContent.trim();
+              displayDescription(serviceName);
+              createCircle(serviceName);
+          });
+      });
 
-            if (selectedService) {
-                // Afficher la description
-                descriptionContainer.innerHTML = `
-                    <h3>${serviceName}</h3>
-                    <p>${selectedService.description || "Description non disponible."}</p>
-                    ${selectedService.image ? `<img src="${selectedService.image}" alt="${serviceName}" style="max-width: 100%; height: auto;">` : ""}
-                `;
-
-                // Afficher le point rouge pour ce service
-                displayPoint(serviceName);
-            } else {
-                descriptionContainer.innerHTML = `<p>Description non disponible pour ce service.</p>`;
-            }
-        });
-    });
-
-    // Recalculer la position du point rouge visible lors du redimensionnement
-    window.addEventListener("resize", () => {
-        const visibleCircle = document.querySelector(".circle"); // Cercle visible
-        if (visibleCircle) {
-            const serviceName = visibleCircle.getAttribute("aria-label");
-            displayPoint(serviceName); // Recalculer et repositionner le cercle
-        }
-    });
-});
+      // Repositionner les cercles lors du redimensionnement
+      window.addEventListener("resize", () => {
+          const visibleCircle = document.querySelector(".circle");
+          if (visibleCircle) {
+              const serviceName = visibleCircle.getAttribute("aria-label");
+              createCircle(serviceName); // Repositionner le cercle
+          }
+      });
+  });
