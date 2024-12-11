@@ -151,7 +151,7 @@ footer {
 /* Barre de recherche (champ de texte) */
 #search-input {
     width: 400px; /* Largeur du champ de recherche */
-    padding: 30px;
+    padding: 20px;
     font-size: 16px; /* Taille du texte */
     border: 2px solid #ccc;
     border-radius: 5px;
