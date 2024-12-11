@@ -137,3 +137,39 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+
+/* Conteneur de la barre de recherche */
+#search-bar {
+    display: flex; /* Flexbox pour aligner les éléments */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement les éléments dans la barre */
+    margin: 20px auto; /* Espace au-dessus et au-dessous, et centrer avec auto */
+    gap: 10px; /* Espacement entre les éléments de la barre */
+}
+
+/* Barre de recherche (champ de texte) */
+#search-input {
+    width: 400px; /* Largeur du champ de recherche */
+    padding: 10px;
+    font-size: 16px; /* Taille du texte */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Boutons de la barre de recherche */
+#search-bar button {
+    background-color: #227c07; /* Couleur verte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol des boutons */
+#search-bar button:hover {
+    background-color: #185905; /* Couleur plus foncée */
+}
