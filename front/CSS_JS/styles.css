@@ -25,6 +25,12 @@ header {
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center horizontally */
   }
+/*caroussel de photo centré page home*/
+.w3-content {
+  margin: 0 auto; /* Centre horizontalement le conteneur */
+  display: block; /* S'assure que le conteneur est un bloc */
+  text-align: center; /* Centre le contenu textuel si nécessaire */
+}
 
 
       /* Style du bouton de retour à l'accueil */
