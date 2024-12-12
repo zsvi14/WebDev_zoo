@@ -11,37 +11,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 Des micros-ondes sont à votre disposition pour faire réchauffer les repas des jeunes enfants !</p>
             <p>La Paillote est ouverte tous les jours.</p>`,
             image: "../../Images/images_services/paillote.jpg",
-            coords: [30, 20] // Coordonnées relatives dans l'image
+            coords: [37.5, 52] // Coordonnées relatives dans l'image
         },
         "Café Nomade": {
             description: "Une caravane pour vos envies de boissons chaudes.",
             image: "../../Images/images_services/cafe_nom.jpg",
-            coords: [30, 25]
+            coords: [48.5, 74]
         },
         "Café": {
             description: "Un endroit cosy pour savourer un bon café.",
             image: "../../Images/images_services/cafe.jpg",
-            coords: [30, 30]
+            coords: [12, 70]
         },
         "Lodge": {
             description: "Un endroit pour se reposer et profiter de la nature. Le lodge est idéal pour une pause relaxante dans un cadre naturel et paisible.",
             image: "../../Images/images_services/lodge.jpg",
-            coords: [30, 10]
+            coords: [37, 35]
         },
         "Tente pédagogique": {
             description: "Un espace éducatif pour apprendre en famille. Des ateliers ludiques et interactifs sur la faune et la flore du parc.",
             image: "../../Images/images_services/tente_pedagogique.jpg",
-            coords: [30, 23]
+            coords: [53, 40]
         },
         "Plateaux des jeux": {
             description: "Des jeux interactifs pour toute la famille. Zone dédiée aux enfants avec des jeux éducatifs et des espaces de détente.",
             image: "../../Images/images_services/plateau_jeux.jpg",
-            coords: [400, 200]
+            coords: [46, 35]
         },
         "Le petit train": {
             description: "Un moyen amusant de découvrir le parc. Profitez d'un tour du parc en petit train pour explorer toute la beauté de la nature environnante.",
             image: "../../Images/images_services/petit_train.jpg",
-            coords: [400, 200]
+            coords: [42.5, 39.5]
         },
         "Espace pique-nique": {
             description: "Une zone ombragée pour vos repas en plein air. Parfait pour une pause déjeuner en famille ou entre amis dans un cadre naturel.",
@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Points d'eau": {
             description: "Des endroits pour se rafraîchir et boire de l'eau. Restez hydraté pendant votre visite en profitant de nos points d'eau disséminés à travers le parc.",
             image: "../../Images/images_services/.jpg",  // Image manquante
-            coords: [400, 200]
+            coords: [20, 30]
+
         },
         "Toilettes": {
             description: "Des toilettes sont disponibles dans plusieurs zones du parc.",
