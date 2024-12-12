@@ -68,8 +68,8 @@ const urlParams = new URLSearchParams(window.location.search);
             <h2>Ouvert du Mardi au Dimanche</h2> 
             <h2>De 10h à 18h</h2>
 </div>
-
-        <!-- Section pour le carrousel d'images -->
+<!--
+         Section pour le carrousel d'images 
         <section class="carousel">
             <h3>🐾Venez découvir nos animaux🐾</h3>
             <div class="carousel-container">
@@ -81,7 +81,36 @@ const urlParams = new URLSearchParams(window.location.search);
                     <img src="../../Images/gnous_zoo.jpg" alt="Animal 5" >
                 </div>
             </div>
-        </section>
+        </section>-->
+
+
+        <div class="w3-content w3-section" style="max-width:700px">
+            <img class="mySlides" src="../../Images/Branféré-Panda-roux.jpg" style="width:100%">
+            <img class="mySlides" src="../../Images/girafe-zoo.jpg" style="width:100%">
+            <img class="mySlides" src="../../Images/zebres.jpg" style="width:100%">
+          </div>
+          
+          <script>
+          var myIndex = 0;
+          carousel();
+          
+          function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+          }
+          </script>
+
+
+
+
+
     </main>  
 
     <script src="../../CSS_JS/script.js"></script>
