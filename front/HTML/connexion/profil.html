@@ -25,12 +25,39 @@
         <p><strong>🦒Email :</strong> <span id="displayEmail"></span></p><br>
         </section>
         <button onclick="logout()">Déconnexion</button>
-        
+       <!--
     <section class="photo-section">
         <div class="photo-box">
             <img src="../../Images/Branféré-Panda-roux.jpg" alt="Panda" title="Panda"> 
-        </div>
+        </div>--> 
     </section>
+    <div class="w3-content w3-section" style="max-width:600px"> <br>
+        <img class="mySlides" src="../../Images/Branféré-Panda-roux.jpg" style="width:100%">
+        <img class="mySlides" src="../../Images/girafe-zoo.jpg" style="width:100%">
+        <img class="mySlides" src="../../Images/zebres.jpg" style="width:100%">
+      </div>
+      
+      <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+      </script>
+
+
+
+
+
     </main>  
 
     <script>
