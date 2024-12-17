@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "zoo";
+$dbname = "bddzoo";
 
 // Création de la connexion
 $conn = new mysqli($servername, $username, $password, $dbname);
