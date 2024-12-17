@@ -1,7 +1,7 @@
 <?php
 // Configuration de la base de données
 $host = 'localhost';
-$dbname = 'zoo';
+$dbname = 'bddzoo';
 $user = 'root';
 $password = '';
  echo "mon fichier php";
@@ -31,6 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enclos_id'])) {
         echo "L'enclos spécifié est introuvable ou déjà fermé.<br>";
     }
 }
+// Traitement du formulaire pour ouvrir un enclos
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['open_enclos_id'])) {
+    $open_enclos_id = intval($_POST['open_enclos_id']);
+
+    // Vérification si l'enclos existe et est fermé
+    $check_open_query = "SELECT * FROM enclos WHERE id = $open_enclos_id AND repos = 1";
+    $check_open_result = $conn->query($check_open_query);
+
+    if ($check_open_result && $check_open_result->num_rows > 0) {
+        // Mise à jour pour ouvrir l'enclos
+        $update_open_query = "UPDATE enclos SET repos = 0 WHERE id = $open_enclos_id";
+        if ($conn->query($update_open_query) === TRUE) {
+            echo "L'enclos a été ouvert avec succès.<br>";
+        } else {
+            echo "Erreur lors de l'ouverture de l'enclos : " . $conn->error . "<br>";
+        }
+    } else {
+        echo "L'enclos spécifié est introuvable ou déjà ouvert.<br>";
+    }
+}
+
 
 // Récupération des enclos ouverts pour le formulaire
 $all_enclosures_query = "SELECT id, nom_enclos FROM enclos WHERE repos = 0";
@@ -48,6 +69,23 @@ if ($all_enclosures_result) {
 } else {
     die("Erreur lors de la récupération des enclos ouverts : " . $conn->error);
 }
+// Récupération des enclos fermés pour le formulaire
+$closed_enclosures_form_query = "SELECT id, nom_enclos FROM enclos WHERE repos = 1";
+$closed_enclosures_form_result = $conn->query($closed_enclosures_form_query);
+
+$options_open_html = "";
+if ($closed_enclosures_form_result) {
+    if ($closed_enclosures_form_result->num_rows > 0) {
+        while ($row = $closed_enclosures_form_result->fetch_assoc()) {
+            $options_open_html .= "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['nom_enclos']) . "</option>";
+        }
+    } else {
+        $options_open_html .= "<option value='' disabled>Aucun enclos fermé disponible</option>";
+    }
+} else {
+    die("Erreur lors de la récupération des enclos fermés pour ouverture : " . $conn->error);
+}
+
 
 // Récupération des enclos fermés pour l'affichage
 $closed_enclosures_query = "SELECT id, nom_enclos FROM enclos WHERE repos = 1";
@@ -56,14 +94,12 @@ $closed_enclosures_result = $conn->query($closed_enclosures_query);
 $closed_html = "";
 if ($closed_enclosures_result) {
     if ($closed_enclosures_result->num_rows > 0) {
-        $closed_html .= "<ul>";
         while ($row = $closed_enclosures_result->fetch_assoc()) {
-            $closed_html .= "<li>Enclos : " . htmlspecialchars($row['nom_enclos']) . " (ID : " . $row['id'] . ")</li>";
-        }
-        $closed_html .= "</ul>";
-    } else {
-        $closed_html .= "<p>Aucun enclos fermé.</p>";
-    }
+          $closed_html .= "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['nom_enclos']) . "</option>";
+      }
+  } else {
+      $closed_html .= "<option value='' disabled>Aucun enclos fermé disponible</option>";
+  }
 } else {
     die("Erreur lors de la récupération des enclos fermés : " . $conn->error);
 }
@@ -85,6 +121,13 @@ $updated_html = preg_replace(
     '<select name="enclos_id" id="enclos_id" required>' . $options_html . '</select>',
     file_get_contents($file_path)
 );
+// Mise à jour de la balise <select> pour l'ouverture des enclos
+$updated_html = preg_replace(
+    '/<select name="open_enclos_id" id="open_enclos_id" required>.*?<\/select>/s',
+    '<select name="open_enclos_id" id="open_enclos_id" required>' . $options_open_html . '</select>',
+    $updated_html
+);
+
 
 // Mise à jour de la liste des enclos fermés
 $updated_html = preg_replace(

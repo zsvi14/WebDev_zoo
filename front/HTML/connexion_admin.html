@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion admin</title>
-    <link rel="stylesheet" href="../../CSS_JS/style_connexion_admin.css">
+    <link rel="stylesheet" href="../CSS_JS/style_connexion_admin.css">
 </head>
 <body>
 <header>
-    <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+    <button class="home-button" onclick="window.location.href='connexion/home.html';">Retour à l'accueil</button>
     <h1 class="header-content">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
 </header>
 
@@ -30,7 +30,7 @@
         const identifiant = document.getElementById("loginIdentifiant").value;
         const password = document.getElementById("loginPassword").value;
 
-        fetch('C:\wamp64\www\WebDev_zoo\back\connexion\login_admin.php', {
+        fetch('http://localhost/WebDev_zoo/back/connexion/login_admin.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -42,7 +42,7 @@
             const loginMessage = document.getElementById("loginMessage");
             if (data.success) {
                 // Succès : redirection
-                window.location.href = "home.html";
+                window.location.href = "pages/admin.html";
             } else {
                 // Affichage du message d'erreur
                 loginMessage.style.display = "block";
