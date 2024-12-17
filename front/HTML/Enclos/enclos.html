@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS_JS/style_siham.css">
+    <title>Détails de l'enclos</title>
+</head>
+<body>
+<header>
+    <button onclick="window.location.href='liste_enclos.html';">Retour à la liste des enclos</button>
+    <h1 id="enclos-name">Détails de l'enclos</h1>
+</header>
+<main>
+    <div id="enclos-details">
+        <!-- Les informations de l'enclos et des animaux seront ajoutées ici -->
+    </div>
+</main>
+<script>
+    function fetchDetails() {
+        // Récupérer l'ID de l'enclos depuis l'URL
+        const params = new URLSearchParams(window.location.search);
+        const enclosId = params.get('id');
+
+        if (!enclosId) {
+            document.getElementById('enclos-details').innerHTML = '<p>Enclos introuvable.</p>';
+            return;
+        }
+
+        // Requête pour récupérer les détails de l'enclos
+        fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('enclos-details').innerHTML = `<p>${data.error}</p>`;
+                    return;
+                }
+
+                afficherDetails(data);
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement des détails de l\'enclos :', error);
+                document.getElementById('enclos-details').innerHTML = '<p>Erreur de chargement des détails.</p>';
+            });
+    }
+
+    function afficherDetails(data) {
+        const container = document.getElementById('enclos-details');
+        container.innerHTML = ''; // Vider le conteneur avant de le remplir
+
+        // Ajouter le titre de l'enclos
+        const title = document.createElement('h2');
+        title.textContent = `Enclos : ${data.enclos || "Non défini"}`;
+        container.appendChild(title);
+
+        // Ajouter le biome
+        const biome = document.createElement('p');
+        biome.textContent = `Biome : ${data.biome || "Non défini"}`;
+        container.appendChild(biome);
+
+        // Ajouter une liste d'animaux
+        const animalList = document.createElement('div');
+        animalList.classList.add('animal-list');
+
+        if (data.animaux) {
+            const animaux = data.animaux.split(', '); // Divise la chaîne pour chaque animal
+            animaux.forEach(animal => {
+                const animalDiv = document.createElement('div');
+                animalDiv.classList.add('animal-card');
+
+                // Image de l'animal
+                const img = document.createElement('img');
+                img.src = `../../../Image_enclos/${animal.toLowerCase()}.jpg`;
+                img.alt = animal;
+                img.classList.add('animal-image');
+                animalDiv.appendChild(img);
+
+                // Nom de l'animal
+                const name = document.createElement('span');
+                name.textContent = animal;
+                animalDiv.appendChild(name);
+
+                animalList.appendChild(animalDiv);
+            });
+        } else {
+            animalList.innerHTML = '<p>Aucun animal dans cet enclos.</p>';
+        }
+
+        container.appendChild(animalList);
+    }
+
+    // Charger les détails de l'enclos au chargement de la page
+    window.onload = fetchDetails;
+</script>
+</body>
+</html>
