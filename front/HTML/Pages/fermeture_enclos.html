@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../CSS_JS/style_fermeture_enclos.css">
+    <title>Fermeture Enclos</title>
+  </head>
+  <body>
+    <header>
+      <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+      <div class="header-content">
+        <h1>🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
+        <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2>
+      </div>
+    </header>
+    <main>
+      <!-- Formulaire pour fermer un enclos -->
+      <section>
+        <h2>Fermer un enclos</h2>
+        <form method="POST" action="/WebDev_zoo/back/controllers/close_enclos.php">
+
+          <label for="enclos_id">Choisissez un enclos à fermer :</label>
+          <select name="enclos_id" id="enclos_id" required><option value='2'>Enclos des Réptiles</option><option value='3'>Enclos des Réptiles</option><option value='4'>Enclos Volant </option><option value='5'>Enclos Volant</option><option value='6'>Enclos des Trois Continents</option><option value='7'>Enclos des Trois Continents</option><option value='8'>Enclos des Trois Continents</option><option value='9'>Enclos des Acrobates de la Jungle </option><option value='10'>Enclos des Acrobate de la Jungle</option><option value='11'>Enclos des Grand Courreur</option><option value='12'>Enclos des Grand Courreur</option><option value='13'>Enclos des Têtes en l&#039;Air</option><option value='14'>Enclos des Têtes en l&#039;Air</option><option value='15'>Enclos des Titans de la nature </option><option value='16'>Enclos des Titans de la nature</option><option value='17'>Enclos Ruisseaux des Curieux</option><option value='18'>Enclos des Ruisseaux Curieux</option><option value='19'>Enclos Plaine des Elégants</option><option value='20'>Enclos Plaine des Elégants</option><option value='21'>Enclos Plaine des Elégants</option><option value='22'>Enclos du Désert Provençal</option><option value='23'>Enclos du Désert Provençal</option><option value='24'>Enclos la Terre des Australes</option><option value='25'>Enclos la Terre des Australes</option><option value='26'>Enclos la Savane Tropical</option><option value='27'>Enclos la Savane Tropical</option><option value='28'>Enclos la Savane Tropical</option><option value='29'>Enclos Lagune des Explorateurs</option><option value='30'>Enclos Lagune des Explorateurs</option><option value='31'>Enclos des Longues Plumes</option><option value='32'>Enclos des Longues Plumes</option><option value='33'>Enclos des Cornes et des Sabots</option><option value='34'>Enclos des Cornes et des Sabots</option><option value='35'>Enclos des Cornes et des Sabots</option><option value='36'>Enclos le Refuge des Montages </option><option value='37'>Enclos le Refuge des Montages</option><option value='38'>Enclos des Capucins</option><option value='39'>Enclos des Ouistiti</option><option value='40'>Enclos des Pécaris</option><option value='41'>Enclos des Porc-Epic</option><option value='42'>Enclos des Bisons</option><option value='43'>Enclos des Tigres</option><option value='44'>Enclos des Chiens des Buissons</option><option value='45'>Enclos des Servals</option><option value='46'>Enclos des Loups d&#039;Europe</option><option value='47'>Enclos des Vautours</option><option value='48'>Enclos des Cerfs</option><option value='49'>Enclos des Lynx</option><option value='50'>Enclos des Mouflons</option><option value='51'>Enclos des Macaques Crabiers</option><option value='52'>Enclos des Lémuriens</option><option value='53'>Enclos des Chèvres Naines</option><option value='54'>Enclos des Tapirs</option><option value='55'>Enclos des Guépards</option><option value='56'>Enclos des Casoars</option><option value='57'>Enclos des Crocodiles Nains</option><option value='58'>Enclos des Lions</option><option value='59'>Enclos des Hippopotames</option><option value='60'>Enclos des Zèbres </option><option value='61'>Enclos des Hyènes</option><option value='62'>Enclos des Loups à Crinières</option><option value='63'>Enclos des Suricates</option><option value='64'>Enclos des Fennec</option><option value='101'>Enclos des Panthère</option><option value='137'>Enclos des Tortues</option><option value='138'>Enclos des Réptiles</option></select>
+          <button type="submit">Fermer</button>
+        </form>
+      </section>
+      <!-- Liste des enclos fermés -->
+      <section>
+        <h2>Enclos Fermés</h2>
+        <div id="closed-enclosures"><ul><li>Enclos : Enclos des Panda Roux (ID : 1)</li></ul></div>
+      </section>
+    </main>
+  </body>
+</html>
