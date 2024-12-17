@@ -1,3 +1,5 @@
+
+
 <?php
 // traitement de la connexion
 header("Content-Type: application/json");
@@ -10,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Requête pour récupérer l'utilisateur
-    $sql = "SELECT * FROM admin_info WHERE identifiant = ?";
+    $sql = "SELECT * FROM admin_infos WHERE identifiant = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $identifiant);
     $stmt->execute();
@@ -18,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        // Vérification du mot de passe
-        if (password_verify($password, $user['password_hash'])) {
+        // Vérification du mot de passe en clair
+        if ($password === $user['password_hash']) { // Comparaison directe
             // Connexion réussie
             echo json_encode(["success" => true, "message" => "Connexion réussie."]);
         } else {
