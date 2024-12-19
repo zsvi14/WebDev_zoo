@@ -1,17 +1,24 @@
 <?php
 //billeterie 
+// Connexion à la base de données
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'bddzoo';
+
+$conn = new mysqli($host, $user, $password, $dbname);
+if ($conn->connect_error) {
+    die("Échec de la connexion à la base de données : " . $conn->connect_error);
+}
+
 // Récupérer les données du formulaire
 $nom = $_POST['nom'];
 $email = $_POST['mail'];
-$billetType = $_POST['billetType'];
-// Générer le billet (vous pouvez personnaliser ce format)
-$billet = ""
+// Générer le billet
 Nom : $nom
 Email : $mail
 
-// Envoyer un email (à remplacer par votre fonction d'envoi d'email)
 envoyerEmail($mail, $billet);
 
-// Afficher un message de confirmation
 echo "Votre billet a été acheté et envoyé à votre adresse email.";
 ?>
