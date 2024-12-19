@@ -10,39 +10,53 @@ if ($conn->connect_error) {
     die("Échec de la connexion à la base de données : " . $conn->connect_error);
 }
 
-// Vérifiez les données envoyées par le formulaire
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['enclos_id'], $_GET['new_meal_time'])) {
-    $enclos_id = intval($_GET['enclos_id']);
-    $new_meal_time = $_GET['new_meal_time'];
+// Gestion des actions (récupération ou mise à jour)
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['get_enclosures'])) {
+        // Récupérer les noms uniques des enclos
+        $query = "SELECT DISTINCT nom_enclos, MIN(id) as id FROM enclos GROUP BY nom_enclos ORDER BY nom_enclos ASC";
+        $result = $conn->query($query);
 
-    // Mettez à jour l'heure de repas dans la base de données
-    $query = "UPDATE enclos SET h_repas = ? WHERE id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("si", $new_meal_time, $enclos_id);
-
-    if ($stmt->execute()) {
-        // Mettez à jour le fichier HTML
-        $file_path = '../../front/HTML/Pages/heure_repas.html';
-        $meal_time_html = "<h3>Heure de repas</h3><p>L'heure de repas de l'enclos est : <span id='meal-time'>" . htmlspecialchars($new_meal_time) . "</span></p>";
-
-        $updated_html = preg_replace(
-            '/<section id="meal-time-section">.*?<\/section>/s',
-            '<section id="meal-time-section">' . $meal_time_html . '</section>',
-            file_get_contents($file_path)
-        );
-
-        if (file_put_contents($file_path, $updated_html) !== false) {
-            // Redirigez vers la page HTML
-            header("Location: /WebDev_zoo/front/html/Pages/heure_repas.html");
-            exit;
-        } else {
-            echo "Erreur : Échec de l'écriture dans le fichier HTML.";
+        $enclosures = [];
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $enclosures[] = ['id' => $row['id'], 'name' => $row['nom_enclos']];
+            }
         }
-    } else {
-        echo "Erreur : Échec de la mise à jour de la base de données.";
+
+        // Retourner les données sous forme JSON
+        header('Content-Type: application/json');
+        echo json_encode($enclosures);
+        exit;
+
+    } elseif (isset($_GET['enclos_id'], $_GET['new_meal_time'])) {
+        // Mettre à jour l'heure de repas dans la base de données
+        $enclos_id = intval($_GET['enclos_id']);
+        $new_meal_time = $_GET['new_meal_time'];
+
+        // Récupérer le nom de l'enclos basé sur son ID
+        $get_name_query = "SELECT nom_enclos FROM enclos WHERE id = ?";
+        $stmt = $conn->prepare($get_name_query);
+        $stmt->bind_param("i", $enclos_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $nom_enclos = $row['nom_enclos'];
+
+        // Mettez à jour l'heure pour toutes les lignes ayant le même nom
+        $update_query = "UPDATE enclos SET h_repas = ? WHERE nom_enclos = ?";
+        $stmt = $conn->prepare($update_query);
+        $stmt->bind_param("ss", $new_meal_time, $nom_enclos);
+
+        if ($stmt->execute()) {
+            echo "L'heure de repas a été mise à jour avec succès.";
+        } else {
+            echo "Erreur : Échec de la mise à jour de la base de données.";
+        }
+        exit;
     }
 } else {
-    echo "Données manquantes ou méthode incorrecte.";
+    echo "Requête non valide.";
 }
 
 $conn->close();
