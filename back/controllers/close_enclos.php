@@ -24,11 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enclos_id'])) {
         $update_query = "UPDATE enclos SET repos = 1 WHERE id = $enclos_id";
         if ($conn->query($update_query) === TRUE) {
             echo "L'enclos a été fermé avec succès.<br>";
+            header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
         } else {
             echo "Erreur lors de la fermeture de l'enclos : " . $conn->error . "<br>";
+            header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
         }
     } else {
         echo "L'enclos spécifié est introuvable ou déjà fermé.<br>";
+        header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
     }
 }
 // Traitement du formulaire pour ouvrir un enclos
@@ -44,11 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['open_enclos_id'])) {
         $update_open_query = "UPDATE enclos SET repos = 0 WHERE id = $open_enclos_id";
         if ($conn->query($update_open_query) === TRUE) {
             echo "L'enclos a été ouvert avec succès.<br>";
+            header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
         } else {
             echo "Erreur lors de l'ouverture de l'enclos : " . $conn->error . "<br>";
+            header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
         }
     } else {
         echo "L'enclos spécifié est introuvable ou déjà ouvert.<br>";
+        header("Location: /WebDev_zoo/front/html/Pages/fermeture_enclos.html");
     }
 }
 
