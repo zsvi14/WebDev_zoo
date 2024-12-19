@@ -47,20 +47,16 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 .animal-image {
-    width: 170px; /* Taille de l'image */
-    height: 170px; /* Taille de l'image */
-    object-fit: cover; /* S'assurer que l'image s'adapte bien */
-    border-radius: 50%; /* Ajouter un effet arrondi si souhaité */
-    margin-bottom: 10px; /* Espace entre l'image et le nom */
+    width: 800px; /* Taille de l'image en largeur */
+    height: 800px; /* Taille de l'image en hauteur, doit être identique pour obtenir un cercle parfait */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* L'image s'adapte bien à la forme circulaire */
+    margin: 20px auto; /* Centrage horizontal et un peu d'espace autour de l'image */
+    display: block; /* Assure que l'image soit un élément de bloc pour le centrage */
+    float: right; /* Aligner l'image à droite */
 }
-
-.animal-card span {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-}
-
 
 
 /* Style du bouton de retour à l'accueil */
@@ -142,4 +138,51 @@ footer {
 #search-bar button:hover {
     background-color: #185905; /* Couleur plus foncée */
 }
+
+h1 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+
+h2 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+h3 {
+    text-align: left; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+
+
+h4 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+
+h5 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+h6 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 25px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 30px; /* Espacement au-dessus */
+}
+
 
