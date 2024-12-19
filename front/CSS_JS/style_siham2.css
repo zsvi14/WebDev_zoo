@@ -1,0 +1,15 @@
+/* Style global du corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Style pour le titre de la page */
+#title_enclos {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+    margin-top: 20px;
+}
