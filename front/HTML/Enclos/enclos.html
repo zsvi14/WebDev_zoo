@@ -11,7 +11,6 @@
         <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
         <h1 class="park-name">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
     </header>
-    <h1>Détails de l'Enclos</h1>
     <div id="enclos-info">
         <!-- Les détails de l'enclos et des animaux seront affichés ici -->
     </div>
@@ -35,9 +34,8 @@ function getEnclosDetails(enclosId) {
                 document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
             } else {
                 let htmlContent = `
-                    <h2>Enclos: ${data[0].nom_enclos}</h2> <!-- Le nom de l'enclos -->
-                    <p><strong>Biome:</strong> ${data[0].biome}</p>
-                    <h3>Animaux dans cet enclos:</h3>
+                    <h2>${data[0].nom_enclos}</h2> <!-- Le nom de l'enclos -->
+                    <h3><strong>Biome:</strong> ${data[0].biome}</h3>
                 `;
 
                 // Boucle pour afficher les animaux dans cet enclos
@@ -52,11 +50,11 @@ function getEnclosDetails(enclosId) {
                     // Ajouter l'image et les autres détails de l'animal dans le HTML
                     htmlContent += `
                         <div class="animal-details">
-                            <h2>${animal.animal}</h2>
+                            <h4>${animal.animal}</h4>
                             ${img.outerHTML}
-                            <p><strong>Origine:</strong> ${animal.origine}</p>
-                            <p><strong>Alimentation:</strong> ${animal.alimentation}</p>
-                            <p><strong>Description:</strong> ${animal.description}</p>
+                            <h5><strong>Origine:</strong> ${animal.origine}</h5>
+                            <h6><strong>Alimentation:</strong> ${animal.alimentation}</h6>
+                            <h7><strong>Description:</strong> ${animal.description}</h7>
                         </div>
                     `;
                 });
