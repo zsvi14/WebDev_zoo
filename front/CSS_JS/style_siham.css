@@ -1,9 +1,9 @@
 /* Style global du corps de la page */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #81df8177;
 }
 
 /* Style pour le titre de la page */
@@ -25,7 +25,7 @@ body {
 
 /* Style des enclos */
 .enclos-card {
-    background-color: white;
+    background-color:  #81df8177;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;  /* Taille de la case */
