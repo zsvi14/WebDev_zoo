@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil Zoo</title>
-    <link rel="stylesheet" href="../../CSS_JS/styles.css">  
+    <link rel="stylesheet" href="../../CSS_JS/styles.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
         <div class="header-content">
             <h1 >🦒🐘🦓Le rrrh parc🦁🦓🦒</h1><br><br>
-            <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2><br> 
+            <h2>🐾🐾Bienvenue au Zoo🐾🐾</h2><br>
         </div>
     </header>
 
@@ -24,13 +24,14 @@
                 <li><a href="register.html">Inscription</a></li>
                 <li><a href="../../HTML/enclosur_review/enclosur_review.html">Commentaires</a></li>
                 <li id="profileNav"><a href="profil.html">Mon Profil</a></li>
-                <li><a href="billet.html">Billeterie</a></li> 
+                <li><a href="billet.html">Billeterie</a></li>
                 <li><a href="../Pages/Services.html">Services</a> </li>
                 <li><a href="../Enclos/liste_enclos.html">Enclos</a> </li>
+                <li><a href="../Pages/admin.html">admin</a> </li>
             </ul>
         </nav>
-       
-    
+
+
     <script>
         // Vérification si l'utilisateur est connecté
         if (localStorage.getItem("isLoggedIn") === "true") {
@@ -50,7 +51,7 @@ const urlParams = new URLSearchParams(window.location.search);
     }
 
     </script>
-    
+
 
     <main>
         <!-- Section pour la carte du zoo -->
@@ -65,11 +66,11 @@ const urlParams = new URLSearchParams(window.location.search);
 
  <div class="header">
             <h1 >🦒Horaires d'ouverture🦒</h1>
-            <h2>Ouvert du Mardi au Dimanche</h2> 
+            <h2>Ouvert du Mardi au Dimanche</h2>
             <h2>De 10h à 18h</h2>
 </div>
 <!--
-         Section pour le carrousel d'images 
+         Section pour le carrousel d'images
         <section class="carousel">
             <h3>🐾Venez découvir nos animaux🐾</h3>
             <div class="carousel-container">
@@ -105,20 +106,20 @@ const urlParams = new URLSearchParams(window.location.search);
         <img class="mySlides" src="../../../Image_enclos/gnou.jpg" style="width:100%">
         <img class="mySlides" src="../../../Image_enclos/guépards.jpg" style="width:100%"><br><br>
           </div>
-          
+
           <script>
           var myIndex = 0;
           carousel();
-          
+
           function carousel() {
             var i;
             var x = document.getElementsByClassName("mySlides");
             for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";  
+              x[i].style.display = "none";
             }
             myIndex++;
-            if (myIndex > x.length) {myIndex = 1}    
-            x[myIndex-1].style.display = "block";  
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
             setTimeout(carousel, 2000); // Change image every 2 seconds
           }
           </script>
@@ -127,7 +128,7 @@ const urlParams = new URLSearchParams(window.location.search);
 
 
 
-    </main>  
+    </main>
 
     <script src="../../CSS_JS/script.js"></script>
 </body>
