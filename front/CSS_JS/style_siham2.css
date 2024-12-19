@@ -1,10 +1,4 @@
-/* Style global du corps de la page */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-}
+
 
 /* Style pour le titre de la page */
 #title_enclos {
@@ -13,3 +7,139 @@ body {
     color: #2c3e50;
     margin-top: 20px;
 }
+
+/* Style global du corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+
+/* Style pour le conteneur des animaux */
+.animaux-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.animal-card {
+    width: 200px;
+    height: 200px;
+    margin: 8px auto; /* Centrer la case */
+    display: flex; /* Utilisation de Flexbox */
+    flex-direction: column; /* Aligner les éléments en colonne */
+    align-items: center; /* Centrer horizontalement */
+    justify-content: center; /* Centrer verticalement */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.animal-image {
+    width: 170px; /* Taille de l'image */
+    height: 170px; /* Taille de l'image */
+    object-fit: cover; /* S'assurer que l'image s'adapte bien */
+    border-radius: 50%; /* Ajouter un effet arrondi si souhaité */
+    margin-bottom: 10px; /* Espace entre l'image et le nom */
+}
+
+.animal-card span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+/* Style du bouton de retour à l'accueil */
+.home-button {
+    position: absolute;
+    left: 20px;
+    background-color: #227c07;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #45a049;
+}
+
+/* Style du nom du parc */
+.park-name {
+    font-size: 40px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Mise en forme de l'en-tête */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bbf790;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Ajout d'un style au footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+/* Conteneur de la barre de recherche */
+#search-bar {
+    display: flex; /* Flexbox pour aligner les éléments */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement les éléments dans la barre */
+    margin: 20px auto; /* Espace au-dessus et au-dessous, et centrer avec auto */
+    gap: 10px; /* Espacement entre les éléments de la barre */
+}
+
+/* Barre de recherche (champ de texte) */
+#search-input {
+    width: 400px; /* Largeur du champ de recherche */
+    padding: 15px;
+    font-size: 16px; /* Taille du texte */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Boutons de la barre de recherche */
+#search-bar button {
+    background-color: #227c07; /* Couleur verte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol des boutons */
+#search-bar button:hover {
+    background-color: #185905; /* Couleur plus foncée */
+}
+
