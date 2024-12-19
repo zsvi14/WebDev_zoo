@@ -28,8 +28,8 @@ body {
     background-color:  #81df8177;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;  /* Taille de la case */
-    height: 300px; /* Taille de la case */
+    width: 300px;  
+    height: 300px; 
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -47,7 +47,7 @@ body {
 .enclos-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Assure que l'image remplisse la case sans se déformer */
+    object-fit: cover;  
 }
 
 /* Style pour le conteneur des animaux */
@@ -62,11 +62,11 @@ body {
 .animal-card {
     width: 200px;
     height: 200px;
-    margin: 8px auto; /* Centrer la case */
-    display: flex; /* Utilisation de Flexbox */
-    flex-direction: column; /* Aligner les éléments en colonne */
-    align-items: center; /* Centrer horizontalement */
-    justify-content: center; /* Centrer verticalement */
+    margin: 8px auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
@@ -81,11 +81,11 @@ body {
 }
 
 .animal-image {
-    width: 170px; /* Taille de l'image */
-    height: 170px; /* Taille de l'image */
-    object-fit: cover; /* S'assurer que l'image s'adapte bien */
-    border-radius: 50%; /* Ajouter un effet arrondi si souhaité */
-    margin-bottom: 10px; /* Espace entre l'image et le nom */
+    width: 170px; 
+    height: 170px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
 }
 
 .animal-card span {
@@ -116,6 +116,7 @@ body {
 
 /* Style du nom du parc */
 .park-name {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 40px;
     color: #2c3e50;
     margin: 0;
@@ -126,7 +127,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #bbf790;
+    background-color: #81df8177;
     padding: 10px 20px;
     position: relative;
 }
@@ -143,25 +144,25 @@ footer {
 
 /* Conteneur de la barre de recherche */
 #search-bar {
-    display: flex; /* Flexbox pour aligner les éléments */
-    justify-content: center; /* Centrer horizontalement */
-    align-items: center; /* Centrer verticalement les éléments dans la barre */
-    margin: 20px auto; /* Espace au-dessus et au-dessous, et centrer avec auto */
-    gap: 10px; /* Espacement entre les éléments de la barre */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px auto; 
+    gap: 10px; 
 }
 
 /* Barre de recherche (champ de texte) */
 #search-input {
-    width: 400px; /* Largeur du champ de recherche */
+    width: 400px; 
     padding: 15px;
-    font-size: 16px; /* Taille du texte */
+    font-size: 16px; 
     border: 2px solid #ccc;
     border-radius: 5px;
 }
 
 /* Boutons de la barre de recherche */
 #search-bar button {
-    background-color: #227c07; /* Couleur verte */
+    background-color: #227c07; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -173,16 +174,16 @@ footer {
 
 /* Effet au survol des boutons */
 #search-bar button:hover {
-    background-color: #185905; /* Couleur plus foncée */
+    background-color: #185905; 
 }
 
 /* Pour les liens dans les cartes d'enclos */
 .enclos-card a {
-    text-decoration: none;  /* Supprimer le soulignement */
+    text-decoration: none;  
     color: inherit;  /* Hériter de la couleur du parent pour que le texte garde la même couleur */
 }
 
 .enclos-card a:hover {
-    background-color: #f0f0f0; /* Exemple d'effet de survol, à personnaliser */
+    background-color: #f0f0f0; /* Effet de survol */
 }
 
