@@ -1,96 +1,70 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS_JS/style_siham.css">
+    <link rel="stylesheet" href="../../CSS_JS/style_siham2.css">
     <title>Détails de l'enclos</title>
+  
 </head>
 <body>
-<header>
-    <button onclick="window.location.href='liste_enclos.html';">Retour à la liste des enclos</button>
-    <h1 id="enclos-name">Détails de l'enclos</h1>
-</header>
-<main>
-    <div id="enclos-details">
-        <!-- Les informations de l'enclos et des animaux seront ajoutées ici -->
+    <h1>Détails de l'Enclos</h1>
+    <div id="enclos-info">
+        <!-- Les détails de l'enclos et des animaux seront affichés ici -->
     </div>
-</main>
-<script>
-    function fetchDetails() {
-        // Récupérer l'ID de l'enclos depuis l'URL
-        const params = new URLSearchParams(window.location.search);
-        const enclosId = params.get('id');
 
-        if (!enclosId) {
-            document.getElementById('enclos-details').innerHTML = '<p>Enclos introuvable.</p>';
-            return;
+    <script>
+        // Fonction pour récupérer les paramètres de l'URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
 
-        // Requête pour récupérer les détails de l'enclos
-        fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    document.getElementById('enclos-details').innerHTML = `<p>${data.error}</p>`;
-                    return;
-                }
+        // Fonction pour récupérer et afficher les détails de l'enclos
+        function getEnclosDetails(enclosId) {
+            fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);  // Affiche les données dans la console pour débogage
 
-                afficherDetails(data);
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement des détails de l\'enclos :', error);
-                document.getElementById('enclos-details').innerHTML = '<p>Erreur de chargement des détails.</p>';
-            });
-    }
+                    if (data.error) {
+                        document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
+                    } else {
+                        let htmlContent = `
+                            <h2>Enclos: ${data[0].nom_enclos}</h2>
+                            <p><strong>Biome:</strong> ${data[0].biome}</p>
+                            <h3>Animaux dans cet enclos:</h3>
+                        `;
 
-    function afficherDetails(data) {
-        const container = document.getElementById('enclos-details');
-        container.innerHTML = ''; // Vider le conteneur avant de le remplir
+                        // Boucle pour afficher les animaux dans cet enclos
+                        data.forEach(animal => {
+                            htmlContent += `
+                                <div class="animal-details">
+                                    <h2>${animal.animal}</h2>
+                                    <p><strong>Origine:</strong> ${animal.origine}</p>
+                                    <p><strong>Alimentation:</strong> ${animal.alimentation}</p>
+                                    <p><strong>Description:</strong> ${animal.description}</p>
+                                </div>
+                            `;
+                        });
 
-        // Ajouter le titre de l'enclos
-        const title = document.createElement('h2');
-        title.textContent = `Enclos : ${data.enclos || "Non défini"}`;
-        container.appendChild(title);
+                        // Afficher le contenu HTML dans la page
+                        document.getElementById('enclos-info').innerHTML = htmlContent;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur:', error); // Afficher l'erreur dans la console
+                    document.getElementById('enclos-info').innerHTML = `<p>Une erreur s'est produite lors de la récupération des données.</p>`;
+                });
+        }
 
-        // Ajouter le biome
-        const biome = document.createElement('p');
-        biome.textContent = `Biome : ${data.biome || "Non défini"}`;
-        container.appendChild(biome);
-
-        // Ajouter une liste d'animaux
-        const animalList = document.createElement('div');
-        animalList.classList.add('animal-list');
-
-        if (data.animaux) {
-            const animaux = data.animaux.split(', '); // Divise la chaîne pour chaque animal
-            animaux.forEach(animal => {
-                const animalDiv = document.createElement('div');
-                animalDiv.classList.add('animal-card');
-
-                // Image de l'animal
-                const img = document.createElement('img');
-                img.src = `../../../Image_enclos/${animal.toLowerCase()}.jpg`;
-                img.alt = animal;
-                img.classList.add('animal-image');
-                animalDiv.appendChild(img);
-
-                // Nom de l'animal
-                const name = document.createElement('span');
-                name.textContent = animal;
-                animalDiv.appendChild(name);
-
-                animalList.appendChild(animalDiv);
-            });
+        // Récupérer l'ID de l'enclos depuis l'URL et afficher les détails
+        const enclosId = getUrlParameter('id');
+        if (enclosId) {
+            getEnclosDetails(enclosId);
         } else {
-            animalList.innerHTML = '<p>Aucun animal dans cet enclos.</p>';
+            document.getElementById('enclos-info').innerHTML = `<p>ID de l'enclos non fourni.</p>`;
         }
-
-        container.appendChild(animalList);
-    }
-
-    // Charger les détails de l'enclos au chargement de la page
-    window.onload = fetchDetails;
-</script>
+    </script>
 </body>
 </html>
+
