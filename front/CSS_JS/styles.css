@@ -1,6 +1,5 @@
 /*page de home du site, style*/
-
-/* Style général pour l'en-tête */
+/* Style général pour les en-tête */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
@@ -40,18 +39,16 @@ header {
     padding: 10px 20px;      /* Espacement autour du contenu */
     position: relative;      /* Position pour le bouton à gauche */
  }
-
+/*controle l affichage des onglets des autres fenetres*/
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
 nav ul li {
     display: inline;
     margin: 0 15px;
 }
-
 a {
     color: white;
     text-decoration: none;
@@ -93,8 +90,6 @@ a {
 }
 
 /* style de la page d inscription et connexion */
-
-
 .form-container {
   background-color: #74e279;
   box-shadow: 0 4px 8px rgba(9, 67, 7, 0.986);
@@ -103,7 +98,6 @@ a {
   width: 300px;
   margin: auto;
   text-align: center;
-
  margin-top: 10vh; /*marge par rapport au haut de la page*/
 }
 
@@ -134,16 +128,101 @@ button:hover { /*ca change la couleur du bouton quand l on passe dessus avec la 
     background-color: #1cac8f;
 }
 
+/*bouton commentaire*/
+input[type="submit"] {
+  width: 20%;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #1cac8f; /*couleur au survol*/
+}
+
+/* Conteneur principal pour les avis soumis */
+.comment-container {
+  background-color: #e6ffe6; /* Fond vert clair pour le conteneur */
+  border: 1px solid #81df81; /* Bordure verte douce */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  margin: 20px auto; /* Centrer et ajouter un espace */
+  max-width: 600px; /* Largeur maximale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  text-align: left; /* Aligner le texte à gauche */
+}
+
+/* Styles pour les titres et labels */
+.comment-container h1 {
+  font-size: 24px;
+  color: #2d572c; /* Vert foncé */
+  margin-bottom: 20px;
+  text-align: center; /* Centrer le titre */
+}
+
+.comment-container p {
+  font-size: 16px;
+  line-height: 1.6; /* Espacement entre les lignes */
+  color: #333; /* Texte foncé */
+  margin-bottom: 10px; /* Espace sous chaque paragraphe */
+}
+
+/* Bouton retour à l'accueil */
+button.home-button {
+  background-color: #236326; /* Couleur verte */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s ease; /* Animation au survol */
+  margin-bottom: 20px; /* Espace sous le bouton */
+}
+
+button.home-button:hover {
+  background-color: #1e7e34; /* Couleur plus foncée au survol */
+}
+
+/* Mise en page du formulaire */
+form {
+  margin: 20px auto; /* Centre le formulaire */
+  padding: 20px 40px; /* Espacement interne */
+  max-width: 600px; /* Largeur maximale */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(4, 54, 6, 0.491); /* Ombre douce */
+  background-color: rgb(138, 229, 147); /* Fond blanc */
+}
+
+/* Champs de formulaire */
+textarea, select {
+  width: 100%; /* Champs prennent toute la largeur */
+  padding: 10px; /* Espacement interne */
+  margin-bottom: 20px; /* Espacement entre les champs */
+  border: 1px solid #ccc; /* Bordure grise claire */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Texte lisible */
+} 
+
+
+
+
+
+
+
+
 p {
     margin-top: 15px;
     color: #666;
 }
 
 a {
-    color: #08294c;
+    color: #08294c; /*couleur des onglets*/
     text-decoration: none;
 }
-
 
 /* General styles */
 .body-profil {
@@ -151,12 +230,10 @@ a {
     font-family: 'Comic Sans MS', cursive, sans-serif; 
     align-items: center;
   }
-
   .profile-container{
     font-family: 'Comic Sans MS', cursive, sans-serif; 
     align-items: center;
   }
-
 
   .photos-section {
     display: flex;
@@ -184,8 +261,7 @@ a {
     object-fit: cover;
   }
 
-
-/*billeterie designe*/
+/*billeterie*/
 .titre-billet {
   font-weight: bold;
   text-align: center;
@@ -220,16 +296,16 @@ header {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
-    display: flex; /* Crée un conteneur flex pour l'image et les informations */
+    display: flex; 
   flex-direction: column; /* Aligne l'image et les informations verticalement */
 }
 
-  .billet img {
-    width: 100%; /* Les images prennent toute la largeur de leur conteneur */
-    height: auto; /* La hauteur s'ajuste automatiquement en fonction de la largeur */
-  }
+.billet img {
+  width: 100%; /* Les images prennent toute la largeur de leur conteneur */
+  height: auto; /* La hauteur s'ajuste automatiquement en fonction de la largeur */
+}
 
-  .billet form {
+.billet form {
     display: none; /* Le formulaire est caché par défaut */
 }
 
