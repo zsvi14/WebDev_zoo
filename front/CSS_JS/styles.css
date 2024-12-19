@@ -188,31 +188,26 @@ button.home-button:hover {
 }
 
 /* Mise en page du formulaire */
-form {
-  margin: 20px auto; /* Centre le formulaire */
-  padding: 20px 40px; /* Espacement interne */
-  max-width: 600px; /* Largeur maximale */
-  border-radius: 10px; /* Coins arrondis */
-  box-shadow: 0 4px 8px rgba(4, 54, 6, 0.491); /* Ombre douce */
-  background-color: rgb(138, 229, 147); /* Fond blanc */
+ /* Labels pour les champs de formulaire */
+form label {
+  display: block; /* Forcer l'affichage des étiquettes en bloc (une par ligne) */
+  margin-bottom: 5px; /* Ajouter un petit espacement sous l'étiquette */
+  font-size: 16px; /* Taille du texte des étiquettes */
+  text-align: left; /* Aligner les étiquettes à gauche */
+  width: 50%; /* S'aligner à la largeur des champs */
+  margin: 0 auto; /* Centrer horizontalement */
 }
 
 /* Champs de formulaire */
-textarea, select {
-  width: 100%; /* Champs prennent toute la largeur */
-  padding: 10px; /* Espacement interne */
-  margin-bottom: 20px; /* Espacement entre les champs */
+textarea, select, input[type="text"] {
+  width: 50%; /* Champs prennent toute la largeur */
+  padding: 5px; /* Espacement interne */
   border: 1px solid #ccc; /* Bordure grise claire */
   border-radius: 5px; /* Coins arrondis */
   font-size: 16px; /* Texte lisible */
-} 
-
-
-
-
-
-
-
+  display: block; /* Forcer un affichage en bloc (une ligne par champ) */
+  margin: 0 auto; /* Centrer horizontalement */
+}
 
 p {
     margin-top: 15px;
