@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horaires des Repas</title>
+    <link rel="stylesheet" href="../../.css">
+</head>
+<body>
+    <header>
+        <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
+        <div class="header-content">
+            <h1>🦒🐘🦓Le rrrh parc🦁🦓🦒</h1><br><br>
+            <h2>🐾🐾Horaires des repas des enclos🐾🐾</h2><br>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Liste des horaires de repas</h2>
+            <div id="meal-times">
+                <!-- Les horaires seront injectés ici -->
+                <p>Chargement des horaires...</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Charger les horaires via AJAX
+        fetch('/WebDev_zoo/back/controllers/affiche_h_repas.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('meal-times').innerHTML = data;
+            })
+            .catch(error => {
+                document.getElementById('meal-times').innerHTML = "<p>Erreur lors du chargement des horaires.</p>";
+                console.error('Erreur :', error);
+            });
+    </script>
+</body>
+</html>
