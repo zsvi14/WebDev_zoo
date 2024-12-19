@@ -34,7 +34,7 @@ function getEnclosDetails(enclosId) {
                 document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
             } else {
                 let htmlContent = `
-                    <h2>${data[0].nom_enclos}</h2> <!-- Le nom de l'enclos -->
+                    <h1 class="title-box">${data[0].nom_enclos}</h1> <!-- Le nom de l'enclos -->
                     <h3><strong>Biome:</strong> ${data[0].biome}</h3>
                 `;
 
@@ -57,6 +57,7 @@ function getEnclosDetails(enclosId) {
                             <h7><strong>Description:</strong> ${animal.description}</h7>
                         </div>
                     `;
+                    
                 });
 
                 // Afficher le contenu HTML dans la page
