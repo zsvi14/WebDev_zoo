@@ -27,11 +27,16 @@ header {
   }
 
 
-.home-button {
-    background-color: #236326; /* Couleur du bouton au survol */
-    padding: 10px 20px;      /* Espacement autour du contenu */
-    position: relative;      /* Positionnement pour le bouton à gauche */
- }
+  .home-button {
+      background-color: #236326; /* Couleur du bouton */
+      padding: 10px 20px;       /* Espacement autour du contenu */
+      position: relative;       /* Positionnement relatif */
+      width: 100%;              /* Prendre toute la largeur */
+      color: white;             /* Texte en blanc */
+      text-align: center;       /* Centrer le texte */
+      border: none;             /* Supprimer les bordures par défaut */
+      box-sizing: border-box;   /* Inclure le padding dans la largeur totale */
+  }
 
  button:hover {
      background-color: #1cac8f;
