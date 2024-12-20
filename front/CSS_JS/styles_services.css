@@ -1,25 +1,40 @@
-/*le header*/
+/* Style général pour l'en-tête */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #81df8177;
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: center;
+}
+
 header {
-    background-color: #5bb4686e;  /* Couleur de fond de l'en-tête */
+    background-color: #81df8177;  /* Couleur de fond de l'en-tête */
     padding: 10px 20px;      /* Espacement autour du contenu */
     position: relative;      /* Positionnement pour le bouton à gauche */
   }
   .header-content{
-    background-color: #5bb4686e;
+    background-color: #81df8177;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center horizontally */
+
   }
-  .home-button {
-      background-color: #236326; /* Couleur du bouton au survol */
-      padding: 10px 20px;      /* Espacement autour du contenu */
-      position: relative;      /* Positionnement pour le bouton à gauche */
-   }
 
 
+.home-button {
+    background-color: #236326; /* Couleur du bouton au survol */
+    padding: 10px 20px;      /* Espacement autour du contenu */
+    position: relative;      /* Positionnement pour le bouton à gauche */
+ }
 
+ button:hover {
+     background-color: #1cac8f;
+ }
 /* Services */
 #title_services {
     color: black;
