@@ -16,6 +16,7 @@ header {
     padding: 10px 20px;      /* Espacement autour du contenu */
     position: relative;      /* Positionnement pour le bouton à gauche */
   }
+  
   .header-content{
     background-color: #81df8177;
     justify-content: center;
