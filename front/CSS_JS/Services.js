@@ -46,23 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "Espace pique-nique": {
             description: "Une zone ombragée pour vos repas en plein air. Parfait pour une pause déjeuner en famille ou entre amis dans un cadre naturel.",
             image: "../../Images/images_services/pique_n.jpg",
-            coords: [400, 200]
+            coords: [40, 12]
         },
         "Points d'eau": {
             description: "Des endroits pour se rafraîchir et boire de l'eau. Restez hydraté pendant votre visite en profitant de nos points d'eau disséminés à travers le parc.",
-            image: "../../Images/images_services/.jpg",  // Image manquante
-            coords: [20, 30]
+            image: "../../Images/images_services/point_eau.jpg",  // Image manquante
+
 
         },
         "Toilettes": {
             description: "Des toilettes sont disponibles dans plusieurs zones du parc.",
-            image: "../../Images/images_services/.jpg",  // Image manquante
-            coords: [400, 200]
-        },
-        "La gare": {
-            description: "Gare.",
-            image: "../../Images/images_services/.jpg",  // Image manquante
-            coords: [400, 200]
+            image: "../../Images/images_services/logo_toilettes.jpg",  // Image manquante
         },
     };
 
