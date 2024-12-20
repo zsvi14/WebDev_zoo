@@ -10,8 +10,11 @@ if ($conn->connect_error) {
     die("Échec de la connexion à la base de données : " . $conn->connect_error);
 }
 
-// Récupérer les horaires de tous les enclos
-$query = "SELECT nom_enclos, h_repas FROM enclos ORDER BY nom_enclos ASC";
+// Récupérer les horaires des enclos uniques
+$query = "SELECT nom_enclos, h_repas
+          FROM enclos
+          GROUP BY TRIM(LOWER(nom_enclos)), h_repas
+          ORDER BY nom_enclos ASC";
 $result = $conn->query($query);
 
 if ($result && $result->num_rows > 0) {
