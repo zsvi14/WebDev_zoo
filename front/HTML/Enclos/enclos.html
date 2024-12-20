@@ -23,12 +23,11 @@
         }
 
         // Fonction pour récupérer et afficher les détails de l'enclos
-       // Fonction pour récupérer et afficher les détails de l'enclos
 function getEnclosDetails(enclosId) {
     fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);  // Affiche les données dans la console pour débogage
+            console.log(data);  
 
             if (data.error) {
                 document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
@@ -38,16 +37,15 @@ function getEnclosDetails(enclosId) {
                     <h3><strong>Biome:</strong> ${data[0].biome}</h3>
                 `;
 
-                // Boucle pour afficher les animaux dans cet enclos
+                
                 data.forEach(animal => {
-                    // Ajouter l'image de l'animal
+                    // Image de l'animal
                     const photoPath = `../../../Image_enclos/${animal.animal.toLowerCase()}.jpg`;
                     const img = document.createElement('img');
                     img.src = photoPath;
                     img.alt = animal.animal;
-                    img.classList.add('animal-image');  // Classe pour formater l'image
+                    img.classList.add('animal-image');  
 
-                    // Ajouter l'image et les autres détails de l'animal dans le HTML
                     htmlContent += `
                         <div class="animal-details">
                             <h4>${animal.animal}</h4>
@@ -60,12 +58,12 @@ function getEnclosDetails(enclosId) {
                     
                 });
 
-                // Afficher le contenu HTML dans la page
+                
                 document.getElementById('enclos-info').innerHTML = htmlContent;
             }
         })
         .catch(error => {
-            console.error('Erreur:', error); // Afficher l'erreur dans la console
+            console.error('Erreur:', error); 
             document.getElementById('enclos-info').innerHTML = `<p>Une erreur s'est produite lors de la récupération des données.</p>`;
         });
 }
