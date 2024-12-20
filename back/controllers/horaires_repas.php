@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['get_enclosures'])) {
         // Récupérer les noms uniques des enclos
-        $query = "SELECT DISTINCT nom_enclos, MIN(id) as id FROM enclos GROUP BY nom_enclos ORDER BY nom_enclos ASC";
+        $query = "SELECT  nom_enclos, MIN(id) as id FROM enclos GROUP BY nom_enclos ORDER BY nom_enclos ASC";
         $result = $conn->query($query);
 
         $enclosures = [];
