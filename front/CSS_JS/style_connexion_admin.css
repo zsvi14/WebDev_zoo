@@ -11,17 +11,17 @@ body {
 }
 
 header {
-    background-color: #81df8177;  /* Couleur de fond de l'en-tête */
-    padding: 10px 20px;      /* Espacement autour du contenu */
-    position: relative;      /* Positionnement pour le bouton à gauche */
+    background-color: #81df8177;  /* Couleur de fond en-tête */
+    padding: 10px 20px;      /* Espacement autour du cont */
+    position: relative;      /* Position à gauche */
   }
   .header-content{
     background-color: #81df8177;
     justify-content: center;
     align-items: center;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
+    flex-direction: column; /* vertical */
+    align-items: center; /* Center horiz */
 
   }
 
@@ -29,7 +29,7 @@ header {
   .home-button {
       background-color: #236326; /* Couleur du bouton */
       padding: 10px 20px;       /* Espacement autour du contenu */
-      position: relative;       /* Positionnement relatif */
+      position: relative;
       width: 100%;              /* Prendre toute la largeur */
       color: white;             /* Texte en blanc */
       text-align: center;       /* Centrer le texte */
@@ -42,7 +42,6 @@ header {
  }
 
 .form-container {
-    margin-top: 100px;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -50,7 +49,8 @@ header {
     text-align: center;
     max-width: 400px;
     width: 100%;
-    align-items: center; /* Center horizontally */
+    align-items: center; /* Center horiz */
+    margin:  auto;
 }
 
 .form-container h2 {
