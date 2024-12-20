@@ -50,6 +50,7 @@ header {
     text-align: center;
     max-width: 400px;
     width: 100%;
+    align-items: center; /* Center horizontally */
 }
 
 .form-container h2 {
