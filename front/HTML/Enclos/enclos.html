@@ -11,7 +11,6 @@
         <button class="home-button" onclick="window.location.href='../connexion/home.html';">Retour à l'accueil</button>
         <h1 class="park-name">🦒🐘🦓Le rrrh parc🦁🦓🦒</h1>
     </header>
-    <h1>Détails de l'Enclos</h1>
     <div id="enclos-info">
         <!-- Les détails de l'enclos et des animaux seront affichés ici -->
     </div>
@@ -24,42 +23,53 @@
         }
 
         // Fonction pour récupérer et afficher les détails de l'enclos
-        function getEnclosDetails(enclosId) {
-            fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);  // Affiche les données dans la console pour débogage
+       // Fonction pour récupérer et afficher les détails de l'enclos
+function getEnclosDetails(enclosId) {
+    fetch(`http://localhost/WebDev_zoo/back/routes/details_enclos.php?id=${enclosId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // Affiche les données dans la console pour débogage
 
-                    if (data.error) {
-                        document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
-                    } else {
-                        let htmlContent = `
-                            <h2>Enclos: ${data[0].nom_enclos}</h2>
-                            <p><strong>Biome:</strong> ${data[0].biome}</p>
-                            <h3>Animaux dans cet enclos:</h3>
-                        `;
+            if (data.error) {
+                document.getElementById('enclos-info').innerHTML = `<p>${data.error}</p>`;
+            } else {
+                let htmlContent = `
+                    <h1 class="title-box">${data[0].nom_enclos}</h1> <!-- Le nom de l'enclos -->
+                    <h3><strong>Biome:</strong> ${data[0].biome}</h3>
+                `;
 
-                        // Boucle pour afficher les animaux dans cet enclos
-                        data.forEach(animal => {
-                            htmlContent += `
-                                <div class="animal-details">
-                                    <h2>${animal.animal}</h2>
-                                    <p><strong>Origine:</strong> ${animal.origine}</p>
-                                    <p><strong>Alimentation:</strong> ${animal.alimentation}</p>
-                                    <p><strong>Description:</strong> ${animal.description}</p>
-                                </div>
-                            `;
-                        });
+                // Boucle pour afficher les animaux dans cet enclos
+                data.forEach(animal => {
+                    // Ajouter l'image de l'animal
+                    const photoPath = `../../../Image_enclos/${animal.animal.toLowerCase()}.jpg`;
+                    const img = document.createElement('img');
+                    img.src = photoPath;
+                    img.alt = animal.animal;
+                    img.classList.add('animal-image');  // Classe pour formater l'image
 
-                        // Afficher le contenu HTML dans la page
-                        document.getElementById('enclos-info').innerHTML = htmlContent;
-                    }
-                })
-                .catch(error => {
-                    console.error('Erreur:', error); // Afficher l'erreur dans la console
-                    document.getElementById('enclos-info').innerHTML = `<p>Une erreur s'est produite lors de la récupération des données.</p>`;
+                    // Ajouter l'image et les autres détails de l'animal dans le HTML
+                    htmlContent += `
+                        <div class="animal-details">
+                            <h4>${animal.animal}</h4>
+                            ${img.outerHTML}
+                            <h5><strong>Origine:</strong> ${animal.origine}</h5>
+                            <h6><strong>Alimentation:</strong> ${animal.alimentation}</h6>
+                            <h7><strong>Description:</strong> ${animal.description}</h7>
+                        </div>
+                    `;
+                    
                 });
-        }
+
+                // Afficher le contenu HTML dans la page
+                document.getElementById('enclos-info').innerHTML = htmlContent;
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error); // Afficher l'erreur dans la console
+            document.getElementById('enclos-info').innerHTML = `<p>Une erreur s'est produite lors de la récupération des données.</p>`;
+        });
+}
+
 
         // Récupérer l'ID de l'enclos depuis l'URL et afficher les détails
         const enclosId = getUrlParameter('id');

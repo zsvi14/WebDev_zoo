@@ -1,6 +1,5 @@
 /*page de home du site, style*/
-
-/* Style général pour l'en-tête */
+/* Style général pour les en-tête */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
@@ -13,12 +12,12 @@ body {
 }
 
 header {
-    background-color: #5bb4686e;  /* Couleur de fond de l'en-tête */
+    background-color: #81df8177;  /* Couleur de fond de l'en-tête */
     padding: 10px 20px;      /* Espacement autour du contenu */
     position: relative;      /* Positionnement pour le bouton à gauche */
   }
   .header-content{
-    background-color: #5bb4686e;
+    background-color: #81df8177;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -30,25 +29,26 @@ header {
   margin: 0 auto; /* Centre horizontalement le conteneur */
   display: block; /* S'assure que le conteneur est un bloc */
   text-align: center; /* Centre le contenu textuel si nécessaire */
+  width: 800px; 
+  height: 800px; 
+  object-fit: cover; /* Ajuste l'image pour remplir sans distorsion */
 }
 
 .home-button {
-    background-color: #236326; /* Couleur du bouton au survol */
+    background-color: #236326; /* Couleur du bouton retour a l acceuil*/
     padding: 10px 20px;      /* Espacement autour du contenu */
-    position: relative;      /* Positionnement pour le bouton à gauche */
+    position: relative;      /* Position pour le bouton à gauche */
  }
-
+/*controle l affichage des onglets des autres fenetres*/
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
 nav ul li {
     display: inline;
     margin: 0 15px;
 }
-
 a {
     color: white;
     text-decoration: none;
@@ -90,8 +90,6 @@ a {
 }
 
 /* style de la page d inscription et connexion */
-
-
 .form-container {
   background-color: #74e279;
   box-shadow: 0 4px 8px rgba(9, 67, 7, 0.986);
@@ -100,7 +98,6 @@ a {
   width: 300px;
   margin: auto;
   text-align: center;
-
  margin-top: 10vh; /*marge par rapport au haut de la page*/
 }
 
@@ -131,28 +128,105 @@ button:hover { /*ca change la couleur du bouton quand l on passe dessus avec la 
     background-color: #1cac8f;
 }
 
+/*bouton commentaire*/
+input[type="submit"] {
+  width: 20%;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #1cac8f; /*couleur au survol*/
+}
+
+/* Conteneur principal pour les avis soumis */
+.comment-container {
+  background-color: #e6ffe6; /* Fond vert clair pour le conteneur */
+  border: 1px solid #81df81; /* Bordure verte douce */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  margin: 20px auto; /* Centrer et ajouter un espace */
+  max-width: 600px; /* Largeur maximale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  text-align: left; /* Aligner le texte à gauche */
+}
+
+/* Styles pour les titres et labels */
+.comment-container h1 {
+  font-size: 24px;
+  color: #2d572c; /* Vert foncé */
+  margin-bottom: 20px;
+  text-align: center; /* Centrer le titre */
+}
+
+.comment-container p {
+  font-size: 16px;
+  line-height: 1.6; /* Espacement entre les lignes */
+  color: #333; /* Texte foncé */
+  margin-bottom: 10px; /* Espace sous chaque paragraphe */
+}
+
+/* Bouton retour à l'accueil */
+button.home-button {
+  background-color: #236326; /* Couleur verte */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s ease; /* Animation au survol */
+  margin-bottom: 20px; /* Espace sous le bouton */
+}
+
+button.home-button:hover {
+  background-color: #1e7e34; /* Couleur plus foncée au survol */
+}
+
+/* Mise en page du formulaire */
+ /* Labels pour les champs de formulaire */
+form label {
+  display: block; /* Forcer l'affichage des étiquettes en bloc (une par ligne) */
+  margin-bottom: 5px; /* Ajouter un petit espacement sous l'étiquette */
+  font-size: 16px; /* Taille du texte des étiquettes */
+  text-align: left; /* Aligner les étiquettes à gauche */
+  width: 50%; /* S'aligner à la largeur des champs */
+  margin: 0 auto; /* Centrer horizontalement */
+}
+
+/* Champs de formulaire */
+textarea, select, input[type="text"] {
+  width: 50%; /* Champs prennent toute la largeur */
+  padding: 5px; /* Espacement interne */
+  border: 1px solid #ccc; /* Bordure grise claire */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Texte lisible */
+  display: block; /* Forcer un affichage en bloc (une ligne par champ) */
+  margin: 0 auto; /* Centrer horizontalement */
+}
+
 p {
     margin-top: 15px;
     color: #666;
 }
 
 a {
-    color: #08294c;
+    color: #08294c; /*couleur des onglets*/
     text-decoration: none;
 }
 
-
 /* General styles */
 .body-profil {
-    background: #a1e0b0fa;
-    font-family: Arial, sans-serif, bold;
+    background: #81df8177;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
     align-items: center;
   }
-
   .profile-container{
-    background: #a1e0b0fa;
-
-    font-family: Arial, sans-serif, bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
     align-items: center;
   }
 
@@ -182,8 +256,7 @@ a {
     object-fit: cover;
   }
 
-
-/*billeterie designe*/
+/*billeterie*/
 .titre-billet {
   font-weight: bold;
   text-align: center;
@@ -218,16 +291,16 @@ header {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
-    display: flex; /* Crée un conteneur flex pour l'image et les informations */
+    display: flex; 
   flex-direction: column; /* Aligne l'image et les informations verticalement */
 }
 
-  .billet img {
-    width: 100%; /* Les images prennent toute la largeur de leur conteneur */
-    height: auto; /* La hauteur s'ajuste automatiquement en fonction de la largeur */
-  }
+.billet img {
+  width: 100%; /* Les images prennent toute la largeur de leur conteneur */
+  height: auto; /* La hauteur s'ajuste automatiquement en fonction de la largeur */
+}
 
-  .billet form {
+.billet form {
     display: none; /* Le formulaire est caché par défaut */
 }
 

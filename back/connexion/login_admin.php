@@ -1,5 +1,3 @@
-
-
 <?php
 // traitement de la connexion
 header("Content-Type: application/json");

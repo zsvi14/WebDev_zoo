@@ -10,10 +10,10 @@
 
 /* Style global du corps de la page */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #81df8177;
 }
 
 
@@ -47,20 +47,18 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 .animal-image {
-    width: 170px; /* Taille de l'image */
-    height: 170px; /* Taille de l'image */
-    object-fit: cover; /* S'assurer que l'image s'adapte bien */
-    border-radius: 50%; /* Ajouter un effet arrondi si souhaité */
-    margin-bottom: 10px; /* Espace entre l'image et le nom */
+    width: 800px; /* Taille de l'image en largeur */
+    height: 800px; /* Taille de l'image en hauteur, doit être identique pour obtenir un cercle parfait */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* L'image s'adapte bien à la forme circulaire */
+    margin: 20px auto; /* Centrage horizontal et un peu d'espace autour de l'image */
+    display: block; /* Assure que l'image soit un élément de bloc pour le centrage */
+    float: left; /* Aligner l'image à droite */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); /* Ombre portée */
+      
 }
-
-.animal-card span {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-}
-
 
 
 /* Style du bouton de retour à l'accueil */
@@ -143,3 +141,74 @@ footer {
     background-color: #185905; /* Couleur plus foncée */
 }
 
+
+.title-box {
+    border: 2px solid #2c3e50;
+    padding: 20px;
+    background-color: #81df8177;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 36px;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+}
+
+
+
+h2 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+h3 {
+    text-align: left; /* Centrer le texte horizontalement */
+    font-size: 28px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+
+
+h4 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 60px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+
+h5 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 36px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 20px; /* Espacement au-dessus */
+}
+
+h6 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 25px; /* Taille du texte */
+    color: #2c3e50; /* Couleur du texte */
+    margin-top: 30px; /* Espacement au-dessus */
+}
+
+.encadre-ombre {
+    border: 2px solid #333; /* Bordure de l'encadré */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Ombre */
+    background-color: #f9f9f9; /* Couleur de fond */
+}
+
+.encadre-ombre h6 {
+    font-size: 1.2em; /* Taille du texte de h6 */
+    font-weight: bold;
+    color: #333; /* Couleur du texte */
+}
+
+.encadre-ombre p {
+    font-size: 1em;
+    color: #555; /* Couleur du texte du paragraphe */
+}
